@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -51,6 +51,14 @@ const ContactForm = () => {
     
     return e164Regex.test(cleanPhone) || dutchLocalRegex.test(cleanPhone);
   };
+
+  // Memoized validation state to prevent infinite loops
+  const isFormValid = useMemo(() => {
+    return formData.email.trim() && 
+           validateEmail(formData.email) && 
+           formData.message.trim() && 
+           (formData.phone.trim() === '' || validatePhone(formData.phone));
+  }, [formData]);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -199,7 +207,7 @@ const ContactForm = () => {
           <Button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700"
-            disabled={isSubmitting || !validateForm()}
+            disabled={isSubmitting || !isFormValid}
           >
             {isSubmitting ? 'Verzenden...' : t('contact.submit')}
           </Button>
