@@ -4,15 +4,18 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Heart } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navItems = [
-    { name: 'Science', path: '/science' },
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'Contact', path: '/#contact' }
+    { name: t('nav.science'), path: '/science' },
+    { name: t('nav.pricing'), path: '/pricing' },
+    { name: t('nav.contact'), path: '/#contact' }
   ];
 
   const isActive = (path: string) => {
@@ -71,10 +74,17 @@ const Navigation = () => {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <LanguageSwitcher />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
               <Button asChild className="bg-blue-600 hover:bg-blue-700">
-                <a href="#contact">Book a Session</a>
+                <a href="#contact">{t('nav.bookSession')}</a>
               </Button>
             </motion.div>
           </div>
@@ -125,9 +135,12 @@ const Navigation = () => {
                 </div>
               ))}
               <div className="px-3 py-2">
+                <LanguageSwitcher />
+              </div>
+              <div className="px-3 py-2">
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
                   <a href="#contact" onClick={() => setIsOpen(false)}>
-                    Book a Session
+                    {t('nav.bookSession')}
                   </a>
                 </Button>
               </div>
