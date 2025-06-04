@@ -85,8 +85,13 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate API call
-      const response = await fetch('/api/leads', {
+      const functionUrl = import.meta.env.VITE_SUPABASE_FUNCTION_URL;
+      
+      if (!functionUrl) {
+        throw new Error('VITE_SUPABASE_FUNCTION_URL not configured');
+      }
+
+      const response = await fetch(`${functionUrl}/leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,23 +100,27 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        toast({
-          title: "Success!",
-          description: "Thanks, we'll reach out within 24 hours!",
-        });
-        setFormData({ email: '', phone: '', message: '' });
-        setErrors({});
+        const result = await response.json();
+        if (result.status === 'ok') {
+          toast({
+            title: "Success!",
+            description: "Thanks, we'll reach out within 24 hours!",
+          });
+          setFormData({ email: '', phone: '', message: '' });
+          setErrors({});
+        } else {
+          throw new Error(result.reason || 'Failed to submit');
+        }
       } else {
-        throw new Error('Failed to submit');
+        throw new Error(`Server error: ${response.status}`);
       }
     } catch (error) {
-      console.log('Simulating successful submission for demo');
+      console.error('Form submission error:', error);
       toast({
-        title: "Success!",
-        description: "Thanks, we'll reach out within 24 hours!",
+        title: "Error",
+        description: "Failed to submit form. Please try again.",
+        variant: "destructive",
       });
-      setFormData({ email: '', phone: '', message: '' });
-      setErrors({});
     } finally {
       setIsSubmitting(false);
     }
