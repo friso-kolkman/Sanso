@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Booking | Amsterdam HBOT Therapy Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Montserrat', Arial, sans-serif; background: #f6fafd; color: #222; }
+    nav { background: #fff; box-shadow: 0 2px 8px rgba(10,61,98,0.07); padding: 1rem 0; text-align: center; }
+    nav a { color: #0a3d62; text-decoration: none; font-weight: 700; margin: 0 1.2rem; font-size: 1.1rem; transition: color 0.2s; }
+    nav a:hover { color: #38ada9; }
+    header { background: linear-gradient(rgba(10,61,98,0.5), rgba(56,173,169,0.2)), url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat; color: #fff; padding: 4rem 1rem 3rem 1rem; text-align: center; }
+    header h1 { margin: 0 0 0.5rem 0; font-size: 2.2rem; font-weight: 700; text-shadow: 0 2px 8px rgba(10,61,98,0.18); }
+    header p { font-size: 1.1rem; margin: 0 0 1.5rem 0; text-shadow: 0 2px 8px rgba(10,61,98,0.12); }
+    section { max-width: 700px; margin: 2.5rem auto; background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(10,61,98,0.07); padding: 2.5rem 2rem; }
+    section h2 { color: #0a3d62; margin-top: 0; font-size: 2rem; font-weight: 700; }
+    .contact-img { display: block; margin: 2rem auto 0 auto; border-radius: 14px; box-shadow: 0 2px 12px rgba(10,61,98,0.10); width: 320px; max-width: 100%; height: 180px; object-fit: cover; background: #eaf6f6; }
+    .contact-info { text-align: center; margin-bottom: 2rem; }
+    .contact-info a { color: #0a3d62; text-decoration: underline; font-weight: 700; }
+    .map-container { margin: 2rem 0; border-radius: 12px; overflow: hidden; }
+    .booking-form { max-width:400px; margin:2.5rem auto 0 auto; background:#f6fafd; padding:1.5rem 1rem; border-radius:14px; box-shadow:0 1px 8px rgba(10,61,98,0.05); }
+    .booking-form form { display:flex; flex-direction:column; gap:1rem; }
+    .booking-form label { font-weight:600; }
+    .booking-form input, .booking-form textarea { padding:0.7rem; border-radius:7px; border:1px solid #ccc; }
+    .btn { background: #38ada9; color: #fff; padding: 0.9rem 2.2rem; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; text-decoration: none; display: inline-block; margin-top: 1rem; }
+    .btn:hover { background: #079992; }
+    #form-success { display:none; color:#38ada9; font-weight:700; text-align:center; margin-top:1rem; }
+    @media (max-width: 600px) { section { padding: 1.2rem 0.7rem; } header h1 { font-size: 1.5rem; } section h2 { font-size: 1.3rem; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About HBOT</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact & Booking</a>
+  </nav>
+  <header>
+    <h1>Contact & Booking</h1>
+    <p>We look forward to welcoming you to our peaceful center in Amsterdam.</p>
+  </header>
+  <section>
+    <img class="contact-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Peaceful Therapy Room">
+    <div class="contact-info">
+      <p>Email: <a href="mailto:info@amsterdamhbot.com">info@amsterdamhbot.com</a></p>
+      <p>Phone: <a href="tel:+31201234567">+31 20 123 4567</a></p>
+      <p>Address: Prinsengracht 123, 1015 DL Amsterdam</p>
+    </div>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps?q=Prinsengracht+123,+1015+DL+Amsterdam&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="booking-form">
+      <form name="booking" autocomplete="off">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="datetime">Preferred Date & Time</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="3"></textarea>
+        <button type="submit" class="btn">Send Booking Request</button>
+      </form>
+      <div id="form-success">Thank you! We will contact you soon.</div>
+    </div>
+    <script>
+      document.querySelector('form[name="booking"]').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('form-success').style.display = 'block';
+        this.reset();
+      });
+    </script>
+  </section>
+  <footer style="text-align:center;padding:1.5rem 0;color:#888;font-size:0.95rem;">&copy; 2024 Amsterdam HBOT Therapy Center. All rights reserved.</footer>
+</body>
+</html> 
