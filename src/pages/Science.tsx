@@ -288,7 +288,7 @@ const Science = () => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              {t('science.title')}
+              {labels.title}
             </h1>
             <div className="max-w-4xl mx-auto">
               <p 
@@ -361,100 +361,53 @@ const Science = () => {
             </Card>
           </motion.div>
 
-          {/* Tabs voor academische papers */}
-          <div className="mb-12">
-            <div className="flex border-b border-gray-200 mb-6">
-              <button
-                className={`px-6 py-3 font-semibold text-lg focus:outline-none transition-colors ${activeTab === 'neuro' ? 'border-b-2 border-blue-600 text-blue-700 bg-white' : 'text-gray-600 hover:text-blue-700'}`}
-                onClick={() => setActiveTab('neuro')}
-              >
-                {t('science.research.neuro.title')}
-              </button>
-              <button
-                className={`px-6 py-3 font-semibold text-lg focus:outline-none transition-colors ${activeTab === 'wond' ? 'border-b-2 border-blue-600 text-blue-700 bg-white' : 'text-gray-600 hover:text-blue-700'}`}
-                onClick={() => setActiveTab('wond')}
-              >
-                {t('science.research.wound.title')}
-              </button>
+          {/* Render all research categories as tables in sequence */}
+          {researchDigest.map((category, idx) => (
+            <div key={idx} className="mb-16">
+              <h2 className="text-3xl font-bold text-blue-700 mb-4">
+                {category.category[language] || category.category.en}
+              </h2>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse mb-4">
+                  <thead>
+                    <tr className="bg-blue-50">
+                      <th className="p-2 font-semibold">{labels.indication}</th>
+                      <th className="p-2 font-semibold">{labels.evidence}</th>
+                      <th className="p-2 font-semibold">{labels.takehome}</th>
+                      <th className="p-2 font-semibold">{labels.reference}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {category.studies.map((study, sidx) => (
+                      <tr key={sidx} className="border-b last:border-b-0">
+                        <td className="p-2 align-top">{study.condition[language] || study.condition.en}</td>
+                        <td className="p-2 align-top">{study.evidence[language] || study.evidence.en}</td>
+                        <td className="p-2 align-top">{study.takehome[language] || study.takehome.en}</td>
+                        <td className="p-2 align-top">
+                          <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-1">
+                            {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div>
-              {activeTab === 'neuro' && (
-                <div>
-                  {/* Plaats hier de bestaande tabel voor neurocognitieve & neuropsychiatrische aandoeningen */}
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse mb-4">
-                      <thead>
-                        <tr className="bg-blue-50">
-                          <th className="p-2 font-semibold">{labels.indication}</th>
-                          <th className="p-2 font-semibold">{labels.evidence}</th>
-                          <th className="p-2 font-semibold">{labels.takehome}</th>
-                          <th className="p-2 font-semibold">{labels.reference}</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {researchDigest.find(cat => cat.category.en === 'Neuro-cognitive & neuro-psychiatric disorders')?.studies.map((study, idx) => (
-                          <tr key={idx} className="border-b last:border-b-0">
-                            <td className="p-2 align-top">{study.condition[language] || study.condition.en}</td>
-                            <td className="p-2 align-top">{study.evidence[language] || study.evidence.en}</td>
-                            <td className="p-2 align-top">{study.takehome[language] || study.takehome.en}</td>
-                            <td className="p-2 align-top">
-                              <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-1">
-                                {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
-                              </a>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
-              {activeTab === 'wond' && (
-                <div>
-                  {/* Plaats hier de bestaande tabel voor wondgenezing & weefselherstel */}
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse mb-4">
-                      <thead>
-                        <tr className="bg-blue-50">
-                          <th className="p-2 font-semibold">{labels.indication}</th>
-                          <th className="p-2 font-semibold">{labels.evidence}</th>
-                          <th className="p-2 font-semibold">{labels.takehome}</th>
-                          <th className="p-2 font-semibold">{labels.reference}</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {researchDigest.find(cat => cat.category.en === 'Wound healing & tissue repair')?.studies.map((study, idx) => (
-                          <tr key={idx} className="border-b last:border-b-0">
-                            <td className="p-2 align-top">{study.condition[language] || study.condition.en}</td>
-                            <td className="p-2 align-top">{study.evidence[language] || study.evidence.en}</td>
-                            <td className="p-2 align-top">{study.takehome[language] || study.takehome.en}</td>
-                            <td className="p-2 align-top">
-                              <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-1">
-                                {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
-                              </a>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
+          ))}
 
-          {/* Research Digest Section */}
+          {/* Research Digest Section: Overkoepelende Observaties & Meer Lezen */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
             className="max-w-5xl mx-auto mt-20"
           >
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+            <h2 className="text-3xl font-bold text-blue-700 mb-8">
               {labels.cross}
             </h2>
             <ul className="list-disc pl-6 text-gray-700">
-              {(language === 'nl' ? researchTakeawaysNL : researchTakeaways).map((item, idx) => (
+              {researchTakeawaysNL.map((item, idx) => (
                 <li key={idx} className="mb-2">{item}</li>
               ))}
             </ul>
