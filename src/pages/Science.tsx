@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Heart, Zap, Shield, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import React, { useState } from 'react';
 
 const researchSectionLabels = {
   en: {
@@ -37,6 +38,9 @@ const researchTakeawaysNL = [
 const Science = () => {
   const { t, language } = useLanguage();
   const labels = researchSectionLabels[language] || researchSectionLabels.en;
+
+  // Add missing state for tab switching
+  const [activeTab, setActiveTab] = useState<'neuro' | 'wond'>('neuro');
 
   const scienceCards = [
     {
