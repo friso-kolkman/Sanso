@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
@@ -25,7 +25,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 fixed w-full top-0 z-50">
+    <nav className="bg-background/95 backdrop-blur-sm border-b border-gray-100 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -35,10 +35,10 @@ const Navigation = () => {
             className="flex items-center space-x-2"
           >
             <Link to="/" className="flex items-center space-x-2 group">
-              <div className="bg-blue-600 p-2 rounded-lg group-hover:bg-blue-700 transition-colors">
-                <Heart className="h-6 w-6 text-white" />
+              <div className="bg-black p-2 rounded-lg group-hover:bg-black/90 transition-colors w-10 h-10 flex items-center justify-center">
+                <span className="text-white font-bold text-lg">O₂</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">HBOT Amsterdam</span>
+              <span className="text-xl font-serif text-gray-900">SANSO</span>
             </Link>
           </motion.div>
 
@@ -84,7 +84,7 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Button asChild className="bg-blue-600 hover:bg-blue-700">
+              <Button asChild className="bg-black hover:bg-black/90">
                 <Link to="/contact">{t('nav.bookSession')}</Link>
               </Button>
             </motion.div>
@@ -107,7 +107,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-100"
+            className="md:hidden bg-background border-t border-gray-100"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
@@ -139,7 +139,7 @@ const Navigation = () => {
                 <LanguageSwitcher />
               </div>
               <div className="px-3 py-2">
-                <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button asChild className="w-full bg-black hover:bg-black/90">
                   <a href="#contact" onClick={() => setIsOpen(false)}>
                     {t('nav.bookSession')}
                   </a>

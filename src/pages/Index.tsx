@@ -9,7 +9,7 @@ const Index = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navigation />
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
@@ -34,7 +34,7 @@ const Index = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3"
+                className="bg-black hover:bg-black/90 text-white text-lg px-8 py-3"
               >
                 <a href="#contact">{t('hero.cta')}</a>
               </Button>
@@ -44,7 +44,7 @@ const Index = () => {
       </section>
 
       {/* HBOT voordelen blok */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Voordelen</h2>
           <p className="text-lg text-center text-gray-600 mb-10 max-w-2xl mx-auto">
@@ -105,13 +105,13 @@ const Index = () => {
       </section>
 
       {/* Nederlandse call-to-action onder de blokken */}
-      <section className="py-6 bg-white">
+      <section className="py-6 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-lg text-center text-gray-700 mb-3 max-w-2xl mx-auto">
             Ervaar deze voordelen met onze geavanceerde zit-hyperbare kamer, die kan pressuriseren tot 2.0 ATA
           </p>
           <div className="flex justify-center mt-2">
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow">
+            <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white font-semibold px-6 py-2 rounded-md shadow">
               <a href="/pricing">Bekijk prijzen & pakketten</a>
             </Button>
           </div>
@@ -119,7 +119,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials blok */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">Ervaringen van onze cliënten</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

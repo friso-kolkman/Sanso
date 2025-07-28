@@ -130,7 +130,7 @@ const Pricing = () => {
               </CardContent>
             </Card>
             <div className="text-center mt-10">
-              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3">
+              <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white text-lg px-8 py-3">
                 <a href="/contact">{t('pricing.cta')}</a>
               </Button>
             </div>

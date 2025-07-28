@@ -316,8 +316,8 @@ const Science = () => {
               >
                 <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="text-center pb-4">
-                    <div className="mx-auto mb-4 p-3 bg-blue-100 rounded-lg w-fit">
-                      <card.icon className="h-8 w-8 text-blue-600" />
+                    <div className="mx-auto mb-4 p-3 bg-gray-100 rounded-lg w-fit">
+                      <card.icon className="h-8 w-8 text-gray-900" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {card.title}
@@ -333,12 +333,83 @@ const Science = () => {
             ))}
           </motion.div>
 
-          {/* FAQ Section */}
+          {/* Overkoepelende Observaties at the top */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-5xl mx-auto mb-16"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              {labels.cross}
+            </h2>
+            <ul className="list-disc pl-6 text-gray-700">
+              {researchTakeawaysNL.map((item, idx) => (
+                <li key={idx} className="mb-2">{item}</li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Research tables in sequence */}
+          {researchDigest.map((category, idx) => (
+            <div key={idx} className="mb-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                {category.category[language] || category.category.en}
+              </h2>
+              <div className="overflow-x-auto border border-gray-200 rounded-lg">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-50 border-b border-gray-200">
+                      <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.indication}</th>
+                      <th className="p-4 font-semibold text-gray-900 w-2/5">{labels.evidence}</th>
+                      <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.takehome}</th>
+                      <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.reference}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {category.studies.map((study, sidx) => (
+                      <tr key={sidx} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50">
+                        <td className="p-4 align-top text-gray-900 font-medium">{study.condition[language] || study.condition.en}</td>
+                        <td className="p-4 align-top text-gray-700 leading-relaxed">{study.evidence[language] || study.evidence.en}</td>
+                        <td className="p-4 align-top text-gray-700 leading-relaxed">{study.takehome[language] || study.takehome.en}</td>
+                        <td className="p-4 align-top">
+                          <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-black hover:underline flex items-center gap-1 font-medium">
+                            {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
+
+          {/* Meer Lezen section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto mb-20"
+          >
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">{labels.further}</h3>
+            <ul className="list-disc pl-6 text-gray-900">
+              {furtherReading.map((item, idx) => (
+                <li key={idx} className="mb-2">
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
+                    {item.label} <ExternalLink className="inline h-4 w-4" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* FAQ at the bottom with extra spacing */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="max-w-4xl mx-auto mt-20 mb-20"
           >
             <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
               {t('science.faq.title')}
@@ -359,70 +430,6 @@ const Science = () => {
                 </Accordion>
               </CardContent>
             </Card>
-          </motion.div>
-
-          {/* Render all research categories as tables in sequence */}
-          {researchDigest.map((category, idx) => (
-            <div key={idx} className="mb-16">
-              <h2 className="text-3xl font-bold text-blue-700 mb-4">
-                {category.category[language] || category.category.en}
-              </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse mb-4">
-                  <thead>
-                    <tr className="bg-blue-50">
-                      <th className="p-2 font-semibold">{labels.indication}</th>
-                      <th className="p-2 font-semibold">{labels.evidence}</th>
-                      <th className="p-2 font-semibold">{labels.takehome}</th>
-                      <th className="p-2 font-semibold">{labels.reference}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {category.studies.map((study, sidx) => (
-                      <tr key={sidx} className="border-b last:border-b-0">
-                        <td className="p-2 align-top">{study.condition[language] || study.condition.en}</td>
-                        <td className="p-2 align-top">{study.evidence[language] || study.evidence.en}</td>
-                        <td className="p-2 align-top">{study.takehome[language] || study.takehome.en}</td>
-                        <td className="p-2 align-top">
-                          <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center gap-1">
-                            {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
-                          </a>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          ))}
-
-          {/* Research Digest Section: Overkoepelende Observaties & Meer Lezen */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="max-w-5xl mx-auto mt-20"
-          >
-            <h2 className="text-3xl font-bold text-blue-700 mb-8">
-              {labels.cross}
-            </h2>
-            <ul className="list-disc pl-6 text-gray-700">
-              {researchTakeawaysNL.map((item, idx) => (
-                <li key={idx} className="mb-2">{item}</li>
-              ))}
-            </ul>
-            <div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4">{labels.further}</h3>
-              <ul className="list-disc pl-6 text-blue-700">
-                {furtherReading.map((item, idx) => (
-                  <li key={idx} className="mb-2">
-                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
-                      {item.label} <ExternalLink className="inline h-4 w-4" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </motion.div>
         </div>
       </div>
