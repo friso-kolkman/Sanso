@@ -108,9 +108,13 @@ const Index = () => {
           >
             Wetenschappelijk bewezen voordelen van HBOT. Bij SANSO richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie.
           </motion.p>
-          <div className="space-y-4">
+          <motion.div className="space-y-4" layout>
             {benefitCards.map((card, index) => (
-              <div key={index} className={`rounded-xl ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} shadow-md overflow-hidden`}>
+              <motion.div 
+                key={index} 
+                layout
+                className={`rounded-xl ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} shadow-md overflow-hidden`}
+              >
                 <div 
                   className="flex items-center p-6 cursor-pointer"
                   onClick={() => handleCardClick(index)}
@@ -123,7 +127,7 @@ const Index = () => {
                   </h3>
                   <motion.div
                     animate={{ rotate: expandedCard === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="text-gray-500"
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,24 +135,33 @@ const Index = () => {
                     </svg>
                   </motion.div>
                 </div>
-                <AnimatePresence>
+                <AnimatePresence mode="wait">
                   {expandedCard === index && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="px-6 pb-6 bg-gray-100"
+                      transition={{ 
+                        duration: 0.4, 
+                        ease: "easeInOut",
+                        height: {
+                          duration: 0.4,
+                          ease: "easeInOut"
+                        }
+                      }}
+                      className="overflow-hidden"
                     >
-                      <p className="text-gray-700 text-base leading-relaxed">
-                        {card.description}
-                      </p>
+                      <div className="px-6 pb-6 bg-gray-100">
+                        <p className="text-gray-700 text-base leading-relaxed">
+                          {card.description}
+                        </p>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
