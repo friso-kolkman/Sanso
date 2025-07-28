@@ -29,10 +29,10 @@ const researchSectionLabels = {
 };
 
 const researchTakeawaysNL = [
-  'Protocol is belangrijk – De meeste positieve resultaten worden gezien bij 40 sessies op 1.3–2.0 ATA, maar de optimale druk/zuurstofdosis verschilt per indicatie (PTSS toont duidelijke dosis-respons; DFU gebruikt 2.0–2.4 ATA).',
+  'Protocol is belangrijk – De meeste positieve resultaten worden gezien bij 40 sessies op 1.3–2.0 ATA, maar de optimale druk/zuurstofdosis verschilt per indicatie.',
   'Veiligheidsprofiel is goed – Barotrauma en milde, omkeerbare zuurstoftoxiciteit zijn de belangrijkste bijwerkingen; geen ernstige bijwerkingen in recente studies.',
-  'Heterogeniteit van bewijs – Sterkste data zijn er voor DFU, SSNHL en post-TBI symptomen; beroerte en radiatiepijn vereisen grotere, beter getimede studies.',
-  'Behandelbelasting – 30-40 dagelijkse sessies zijn een drempel, zoals geïllustreerd door slechts 25% deelname in de Nederlandse borstkanker-RCT. Mobiele of intermitterende protocollen worden onderzocht.'
+  'Heterogeniteit van bewijs – Sterkste data zijn er voor DFU, SSNHL en post-TBI symptomen; beroerte en radiatiepijn vereisen grotere studies.',
+  'Behandelbelasting – 30-40 dagelijkse sessies zijn een drempel. Mobiele of intermitterende protocollen worden onderzocht.'
 ];
 
 const Science = () => {

@@ -1,12 +1,58 @@
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import ContactForm from '@/components/ContactForm';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useState, useEffect } from 'react';
+import { Brain, Heart, Clock, Shield, Leaf } from 'lucide-react';
 
 const Index = () => {
   const { t } = useLanguage();
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+
+  // Ensure no card is expanded on mount
+  useEffect(() => {
+    setExpandedCard(null);
+  }, []);
+
+  const benefitCards = [
+    {
+      title: "Verbeterde Cognitieve Functie",
+      description: "Beter geheugen, focus en mentale helderheid door optimale zuurstofvoorziening.",
+      icon: <Brain className="w-6 h-6" />,
+      iconBg: "bg-blue-100 text-blue-600"
+    },
+    {
+      title: "Hart & Vaten Gezondheid",
+      description: "Verbeterde bloedcirculatie en cardiovasculaire functie voor optimale gezondheid.",
+      icon: <Heart className="w-6 h-6" />,
+      iconBg: "bg-red-100 text-red-600"
+    },
+    {
+      title: "Anti-Aging Voordelen",
+      description: "Minder oxidatieve stress, gezondere huid en meer vitaliteit.",
+      icon: <Clock className="w-6 h-6" />,
+      iconBg: "bg-green-100 text-green-600"
+    },
+    {
+      title: "Immuunsysteem Ondersteuning",
+      description: "Sterkere afweer en betere natuurlijke bescherming tegen ziekte.",
+      icon: <Shield className="w-6 h-6" />,
+      iconBg: "bg-yellow-100 text-yellow-600"
+    },
+    {
+      title: "Levensduur Verlenging",
+      description: "Langere gezondheidsspanne door geoptimaliseerde celwerking.",
+      icon: <Leaf className="w-6 h-6" />,
+      iconBg: "bg-green-700 text-white"
+    }
+  ];
+
+  const handleCardClick = (index: number) => {
+    console.log('Card clicked:', index, 'Current expanded:', expandedCard);
+    setExpandedCard(expandedCard === index ? null : index);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -44,62 +90,64 @@ const Index = () => {
       </section>
 
       {/* HBOT voordelen blok */}
-      <section className="py-12 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Voordelen</h2>
-          <p className="text-lg text-center text-gray-600 mb-10 max-w-2xl mx-auto">
-            Wetenschappelijk bewezen voordelen van HBOT<br />
-            Bij HBOT Amsterdam richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie, ondersteund door uitgebreid medisch onderzoek.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Cognitieve functie */}
-            <div className="rounded-2xl bg-gray-50 p-6 shadow-sm flex flex-col items-start">
-              <div className="bg-green-100 text-green-700 rounded-full p-3 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" /></svg>
+      <section className="py-16 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl font-bold text-center text-gray-900 mb-12 font-serif"
+          >
+            Voordelen
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg text-center text-gray-600 mb-16"
+          >
+            Wetenschappelijk bewezen voordelen van HBOT. Bij SANSO richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie.
+          </motion.p>
+          <div className="space-y-4">
+            {benefitCards.map((card, index) => (
+              <div key={index} className={`rounded-xl ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} shadow-md overflow-hidden`}>
+                <div 
+                  className="flex items-center p-6 cursor-pointer"
+                  onClick={() => handleCardClick(index)}
+                >
+                  <div className={`rounded-full p-3 mr-6 ${card.iconBg}`}>
+                    {card.icon}
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-gray-900 flex-grow">
+                    {card.title}
+                  </h3>
+                  <motion.div
+                    animate={{ rotate: expandedCard === index ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-gray-500"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </motion.div>
+                </div>
+                <AnimatePresence>
+                  {expandedCard === index && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="px-6 pb-6 bg-gray-100"
+                    >
+                      <p className="text-gray-700 text-base leading-relaxed">
+                        {card.description}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Verbeterde Cognitieve Functie</h3>
-              <p className="text-gray-700">Beter geheugen, focus en mentale helderheid door optimale zuurstofvoorziening en neuroplasticiteit.</p>
-            </div>
-            {/* Hart & vaten */}
-            <div className="rounded-2xl bg-gray-50 p-6 shadow-sm flex flex-col items-start">
-              <div className="bg-yellow-100 text-yellow-700 rounded-full p-3 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 1.343-3 3 0 2.5 3 5 3 5s3-2.5 3-5c0-1.657-1.343-3-3-3z" /></svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Cardiovasculaire Optimalisatie</h3>
-              <p className="text-gray-700">Sterker hart, betere doorbloeding en meer zuurstof naar vitale organen.</p>
-            </div>
-            {/* Celregeneratie */}
-            <div className="rounded-2xl bg-gray-50 p-6 shadow-sm flex flex-col items-start">
-              <div className="bg-green-700 text-white rounded-full p-3 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Cellulaire Regeneratie</h3>
-              <p className="text-gray-700">Versnelde genezing en verbeterde celherstelmechanismen voor optimaal herstel.</p>
-            </div>
-            {/* Anti-aging */}
-            <div className="rounded-2xl bg-gray-50 p-6 shadow-sm flex flex-col items-start">
-              <div className="bg-green-100 text-green-700 rounded-full p-3 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3" /></svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Anti-Aging Voordelen</h3>
-              <p className="text-gray-700">Minder oxidatieve stress, gezondere huid en meer vitaliteit op lange termijn.</p>
-            </div>
-            {/* Immuunsysteem */}
-            <div className="rounded-2xl bg-gray-50 p-6 shadow-sm flex flex-col items-start">
-              <div className="bg-yellow-100 text-yellow-700 rounded-full p-3 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" /></svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Immuunsysteem Ondersteuning</h3>
-              <p className="text-gray-700">Sterkere afweer en betere natuurlijke bescherming tegen ziekte.</p>
-            </div>
-            {/* Levensduur */}
-            <div className="rounded-2xl bg-gray-50 p-6 shadow-sm flex flex-col items-start">
-              <div className="bg-green-700 text-white rounded-full p-3 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7"><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v8m0 0l3-3m-3 3l-3-3" /></svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Levensduur Verlenging</h3>
-              <p className="text-gray-700">Langere gezondheidsspanne door geoptimaliseerde celwerking en mitochondriale prestaties.</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -152,7 +200,7 @@ const Index = () => {
                 <span className="mx-2">·</span>
                 <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-700">Energie</span>
               </div>
-              <p className="text-gray-800 text-base mb-2">“De sessies hebben mijn herstel na een blessure enorm versneld. Ik raad HBOT Amsterdam aan iedereen aan!”</p>
+              <p className="text-gray-800 text-base mb-2">"De sessies hebben mijn herstel na een blessure enorm versneld. Ik raad SANSO aan iedereen aan!"</p>
               <span className="inline-block mt-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium w-auto">Sport Blessure</span>
             </article>
             {/* Testimonial 3 */}

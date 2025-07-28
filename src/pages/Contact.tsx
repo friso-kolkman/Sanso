@@ -63,11 +63,6 @@ const Contact = () => {
             className="max-w-2xl mx-auto mb-16"
           >
             <Card className="shadow-lg">
-              <CardHeader className="text-center pb-2">
-                <CardTitle className="text-2xl font-bold text-gray-900">
-                  {t('contact.title') || 'Contact Us'}
-                </CardTitle>
-              </CardHeader>
               <CardContent className="p-6">
                 <ContactForm />
               </CardContent>
