@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Heart, Zap, Shield, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 const researchSectionLabels = {
   en: {
@@ -41,6 +42,19 @@ const Science = () => {
 
   // Add missing state for tab switching
   const [activeTab, setActiveTab] = useState<'neuro' | 'wond'>('neuro');
+  
+  // Add state for collapsible sections
+  const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set());
+
+  const toggleSection = (index: number) => {
+    const newExpandedSections = new Set(expandedSections);
+    if (newExpandedSections.has(index)) {
+      newExpandedSections.delete(index);
+    } else {
+      newExpandedSections.add(index);
+    }
+    setExpandedSections(newExpandedSections);
+  };
 
   const scienceCards = [
     {
@@ -114,7 +128,7 @@ const Science = () => {
           citation: { en: 'Andrews SR, Harch PG. Frontiers in Neurology, 2024.', nl: 'Andrews SR, Harch PG. Frontiers in Neurology, 2024.' }
         },
         {
-          condition: { en: 'Long-COVID (“post-COVID condition”)', nl: 'Long-COVID (“post-COVID conditie”)' },
+          condition: { en: 'Long-COVID ("post-COVID condition")', nl: 'Long-COVID ("post-COVID conditie")' },
           evidence: {
             en: '31-patient RCT follow-up, 40 dives. Improvements in QoL, sleep, pain and BSI-18 neuro-psychiatric index had moderate–large effect sizes (0.47 – 0.83) and were still present 1 year later.',
             nl: 'RCT-follow-up met 31 patiënten, 40 sessies. Verbeteringen in kwaliteit van leven, slaap, pijn en BSI-18 neuropsychiatrische index (effectgrootte 0.47–0.83) bleven na 1 jaar aanwezig.'
@@ -125,19 +139,6 @@ const Science = () => {
           },
           link: 'https://www.nature.com/articles/s41598-024-53091-3',
           citation: { en: 'Hadanny A et al. Scientific Reports, 2024.', nl: 'Hadanny A e.a. Scientific Reports, 2024.' }
-        },
-        {
-          condition: { en: 'Acute ischaemic stroke', nl: 'Acuut ischemisch CVA' },
-          evidence: {
-            en: '8-trial meta-analysis (n = 493). No significant change in NIHSS or Barthel, slight mRS benefit; safety similar to control. Authors do not recommend routine HBOT pending better-timed trials.',
-            nl: 'Meta-analyse van 8 studies (n = 493). Geen significante verandering in NIHSS of Barthel, lichte mRS-verbetering; veiligheid vergelijkbaar met controle. Geen aanbeveling voor standaard HBOT tot betere studies.'
-          },
-          takehome: {
-            en: 'Evidence presently inconclusive; window, dose and patient selection likely critical.',
-            nl: 'Bewijs nu niet overtuigend; timing, dosis en patiëntselectie waarschijnlijk cruciaal.'
-          },
-          link: 'https://bmcneurol.biomedcentral.com/articles/10.1186/s12883-024-03555-w',
-          citation: { en: 'Li X et al. BMC Neurology, 2024.', nl: 'Li X e.a. BMC Neurology, 2024.' }
         }
       ]
     },
@@ -352,56 +353,110 @@ const Science = () => {
 
           {/* Research tables in sequence */}
           {researchDigest.map((category, idx) => (
-            <div key={idx} className="mb-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                {category.category[language] || category.category.en}
-              </h2>
-              <div className="overflow-x-auto border border-gray-200 rounded-lg">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-gray-50 border-b border-gray-200">
-                      <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.indication}</th>
-                      <th className="p-4 font-semibold text-gray-900 w-2/5">{labels.evidence}</th>
-                      <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.takehome}</th>
-                      <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.reference}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {category.studies.map((study, sidx) => (
-                      <tr key={sidx} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50">
-                        <td className="p-4 align-top text-gray-900 font-medium">{study.condition[language] || study.condition.en}</td>
-                        <td className="p-4 align-top text-gray-700 leading-relaxed">{study.evidence[language] || study.evidence.en}</td>
-                        <td className="p-4 align-top text-gray-700 leading-relaxed">{study.takehome[language] || study.takehome.en}</td>
-                        <td className="p-4 align-top">
-                          <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-black hover:underline flex items-center gap-1 font-medium">
-                            {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
-                          </a>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            <motion.div key={idx} className="mb-8">
+              <div 
+                className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+                onClick={() => toggleSection(idx)}
+              >
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {category.category[language] || category.category.en}
+                </h2>
+                <motion.div
+                  animate={{ rotate: expandedSections.has(idx) ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-gray-500"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </motion.div>
               </div>
-            </div>
+              
+              <AnimatePresence>
+                {expandedSections.has(idx) && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="mt-4 overflow-x-auto border border-gray-200 rounded-lg">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-gray-50 border-b border-gray-200">
+                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.indication}</th>
+                            <th className="p-4 font-semibold text-gray-900 w-2/5">{labels.evidence}</th>
+                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.takehome}</th>
+                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.reference}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {category.studies.map((study, sidx) => (
+                            <tr key={sidx} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50">
+                              <td className="p-4 align-top text-gray-900 font-medium">{study.condition[language] || study.condition.en}</td>
+                              <td className="p-4 align-top text-gray-700 leading-relaxed">{study.evidence[language] || study.evidence.en}</td>
+                              <td className="p-4 align-top text-gray-700 leading-relaxed">{study.takehome[language] || study.takehome.en}</td>
+                              <td className="p-4 align-top">
+                                <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-black hover:underline flex items-center gap-1 font-medium">
+                                  {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
+                                </a>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
 
+          {/* Divider */}
+          <div className="my-8 border-t border-gray-200"></div>
+
           {/* Meer Lezen section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="max-w-5xl mx-auto mb-20"
-          >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">{labels.further}</h3>
-            <ul className="list-disc pl-6 text-gray-900">
-              {furtherReading.map((item, idx) => (
-                <li key={idx} className="mb-2">
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
-                    {item.label} <ExternalLink className="inline h-4 w-4" />
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <motion.div className="mb-8">
+            <div 
+              className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => toggleSection(-1)} // Use -1 for the "Meer lezen" section
+            >
+              <h3 className="text-2xl font-bold text-gray-900">{labels.further}</h3>
+              <motion.div
+                animate={{ rotate: expandedSections.has(-1) ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-gray-500"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </motion.div>
+            </div>
+            
+            <AnimatePresence>
+              {expandedSections.has(-1) && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="mt-4 p-4 bg-gray-50 rounded-lg">
+                    <ul className="list-disc pl-6 text-gray-900 space-y-2">
+                      {furtherReading.map((item, idx) => (
+                        <li key={idx}>
+                          <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
+                            {item.label} <ExternalLink className="inline h-4 w-4" />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
           {/* FAQ at the bottom with extra spacing */}

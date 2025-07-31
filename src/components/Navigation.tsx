@@ -35,10 +35,9 @@ const Navigation = () => {
             className="flex items-center space-x-2"
           >
             <Link to="/" className="flex items-center space-x-2 group">
-              <div className="bg-black p-2 rounded-lg group-hover:bg-black/90 transition-colors w-10 h-10 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">O₂</span>
-              </div>
-              <span className="text-xl font-serif text-gray-900">SANSO</span>
+              <span className="text-xl font-cormorant text-gray-900 font-bold">
+                SANSŌ
+              </span>
             </Link>
           </motion.div>
 

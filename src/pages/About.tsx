@@ -8,6 +8,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const About = () => {
   const { t } = useLanguage();
 
+  // Helper function to style SANSŌ text
+  const styleSansoText = (text: string) => {
+    return text.replace(/SANSŌ/g, '<span class="font-cormorant font-bold">SANSŌ</span>');
+  };
+
   const aboutCards = [
     {
       icon: Info,
@@ -89,9 +94,10 @@ const About = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-600 text-center leading-relaxed whitespace-pre-line">
-                      {card.description}
-                    </CardDescription>
+                    <CardDescription 
+                      className="text-gray-600 text-center leading-relaxed whitespace-pre-line"
+                      dangerouslySetInnerHTML={{ __html: styleSansoText(card.description) }}
+                    />
                   </CardContent>
                 </Card>
               </motion.div>

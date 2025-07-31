@@ -106,7 +106,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-center text-gray-600 mb-16"
           >
-            Wetenschappelijk bewezen voordelen van HBOT. Bij SANSO richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie.
+            Wetenschappelijk bewezen voordelen van HBOT. Bij <span className="font-cormorant font-bold">SANSŌ</span> richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie.
           </motion.p>
           <motion.div className="space-y-4" layout>
             {benefitCards.map((card, index) => (
@@ -151,7 +151,7 @@ const Index = () => {
                       }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 bg-gray-100">
+                      <div className="px-6 pt-6 pb-6 bg-gray-100">
                         <p className="text-gray-700 text-base leading-relaxed">
                           {card.description}
                         </p>
@@ -175,79 +175,6 @@ const Index = () => {
             <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white font-semibold px-6 py-2 rounded-md shadow">
               <a href="/pricing">Bekijk prijzen & pakketten</a>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials blok */}
-      <section className="py-12 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">Ervaringen van onze cliënten</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Testimonial 1 */}
-            <article className="rounded-2xl bg-gray-50 p-6 shadow-md hover:shadow-lg transition-shadow duration-200 flex flex-col" tabIndex={0} aria-label='Testimonial van Anna Jansen'>
-              <div className="flex items-center mb-2">
-                <span className="font-semibold text-gray-900 mr-2">Anna Jansen</span>
-                <span className="ml-1 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700" title="Geverifieerde cliënt">✔ Geverifieerd</span>
-              </div>
-              <div className="flex items-center text-xs text-gray-500 mb-2">
-                <span>2 weken geleden</span>
-                <span className="mx-2">·</span>
-                <span className="inline-flex items-center"><svg className="w-4 h-4 mr-1 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M21.35 11.1l-1.45-1.32C19.16 9.09 18.6 8.5 18.6 7.77V5.5C18.6 3.57 17.03 2 15.1 2H8.9C6.97 2 5.4 3.57 5.4 5.5v2.27c0 .73-.56 1.32-1.3 2.01L2.65 11.1c-.78.71-.88 1.92-.22 2.7.66.78 1.87.88 2.65.17l1.45-1.32c.74-.67 1.3-1.26 1.3-1.99V5.5c0-.83.67-1.5 1.5-1.5h6.2c.83 0 1.5.67 1.5 1.5v5.76c0 .73.56 1.32 1.3 1.99l1.45 1.32c.78.71 1.99.61 2.65-.17.66-.78.56-1.99-.22-2.7z"/></svg>Google</span>
-                <span className="mx-2">·</span>
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-700">Herstel</span>
-              </div>
-              <p className="text-gray-800 text-base mb-2">“Na mijn behandeling voelde ik me energieker dan ooit. De persoonlijke aandacht en professionele begeleiding waren top!”</p>
-              <span className="inline-block mt-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium w-auto">Post operatief herstel</span>
-            </article>
-            {/* Testimonial 2 */}
-            <article className="rounded-2xl bg-gray-50 p-6 shadow-md hover:shadow-lg transition-shadow duration-200 flex flex-col" tabIndex={0} aria-label='Testimonial van Mark de Vries'>
-              <div className="flex items-center mb-2">
-                <span className="font-semibold text-gray-900 mr-2">Mark de Vries</span>
-                <span className="ml-1 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700" title="Geverifieerde cliënt">✔ Geverifieerd</span>
-              </div>
-              <div className="flex items-center text-xs text-gray-500 mb-2">
-                <span>1 maand geleden</span>
-                <span className="mx-2">·</span>
-                <span className="inline-flex items-center"><svg className="w-4 h-4 mr-1 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M21.35 11.1l-1.45-1.32C19.16 9.09 18.6 8.5 18.6 7.77V5.5C18.6 3.57 17.03 2 15.1 2H8.9C6.97 2 5.4 3.57 5.4 5.5v2.27c0 .73-.56 1.32-1.3 2.01L2.65 11.1c-.78.71-.88 1.92-.22 2.7.66.78 1.87.88 2.65.17l1.45-1.32c.74-.67 1.3-1.26 1.3-1.99V5.5c0-.83.67-1.5 1.5-1.5h6.2c.83 0 1.5.67 1.5 1.5v5.76c0 .73.56 1.32 1.3 1.99l1.45 1.32c.78.71 1.99.61 2.65-.17.66-.78.56-1.99-.22-2.7z"/></svg>Google</span>
-                <span className="mx-2">·</span>
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-700">Energie</span>
-              </div>
-              <p className="text-gray-800 text-base mb-2">"De sessies hebben mijn herstel na een blessure enorm versneld. Ik raad SANSO aan iedereen aan!"</p>
-              <span className="inline-block mt-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium w-auto">Sport Blessure</span>
-            </article>
-            {/* Testimonial 3 */}
-            <article className="rounded-2xl bg-gray-50 p-6 shadow-md hover:shadow-lg transition-shadow duration-200 flex flex-col" tabIndex={0} aria-label='Testimonial van Sophie Willems'>
-              <div className="flex items-center mb-2">
-                <span className="font-semibold text-gray-900 mr-2">Sophie Willems</span>
-                <span className="ml-1 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700" title="Geverifieerde cliënt">✔ Geverifieerd</span>
-              </div>
-              <div className="flex items-center text-xs text-gray-500 mb-2">
-                <span>3 maanden geleden</span>
-                <span className="mx-2">·</span>
-                <span className="inline-flex items-center"><svg className="w-4 h-4 mr-1 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M21.35 11.1l-1.45-1.32C19.16 9.09 18.6 8.5 18.6 7.77V5.5C18.6 3.57 17.03 2 15.1 2H8.9C6.97 2 5.4 3.57 5.4 5.5v2.27c0 .73-.56 1.32-1.3 2.01L2.65 11.1c-.78.71-.88 1.92-.22 2.7.66.78 1.87.88 2.65.17l1.45-1.32c.74-.67 1.3-1.26 1.3-1.99V5.5c0-.83.67-1.5 1.5-1.5h6.2c.83 0 1.5.67 1.5 1.5v5.76c0 .73.56 1.32 1.3 1.99l1.45 1.32c.78.71 1.99.61 2.65-.17.66-.78.56-1.99-.22-2.7z"/></svg>Google</span>
-                <span className="mx-2">·</span>
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700">Sport</span>
-              </div>
-              <p className="text-gray-800 text-base mb-2">“Ik merkte al na een paar sessies verschil in mijn energie en herstel. Fijne sfeer en deskundig team.”</p>
-              <span className="inline-block mt-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium w-auto">Chronische vermoeidheid</span>
-            </article>
-            {/* Testimonial 4 */}
-            <article className="rounded-2xl bg-gray-50 p-6 shadow-md hover:shadow-lg transition-shadow duration-200 flex flex-col" tabIndex={0} aria-label='Testimonial van Peter van Leeuwen'>
-              <div className="flex items-center mb-2">
-                <span className="font-semibold text-gray-900 mr-2">Peter van Leeuwen</span>
-                <span className="ml-1 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-700" title="Geverifieerde cliënt">✔ Geverifieerd</span>
-              </div>
-              <div className="flex items-center text-xs text-gray-500 mb-2">
-                <span>1 week geleden</span>
-                <span className="mx-2">·</span>
-                <span className="inline-flex items-center"><svg className="w-4 h-4 mr-1 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M21.35 11.1l-1.45-1.32C19.16 9.09 18.6 8.5 18.6 7.77V5.5C18.6 3.57 17.03 2 15.1 2H8.9C6.97 2 5.4 3.57 5.4 5.5v2.27c0 .73-.56 1.32-1.3 2.01L2.65 11.1c-.78.71-.88 1.92-.22 2.7.66.78 1.87.88 2.65.17l1.45-1.32c.74-.67 1.3-1.26 1.3-1.99V5.5c0-.83.67-1.5 1.5-1.5h6.2c.83 0 1.5.67 1.5 1.5v5.76c0 .73.56 1.32 1.3 1.99l1.45 1.32c.78.71 1.99.61 2.65-.17.66-.78.56-1.99-.22-2.7z"/></svg>Google</span>
-                <span className="mx-2">·</span>
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-purple-100 text-purple-700">Welzijn</span>
-              </div>
-              <p className="text-gray-800 text-base mb-2">“Zeer prettige ervaring! De uitleg was duidelijk en ik voelde me direct op mijn gemak. Absolute aanrader.”</p>
-              <span className="inline-block mt-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium w-auto">Slaapstoornis</span>
-            </article>
           </div>
         </div>
       </section>
