@@ -58,26 +58,18 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/hbot-chamber.jpg" 
-            alt="Modern HBOT chamber with blue lighting - patient receiving hyperbaric oxygen therapy"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40"></div> {/* Dark overlay for text readability */}
-        </div>
-        <div className="relative max-w-7xl mx-auto text-center z-10">
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto px-4"
+            className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               {t('hero.title')}
             </h1>
-            <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
               {t('hero.subtitle')}
             </p>
             <motion.div
@@ -88,7 +80,7 @@ const Index = () => {
               <Button 
                 asChild 
                 size="lg" 
-                className="bg-white hover:bg-white/90 text-black text-lg px-8 py-3 shadow-lg"
+                className="bg-black hover:bg-black/90 text-white text-lg px-8 py-3"
               >
                 <a href="#contact">{t('hero.cta')}</a>
               </Button>
