@@ -13,19 +13,19 @@ const Pricing = () => {
     {
       icon: Euro,
       title: t('pricing.card.single.title'),
-      price: '€125',
+      price: '€80',
       description: t('pricing.card.single.desc')
     },
     {
       icon: Package,
       title: t('pricing.card.package5.title'),
-      price: '€575',
+      price: '€350',
       description: t('pricing.card.package5.desc')
     },
     {
       icon: ShieldCheck,
       title: t('pricing.card.package10.title'),
-      price: '€1100',
+      price: '€650',
       description: t('pricing.card.package10.desc')
     }
   ];
