@@ -10,7 +10,7 @@ const About = () => {
 
   // Helper function to style SANSŌ text
   const styleSansoText = (text: string) => {
-    return text.replace(/SANSŌ/g, '<span class="font-cormorant font-bold">SANSŌ</span>');
+    return text.replace(/SANS&#332;/g, '&lt;span class=&quot;font-seasons font-light&quot;&gt;SANS&#332;&lt;/span&gt;');
   };
 
   const aboutCards = [
@@ -49,7 +49,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="pt-24 pb-16">
+      <div className="pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div

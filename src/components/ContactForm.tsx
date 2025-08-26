@@ -98,34 +98,27 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      const functionUrl = import.meta.env.VITE_SUPABASE_FUNCTION_URL;
+      // Using Formspree to send emails to info@sanso.amsterdam
+      const formDataToSend = new FormData();
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('subject', 'New Contact Form Submission - SANSO Amsterdam');
       
-      if (!functionUrl) {
-        throw new Error('VITE_SUPABASE_FUNCTION_URL not configured');
-      }
-
-      const response = await fetch(`${functionUrl}/leads`, {
+      const response = await fetch('https://formspree.io/f/xovlypvv', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
 
       if (response.ok) {
-        const result = await response.json();
-        if (result.status === 'ok') {
-          toast({
-            title: "Success!",
-            description: t('contact.success'),
-          });
-          setFormData({ email: '', phone: '', message: '' });
-          setErrors({});
-        } else {
-          throw new Error(result.reason || 'Failed to submit');
-        }
+        toast({
+          title: "Success!",
+          description: t('contact.success'),
+        });
+        setFormData({ email: '', phone: '', message: '' });
+        setErrors({});
       } else {
-        throw new Error(`Server error: ${response.status}`);
+        throw new Error(`Form submission failed: ${response.status}`);
       }
     } catch (error) {
       console.error('Form submission error:', error);

@@ -1,72 +1,49 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+
   :root {
-    --background: #F7F6F2; /* Warm off-white */
-    --foreground: #111; /* Soft black */
-    --card: #fff;
-    --card-foreground: #111;
-    --popover: #fff;
-    --popover-foreground: #111;
-    --primary: #D6D5CE; /* Soft gray */
-    --primary-foreground: #111;
-    --secondary: #F7F6F2;
-    --secondary-foreground: #111;
-    --muted: #E5E4DF;
-    --muted-foreground: #666;
-    --accent: #D6D5CE;
-    --accent-foreground: #111;
-    --border: #D6D5CE;
-    --input: #D6D5CE;
-    --ring: #111;
-    --radius: 0.5rem;
+    --background: #FFFFFF; /* Pure white like Face Formula */
+    --foreground: #000000; /* Black text */
+    --card: #FFFFFF;
+    --card-foreground: #000000;
+    --popover: #FFFFFF;
+    --popover-foreground: #000000;
+    --primary: #F5F5F5; /* Light gray for accents */
+    --primary-foreground: #000000;
+    --secondary: #FFFFFF;
+    --secondary-foreground: #000000;
+    --muted: #F5F5F5;
+    --muted-foreground: #666666;
+    --accent: #F5F5F5;
+    --accent-foreground: #000000;
+    --border: #E5E5E5; /* Subtle borders */
+    --input: #E5E5E5;
+    --ring: #000000;
+    --radius: 0.25rem; /* Softer rounded corners */
   }
 
-  .dark {
-    --background: #111;
-    --foreground: #F7F6F2;
-    --card: #111;
-    --card-foreground: #F7F6F2;
-    --popover: #111;
-    --popover-foreground: #F7F6F2;
-    --primary: #666;
-    --primary-foreground: #F7F6F2;
-    --secondary: #222;
-    --secondary-foreground: #F7F6F2;
-    --muted: #333;
-    --muted-foreground: #999;
-    --accent: #666;
-    --accent-foreground: #F7F6F2;
-    --border: #333;
-    --input: #333;
-    --ring: #F7F6F2;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--background);
     color: var(--foreground);
-    line-height: 1.6;
-    transition: all 0.3s ease;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.7; /* Slightly increased for readability */
+    font-size: 16px; /* Standard base size */
   }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
-  .writing-mode-vertical {
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    transform: rotate(180deg);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* Light weight matching our previous updates */
+    letter-spacing: 0.02em;
+    color: #000000;
   }
 }
 
@@ -82,7 +59,11 @@
 }
 
 .shadow-sm {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle like Face Formula cards */
+}
+
+.hover\:shadow-md:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .shadow-md {
@@ -94,7 +75,7 @@
 }
 
 .transition-all {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease; /* Smooth transitions */
 }
 
 .hover\:scale-105:hover {

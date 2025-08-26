@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import ContactForm from '@/components/ContactForm';
+import Hero from '@/components/Hero';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState, useEffect } from 'react';
@@ -57,37 +58,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              {t('hero.title')}
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-              {t('hero.subtitle')}
-            </p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-black hover:bg-black/90 text-white text-lg px-8 py-3"
-              >
-                <a href="#contact">{t('hero.cta')}</a>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Cinematic Hero Section */}
+      <Hero />
 
       {/* HBOT voordelen blok */}
       <section className="py-16 bg-background">
@@ -96,7 +68,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold text-center text-gray-900 mb-12 font-serif"
+            className="text-4xl font-normal text-center text-gray-900 mb-12"
           >
             Voordelen
           </motion.h2>
@@ -106,7 +78,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-center text-gray-600 mb-16"
           >
-            Wetenschappelijk bewezen voordelen van HBOT. Bij <span className="font-cormorant font-bold">SANSŌ</span> richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie.
+            Wetenschappelijk bewezen voordelen van HBOT. Bij <span className="font-seasons font-light">SANSŌ</span> richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie.
           </motion.p>
           <motion.div className="space-y-4" layout>
             {benefitCards.map((card, index) => (
@@ -122,7 +94,7 @@ const Index = () => {
                   <div className={`rounded-full p-3 mr-6 ${card.iconBg}`}>
                     {card.icon}
                   </div>
-                  <h3 className="font-serif text-xl font-bold text-gray-900 flex-grow">
+                  <h3 className="text-xl font-normal text-gray-900 flex-grow">
                     {card.title}
                   </h3>
                   <motion.div
@@ -172,7 +144,7 @@ const Index = () => {
             Ervaar deze voordelen met onze geavanceerde zit-hyperbare kamer, die kan pressuriseren tot 2.0 ATA
           </p>
           <div className="flex justify-center mt-2">
-            <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white font-semibold px-6 py-2 rounded-md shadow">
+            <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white font-normal px-6 py-2 rounded-md shadow">
               <a href="/pricing">Bekijk prijzen & pakketten</a>
             </Button>
           </div>

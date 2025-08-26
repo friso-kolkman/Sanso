@@ -21,11 +21,12 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ["Montserrat", ...fontFamily.sans],
-				serif: ["Playfair Display", ...fontFamily.serif],
-				cormorant: ["Cormorant Garamond", ...fontFamily.serif],
-				lora: ["Lora", ...fontFamily.serif],
-				merriweather: ["Merriweather", ...fontFamily.serif],
+				sans: ["Inter", ...fontFamily.sans],
+				serif: ["Inter", ...fontFamily.sans],
+				cormorant: ["Inter", ...fontFamily.sans],
+				lora: ["Inter", ...fontFamily.sans],
+				merriweather: ["Inter", ...fontFamily.sans],
+				seasons: ["Bodoni Moda", "serif"],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
