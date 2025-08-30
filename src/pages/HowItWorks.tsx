@@ -24,7 +24,7 @@ const HowItWorks = () => {
   const content = {
     en: {
       title: "How HBOT at SANSŌ Works (for Longevity)",
-      intro: "Breathing near-pure oxygen in a pressurized chamber increases dissolved oxygen in your plasma. That extra oxygen may help your body repair, reduce inflammation, and perform better—useful for energy, recovery, and healthy aging.",
+      intro: "Breathing near-pure oxygen in a pressurized chamber increases dissolved oxygen in your plasma. That extra oxygen may help your body repair, reduce inflammation, and perform better. Useful for energy, recovery, and healthy aging.",
       benefitsTitle: "Benefits you can feel",
       sessionTitle: "What actually happens in a session",
       programsTitle: "Programs for longevity goals",
@@ -75,44 +75,34 @@ const HowItWorks = () => {
         },
         {
           step: "2",
-          title: "Change into clinic garments",
-          description: "Fire-safety standard cotton garments provided"
-        },
-        {
-          step: "3",
-          title: "Pressurization ('the dive')",
+          title: "Pressurization (the dive)",
           description: "Ears feel like a plane landing; we coach you to equalize"
         },
         {
-          step: "4",
+          step: "3",
           title: "Oxygen period",
           description: "You relax and breathe oxygen at the prescribed pressure"
         },
         {
-          step: "5",
-          title: "Air breaks",
-          description: "Short pauses (if prescribed) to lower oxygen-toxicity risk"
-        },
-        {
-          step: "6",
+          step: "4",
           title: "Decompression",
           description: "Gentle return to normal pressure; back to your day"
         }
       ],
       programs: [
         {
-          title: "Starter reset (2–3 weeks)",
-          description: "3–5 sessions/week to 'load' oxygen benefits",
+          title: "Starter reset (2-3 weeks)",
+          description: "3-5 sessions/week to load oxygen benefits",
           sessions: "3-5/week"
         },
         {
-          title: "Deep repair (4–8 weeks)",
-          description: "20–40 sessions for recovery and tissue support",
+          title: "Deep repair (4-8 weeks)",
+          description: "20-40 sessions for recovery and tissue support",
           sessions: "20-40 total"
         },
         {
           title: "Maintenance",
-          description: "1–2 sessions/week or targeted blocks around travel, training, or stressful periods",
+          description: "1-2 sessions/week or targeted blocks around travel, training, or stressful periods",
           sessions: "1-2/week"
         }
       ],
@@ -123,7 +113,7 @@ const HowItWorks = () => {
         },
         {
           question: "How many sessions do I need?",
-          answer: "Longevity goals often start with 10–20 sessions; deeper work may take 30–40. We reassess regularly."
+          answer: "Longevity goals often start with 10-20 sessions; deeper work may take 30-40. We reassess regularly."
         },
         {
           question: "How will I feel afterward?",
@@ -131,7 +121,7 @@ const HowItWorks = () => {
         },
         {
           question: "Can I train the same day?",
-          answer: "Yes—most do. If you feel tired, train light or separate training by a few hours."
+          answer: "Yes, most do. If you feel tired, train light or separate training by a few hours."
         },
         {
           question: "Can HBOT replace my medical care?",
@@ -140,8 +130,8 @@ const HowItWorks = () => {
       ]
     },
     nl: {
-      title: "Hoe HBOT bij SANSŌ Werkt (voor Levensduur)",
-      intro: "Het inademen van bijna-pure zuurstof in een drukkamer verhoogt de opgeloste zuurstof in je plasma. Die extra zuurstof kan je lichaam helpen herstellen, ontstekingen verminderen en beter presteren—nuttig voor energie, herstel en gezond ouder worden.",
+      title: "Hoe HBOT bij SANSŌ Werkt",
+      intro: "Het inademen van bijna-pure zuurstof in een drukkamer verhoogt de opgeloste zuurstof in je plasma. Die extra zuurstof kan je lichaam helpen herstellen, ontstekingen verminderen en beter presteren. Nuttig voor energie, herstel en gezond ouder worden.",
       benefitsTitle: "Voordelen die je kunt voelen",
       sessionTitle: "Wat er daadwerkelijk gebeurt tijdens een sessie",
       programsTitle: "Programma's voor levensduurdoelen",
@@ -192,44 +182,34 @@ const HowItWorks = () => {
         },
         {
           step: "2",
-          title: "Omkleden in kliniek kleding",
-          description: "Brandveilige standaard katoenen kleding verstrekt"
-        },
-        {
-          step: "3",
-          title: "Drukverhoging ('de duik')",
+          title: "Drukverhoging (de duik)",
           description: "Oren voelen aan als bij een vliegtuiglanding; we begeleiden je bij het klaren"
         },
         {
-          step: "4",
+          step: "3",
           title: "Zuurstofperiode",
           description: "Je ontspant en ademt zuurstof in bij de voorgeschreven druk"
         },
         {
-          step: "5",
-          title: "Luchtpauzes",
-          description: "Korte pauzes (indien voorgeschreven) om zuurstofvergiftigingsrisico te verlagen"
-        },
-        {
-          step: "6",
+          step: "4",
           title: "Drukverlaging",
           description: "Zachte terugkeer naar normale druk; terug naar je dag"
         }
       ],
       programs: [
         {
-          title: "Starter reset (2–3 weken)",
-          description: "3–5 sessies/week om zuurstofvoordelen te 'laden'",
+          title: "Starter reset (2-3 weken)",
+          description: "3-5 sessies/week om zuurstofvoordelen te laden",
           sessions: "3-5/week"
         },
         {
-          title: "Diep herstel (4–8 weken)",
-          description: "20–40 sessies voor herstel en weefselondersteuning",
+          title: "Diep herstel (4-8 weken)",
+          description: "20-40 sessies voor herstel en weefselondersteuning",
           sessions: "20-40 totaal"
         },
         {
           title: "Onderhoud",
-          description: "1–2 sessies/week of gerichte blokken rond reizen, training of stressvolle periodes",
+          description: "1-2 sessies/week of gerichte blokken rond reizen, training of stressvolle periodes",
           sessions: "1-2/week"
         }
       ],
@@ -240,7 +220,7 @@ const HowItWorks = () => {
         },
         {
           question: "Hoeveel sessies heb ik nodig?",
-          answer: "Levensduurdoelen beginnen vaak met 10–20 sessies; dieper werk kan 30–40 vergen. We evalueren regelmatig."
+          answer: "Levensduurdoelen beginnen vaak met 10-20 sessies; dieper werk kan 30-40 vergen. We evalueren regelmatig."
         },
         {
           question: "Hoe zal ik me daarna voelen?",
