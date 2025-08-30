@@ -760,51 +760,7 @@ const Science = () => {
           </motion.div>
           ))} */}
 
-          {/* Divider */}
-          <div className="my-8 border-t border-gray-200"></div>
 
-          {/* Meer Lezen section */}
-          <motion.div className="mb-8">
-            <div 
-              className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-              onClick={() => toggleSection(-1)} // Use -1 for the "Meer lezen" section
-            >
-              <h3 className="text-2xl font-bold text-gray-900">{labels.further}</h3>
-              <motion.div
-                animate={{ rotate: expandedSections.has(-1) ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="text-gray-500"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </motion.div>
-            </div>
-            
-            <AnimatePresence>
-              {expandedSections.has(-1) && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                    <ul className="list-disc pl-6 text-gray-900 space-y-2">
-                      {furtherReading.map((item, idx) => (
-                        <li key={idx}>
-                          <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1">
-                            {item.label} <ExternalLink className="inline h-4 w-4" />
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
 
           {/* Comprehensive HBOT Research Database */}
           <motion.div
@@ -832,7 +788,7 @@ const Science = () => {
             </div>
 
             {/* Research Sections */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               {hbotResearchDatabase.sections.map((section, sectionIndex) => (
                 <motion.div
                   key={section.slug}
@@ -841,86 +797,112 @@ const Science = () => {
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 + 0.7 }}
                   className="bg-white rounded-xl shadow-lg overflow-hidden"
                 >
-                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
-                    <h3 className="text-xl font-bold text-white">
-                      {language === 'nl' ? section.title_nl : section.title_en}
-                    </h3>
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="grid gap-6">
-                      {section.articles.map((article, articleIndex) => (
-                        <motion.div
-                          key={`${section.slug}-${articleIndex}`}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.4, delay: articleIndex * 0.05 }}
-                          className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
-                        >
-                          <div className="flex items-start justify-between mb-3">
-                            <div className="flex-1">
-                              <h4 className="font-semibold text-gray-900 mb-2 leading-tight">
-                                {article.title}
-                              </h4>
-                              <div className="flex flex-wrap gap-2 mb-3">
-                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                  {article.evidence_type}
-                                </span>
-                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                                  {article.year}
-                                </span>
-                                {article.tags.map((tag, tagIndex) => (
-                                  <span key={tagIndex} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    {tag}
-                                  </span>
-                                ))}
-                              </div>
-                              <p className="text-sm text-gray-600 mb-3 leading-relaxed">
-                                {article.summary}
-                              </p>
-                              <div className="text-sm text-gray-500 mb-3">
-                                <span className="font-medium">{article.authors}</span> • {article.journal}
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="flex flex-wrap gap-2">
-                            {article.doi && (
-                              <a
-                                href={`https://doi.org/${article.doi}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
-                              >
-                                <FileText className="h-4 w-4 mr-1" />
-                                DOI
-                              </a>
-                            )}
-                            {article.pmid && (
-                              <a
-                                href={`https://pubmed.ncbi.nlm.nih.gov/${article.pmid}/`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
-                              >
-                                <BookOpen className="h-4 w-4 mr-1" />
-                                PubMed
-                              </a>
-                            )}
-                            <a
-                              href={article.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
-                            >
-                              <ExternalLink className="h-4 w-4 mr-1" />
-                              {language === 'nl' ? 'Lees Artikel' : 'Read Article'}
-                            </a>
-                          </div>
-                        </motion.div>
-                      ))}
+                  <div 
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
+                    onClick={() => toggleSection(sectionIndex)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-white">
+                        {language === 'nl' ? section.title_nl : section.title_en}
+                      </h3>
+                      <motion.div
+                        animate={{ rotate: expandedSections.has(sectionIndex) ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-white"
+                      >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7" />
+                        </svg>
+                      </motion.div>
                     </div>
                   </div>
+                  
+                  <AnimatePresence>
+                    {expandedSections.has(sectionIndex) && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="p-6">
+                          <div className="grid gap-6">
+                            {section.articles.map((article, articleIndex) => (
+                              <motion.div
+                                key={`${section.slug}-${articleIndex}`}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.4, delay: articleIndex * 0.05 }}
+                                className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                              >
+                                <div className="flex items-start justify-between mb-3">
+                                  <div className="flex-1">
+                                    <h4 className="font-semibold text-gray-900 mb-2 leading-tight">
+                                      {article.title}
+                                    </h4>
+                                    <div className="flex flex-wrap gap-2 mb-3">
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        {article.evidence_type}
+                                      </span>
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                                        {article.year}
+                                      </span>
+                                      {article.tags.map((tag, tagIndex) => (
+                                        <span key={tagIndex} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                          {tag}
+                                        </span>
+                                      ))}
+                                    </div>
+                                    <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                                      {article.summary}
+                                    </p>
+                                    <div className="text-sm text-gray-500 mb-3">
+                                      <span className="font-medium">{article.authors}</span> • {article.journal}
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div className="flex flex-wrap gap-2">
+                                  {article.doi && (
+                                    <a
+                                      href={`https://doi.org/${article.doi}`}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                                    >
+                                      <FileText className="h-4 w-4 mr-1" />
+                                      DOI
+                                    </a>
+                                  )}
+                                  {article.pmid && (
+                                    <a
+                                      href={`https://pubmed.ncbi.nlm.nih.gov/${article.pmid}/`}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
+                                    >
+                                      <BookOpen className="h-4 w-4 mr-1" />
+                                      PubMed
+                                    </a>
+                                  )}
+                                  <a
+                                    href={article.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
+                                  >
+                                    <ExternalLink className="h-4 w-4 mr-1" />
+                                    {language === 'nl' ? 'Lees Artikel' : 'Read Article'}
+                                  </a>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               ))}
 
@@ -931,67 +913,93 @@ const Science = () => {
                 transition={{ duration: 0.6, delay: 1.2 }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden"
               >
-                <div className="bg-gradient-to-r from-yellow-600 to-yellow-700 px-6 py-4">
-                  <h3 className="text-xl font-bold text-white">
-                    {language === 'nl' ? 'Veiligheid & Bijwerkingen' : 'Safety & Side Effects'}
-                  </h3>
+                <div 
+                  className="bg-gradient-to-r from-yellow-600 to-yellow-700 px-6 py-4 cursor-pointer hover:from-yellow-700 hover:to-yellow-800 transition-all duration-200"
+                  onClick={() => toggleSection(999)}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-bold text-white">
+                      {language === 'nl' ? 'Veiligheid & Bijwerkingen' : 'Safety & Side Effects'}
+                    </h3>
+                    <motion.div
+                      animate={{ rotate: expandedSections.has(999) ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="text-white"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7" />
+                      </svg>
+                    </motion.div>
+                  </div>
                 </div>
                 
-                <div className="p-6">
-                  {hbotResearchDatabase.safety.map((safetyArticle, index) => (
+                <AnimatePresence>
+                  {expandedSections.has(999) && (
                     <motion.div
-                      key={`safety-${index}`}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="overflow-hidden"
                     >
-                      <h4 className="font-semibold text-gray-900 mb-2">
-                        {safetyArticle.title}
-                      </h4>
-                      <p className="text-sm text-gray-600 mb-3 leading-relaxed">
-                        {safetyArticle.summary}
-                      </p>
-                      <div className="text-sm text-gray-500 mb-3">
-                        <span className="font-medium">{safetyArticle.authors}</span> • {safetyArticle.journal} • {safetyArticle.year}
-                      </div>
-                      
-                      <div className="flex flex-wrap gap-2">
-                        {safetyArticle.doi && (
-                          <a
-                            href={`https://doi.org/${safetyArticle.doi}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                      <div className="p-6">
+                        {hbotResearchDatabase.safety.map((safetyArticle, index) => (
+                          <motion.div
+                            key={`safety-${index}`}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4, delay: index * 0.05 }}
+                            className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
                           >
-                            <FileText className="h-4 w-4 mr-1" />
-                            DOI
-                          </a>
-                        )}
-                        {safetyArticle.pmid && (
-                          <a
-                            href={`https://pubmed.ncbi.nlm.nih.gov/${safetyArticle.pmid}/`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
-                          >
-                            <BookOpen className="h-4 w-4 mr-1" />
-                            PubMed
-                          </a>
-                        )}
-                        <a
-                          href={safetyArticle.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          {language === 'nl' ? 'Lees Artikel' : 'Read Article'}
-                        </a>
+                            <h4 className="font-semibold text-gray-900 mb-2">
+                              {safetyArticle.title}
+                            </h4>
+                            <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                              {safetyArticle.summary}
+                            </p>
+                            <div className="text-sm text-gray-500 mb-3">
+                              <span className="font-medium">{safetyArticle.authors}</span> • {safetyArticle.journal} • {safetyArticle.year}
+                            </div>
+                            
+                            <div className="flex flex-wrap gap-2">
+                              {safetyArticle.doi && (
+                                <a
+                                  href={`https://doi.org/${safetyArticle.doi}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                                >
+                                  <FileText className="h-4 w-4 mr-1" />
+                                  DOI
+                                </a>
+                              )}
+                              {safetyArticle.pmid && (
+                                <a
+                                  href={`https://pubmed.ncbi.nlm.nih.gov/${safetyArticle.pmid}/`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
+                                >
+                                  <BookOpen className="h-4 w-4 mr-1" />
+                                  PubMed
+                                </a>
+                              )}
+                              <a
+                                href={safetyArticle.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
+                              >
+                                <ExternalLink className="h-4 w-4 mr-1" />
+                                {language === 'nl' ? 'Lees Artikel' : 'Read Article'}
+                              </a>
+                            </div>
+                          </motion.div>
+                        ))}
                       </div>
                     </motion.div>
-                  ))}
-                </div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             </div>
           </motion.div>
