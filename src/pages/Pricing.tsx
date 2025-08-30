@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 import { Euro, Package, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -30,20 +30,7 @@ const Pricing = () => {
     }
   ];
 
-  const faqItems = [
-    {
-      question: t('pricing.faq.insurance.q'),
-      answer: t('pricing.faq.insurance.a')
-    },
-    {
-      question: t('pricing.faq.included.q'),
-      answer: t('pricing.faq.included.a')
-    },
-    {
-      question: t('pricing.faq.booking.q'),
-      answer: t('pricing.faq.booking.a')
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -103,37 +90,16 @@ const Pricing = () => {
             ))}
           </motion.div>
 
-          {/* FAQ Section */}
+          {/* CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-              {t('science.faq.title')}
-            </h2>
-            <Card className="shadow-lg">
-              <CardContent className="p-6">
-                <Accordion type="single" collapsible className="space-y-2">
-                  {faqItems.map((item, index) => (
-                    <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200 last:border-b-0">
-                      <AccordionTrigger className="text-left text-gray-900 hover:text-blue-600 py-4">
-                        {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-gray-600 pb-4 leading-relaxed">
-                        {item.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </CardContent>
-            </Card>
-            <div className="text-center mt-10">
-              <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white text-lg px-8 py-3">
-                <a href="/contact">{t('pricing.cta')}</a>
-              </Button>
-            </div>
+            <Button asChild size="lg" className="bg-black hover:bg-black/90 text-white text-lg px-8 py-3">
+              <a href="/contact">{t('pricing.cta')}</a>
+            </Button>
           </motion.div>
         </div>
       </div>

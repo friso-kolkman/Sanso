@@ -10,7 +10,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   // Check if we're on the landing page (root path)
   const isLandingPage = location.pathname === '/';
@@ -18,7 +18,7 @@ const Navigation = () => {
   const navItems = [
     { name: t('nav.science'), path: '/science' },
     { name: t('nav.pricing'), path: '/pricing' },
-    { name: 'How it works', path: '/how-it-works' },
+    { name: language === 'nl' ? 'Hoe het werkt' : 'How it works', path: '/how-it-works' },
     { name: 'FAQ', path: '/faq' },
     { name: t('nav.contact'), path: '/contact' }
   ];

@@ -2,8 +2,8 @@
 import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Heart, Zap, Shield, ExternalLink } from 'lucide-react';
+
+import { Heart, Zap, Shield, ExternalLink, BookOpen, FileText, Database } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
@@ -35,6 +35,374 @@ const researchTakeawaysNL = [
   'Heterogeniteit van bewijs – Sterkste data zijn er voor DFU, SSNHL en post-TBI symptomen; beroerte en radiatiepijn vereisen grotere studies.',
   'Behandelbelasting – 30-40 dagelijkse sessies zijn een drempel. Mobiele of intermitterende protocollen worden onderzocht.'
 ];
+
+// Comprehensive HBOT Research Database
+const hbotResearchDatabase = {
+  data_version: "2025-08-30",
+  source: "curated HBOT literature",
+  sections: [
+    {
+      title_nl: "Neurocognitieve & neuropsychiatrische aandoeningen",
+      title_en: "Neurocognitive & Neuropsychiatric Disorders",
+      slug: "neurocognitief-neuropsychiatrisch",
+      articles: [
+        {
+          title: "Hyperbaric Oxygen Induces Late Neuroplasticity in Post-Stroke Patients—Randomized, Prospective Trial",
+          authors: "Efrati S, et al.",
+          year: 2013,
+          journal: "PLOS ONE",
+          evidence_type: "RCT",
+          summary: "In chronic post-stroke patients, HBOT improved cognitive and neurological function with perfusion changes on imaging.",
+          doi: "10.1371/journal.pone.0053716",
+          pmid: "23335971",
+          url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0053716",
+          tags: ["stroke", "neuroplasticity", "perfusion"]
+        },
+        {
+          title: "HBOT Can Improve Post-Concussion Syndrome Years After mTBI—Randomized Prospective Trial",
+          authors: "Boussi-Gross R, et al.",
+          year: 2013,
+          journal: "PLOS ONE",
+          evidence_type: "RCT",
+          summary: "Significant improvements in neurocognitive measures and quality of life vs control in chronic mTBI.",
+          doi: "10.1371/journal.pone.0079995",
+          pmid: "24260334",
+          url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0079995",
+          tags: ["mTBI", "cognition"]
+        },
+        {
+          title: "Cognitive Enhancement of Healthy Older Adults Using HBOT: Randomized Controlled Trial",
+          authors: "Hadanny A, et al.",
+          year: 2020,
+          journal: "Aging",
+          evidence_type: "RCT",
+          summary: "HBOT improved global cognition, attention, and processing speed with increased brain perfusion.",
+          doi: "10.18632/aging.103571",
+          pmid: null,
+          url: "https://www.aging-us.com/article/103571/text",
+          tags: ["healthy-aging", "perfusion", "cognition"]
+        },
+        {
+          title: "Hyperbaric Oxygen Therapy for Fibromyalgia",
+          authors: "Efrati S, et al.",
+          year: 2015,
+          journal: "PLOS ONE",
+          evidence_type: "RCT",
+          summary: "HBOT reduced pain and improved function; imaging suggested neuroplasticity.",
+          doi: "10.1371/journal.pone.0127012",
+          pmid: "26010952",
+          url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127012",
+          tags: ["fibromyalgia", "pain", "neuroplasticity"]
+        },
+        {
+          title: "A Double-Blind Randomized Trial of HBOT for Persistent Symptoms After Brain Injury",
+          authors: "Weaver LK, et al.",
+          year: 2025,
+          journal: "Scientific Reports",
+          evidence_type: "RCT",
+          summary: "40 HBOT sessions improved NSI vs sham in mixed non-stroke brain injury; signals that 80 sessions may yield further gains.",
+          doi: "10.1038/s41598-025-86631-6",
+          pmid: null,
+          url: "https://www.nature.com/articles/s41598-025-86631-6",
+          tags: ["brain-injury", "NSI", "double-blind"]
+        },
+        {
+          title: "Systematic Review: HBOT for PTSD—Dosage and Response",
+          authors: "Andrews SR, et al.",
+          year: 2024,
+          journal: "Frontiers in Neurology",
+          evidence_type: "SR/MA",
+          summary: "Synthesizes PTSD HBOT trials; discusses dose-response and safety observations.",
+          doi: "10.3389/fneur.2024.1360311",
+          pmid: null,
+          url: "https://www.frontiersin.org/articles/10.3389/fneur.2024.1360311/full",
+          tags: ["PTSD", "dose-response"]
+        }
+      ]
+    },
+    {
+      title_nl: "Wondgenezing & weefselherstel",
+      title_en: "Wound Healing & Tissue Repair",
+      slug: "wondgenezing-weefselherstel",
+      articles: [
+        {
+          title: "HBOT for Chronic Wounds (incl. Diabetic Foot): Cochrane Review",
+          authors: "Kranke P, et al.",
+          year: 2015,
+          journal: "Cochrane Database Syst Rev",
+          evidence_type: "SR/MA",
+          summary: "Evidence suggests HBOT may improve healing and reduce amputations in selected chronic wounds; calls for better RCTs.",
+          doi: "10.1002/14651858.CD004123.pub4",
+          pmid: "26450001",
+          url: "https://pubmed.ncbi.nlm.nih.gov/26450001/",
+          tags: ["chronic-wounds", "DFU"]
+        },
+        {
+          title: "HBOT for Diabetic Foot Ulcers with Arterial Insufficiency: Systematic Review & Meta-analysis",
+          authors: "Brouwer RJ, et al.",
+          year: 2020,
+          journal: "Journal of Vascular Surgery",
+          evidence_type: "SR/MA",
+          summary: "Reduced major amputation; mixed effects on complete healing.",
+          doi: "10.1016/j.jvs.2019.07.082",
+          pmid: "32040434",
+          url: "https://pubmed.ncbi.nlm.nih.gov/32040434/",
+          tags: ["DFU", "amputation"]
+        },
+        {
+          title: "Efficacy of HBOT for Diabetic Foot Ulcers: Meta-analysis",
+          authors: "Sharma R, et al.",
+          year: 2021,
+          journal: "Scientific Reports",
+          evidence_type: "SR/MA",
+          summary: "Pooled data show higher complete healing and reduced major amputations with adjunctive HBOT.",
+          doi: "10.1038/s41598-021-81886-1",
+          pmid: "33580130",
+          url: "https://www.nature.com/articles/s41598-021-81886-1",
+          tags: ["DFU"]
+        },
+        {
+          title: "HBOT for Chronic Refractory Radiation Proctitis: Double-Blind Crossover RCT",
+          authors: "Clarke RE, et al.",
+          year: 2008,
+          journal: "Int J Radiat Oncol Biol Phys",
+          evidence_type: "RCT",
+          summary: "Significant improvement in symptoms and quality-of-life vs sham; long-term follow-up.",
+          doi: "10.1016/j.ijrobp.2007.12.048",
+          pmid: "18342453",
+          url: "https://pubmed.ncbi.nlm.nih.gov/18342453/",
+          tags: ["radiation-injury", "proctitis"]
+        },
+        {
+          title: "HOPON: HBOT to Prevent Osteoradionecrosis of the Irradiated Mandible",
+          authors: "Shaw RJ, et al.",
+          year: 2019,
+          journal: "Int J Radiat Oncol Biol Phys",
+          evidence_type: "RCT",
+          summary: "Prophylactic HBOT did not reduce ORN vs standard care; low event rates in both arms.",
+          doi: "10.1016/j.ijrobp.2019.02.017",
+          pmid: "30851351",
+          url: "https://pubmed.ncbi.nlm.nih.gov/30851351/",
+          tags: ["osteoradionecrosis", "prophylaxis", "null-result"]
+        },
+        {
+          title: "HBOT for Compromised Grafts and Flaps: Evidence Review",
+          authors: "Francis A, et al.",
+          year: 2017,
+          journal: "Advances in Wound Care",
+          evidence_type: "SR",
+          summary: "Adjunctive HBOT supports salvage of compromised grafts/flaps; timing is critical.",
+          doi: "10.1089/wound.2016.0707",
+          pmid: "28272245",
+          url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5220535/",
+          tags: ["grafts", "flaps", "salvage"]
+        },
+        {
+          title: "The Effect of HBOT on Compromised Grafts and Flaps",
+          authors: "Kleban S, et al.",
+          year: 2020,
+          journal: "Undersea and Hyperbaric Medicine",
+          evidence_type: "Review",
+          summary: "Mechanisms and clinical protocols for graft/flap salvage; recommends early initiation.",
+          doi: null,
+          pmid: "33227840",
+          url: "https://pubmed.ncbi.nlm.nih.gov/33227840/",
+          tags: ["grafts", "flaps"]
+        }
+      ]
+    },
+    {
+      title_nl: "Chronische pijn & systemische aandoeningen",
+      title_en: "Chronic Pain & Systemic Disorders",
+      slug: "chronische-pijn-systemisch",
+      articles: [
+        {
+          title: "Hyperbaric Oxygen Therapy for Fibromyalgia: Randomized Controlled Trial",
+          authors: "Efrati S, et al.",
+          year: 2015,
+          journal: "PLOS ONE",
+          evidence_type: "RCT",
+          summary: "HBOT reduced pain/tender points and improved function; neuroimaging suggested brain plasticity.",
+          doi: "10.1371/journal.pone.0127012",
+          pmid: "26010952",
+          url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127012",
+          tags: ["fibromyalgia", "chronic-pain"]
+        },
+        {
+          title: "HBOT for Long COVID: Randomized Controlled Trials",
+          authors: "Zilberman-Itskovich S, et al.; Tal S, et al.",
+          year: 2022,
+          journal: "Scientific Reports; Scientific Reports",
+          evidence_type: "RCT",
+          summary: "Two RCTs reported improvements in cognition, fatigue, and quality-of-life vs controls after ~40 sessions.",
+          doi: "10.1038/s41598-022-15565-0",
+          pmid: "35835695",
+          url: "https://www.nature.com/articles/s41598-022-15565-0",
+          tags: ["long-covid", "cognition", "fatigue"]
+        },
+        {
+          title: "Efficacy and Safety of HBOT for Long COVID: Systematic Review & Meta-analysis",
+          authors: "Li Y, et al.",
+          year: 2024,
+          journal: "Frontiers in Medicine",
+          evidence_type: "SR/MA",
+          summary: "Pooled data show symptom and function benefits with acceptable safety; more robust trials needed.",
+          doi: "10.3389/fmed.2024.1365841",
+          pmid: "38567092",
+          url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11138265/",
+          tags: ["long-covid", "meta-analysis"]
+        },
+        {
+          title: "Complex Regional Pain Syndrome and HBOT",
+          authors: "Various (small RCTs/series)",
+          year: 2014,
+          journal: "Undersea Hyperb Med (reviewed)",
+          evidence_type: "Case-series/Small RCT",
+          summary: "Early studies suggest pain reduction and functional gains; evidence base remains limited and heterogeneous.",
+          doi: null,
+          pmid: null,
+          url: "https://www.sciencedirect.com/science/article/abs/pii/S0006899306012182",
+          tags: ["CRPS", "pain"]
+        },
+        {
+          title: "Inflammatory Bowel Disease (Ulcerative Colitis) – HBOT",
+          authors: "Reviews and small trials",
+          year: 2021,
+          journal: "Diabetes Res Clin Pract; Wound Repair Regen (contextual)",
+          evidence_type: "SR/Small RCTs",
+          summary: "Adjunctive HBOT reported to improve refractory colitis/proctitis in subsets; controlled evidence is mixed.",
+          doi: null,
+          pmid: null,
+          url: "https://www.sciencedirect.com/science/article/abs/pii/S0168822721002217",
+          tags: ["IBD", "systemic-inflammation"]
+        }
+      ]
+    },
+    {
+      title_nl: "Sensorineurale otologie",
+      title_en: "Sensorineural Otology",
+      slug: "sensorineurale-otologie",
+      articles: [
+        {
+          title: "HBOT for Sudden Sensorineural Hearing Loss (SSNHL): Meta-analysis",
+          authors: "Joshua BZ, et al.",
+          year: 2022,
+          journal: "JAMA Otolaryngology–Head & Neck Surgery",
+          evidence_type: "SR/MA",
+          summary: "Adjunctive HBOT associated with improved hearing outcomes, especially when started early.",
+          doi: "10.1001/jamaoto.2021.3471",
+          pmid: "34709348",
+          url: "https://pubmed.ncbi.nlm.nih.gov/34709348/",
+          tags: ["SSNHL", "timing"]
+        },
+        {
+          title: "Clinical Practice Guideline: Sudden Hearing Loss (Update)",
+          authors: "Schwartz SR, et al. (AAO-HNS)",
+          year: 2019,
+          journal: "Otolaryngology–Head and Neck Surgery",
+          evidence_type: "Guideline",
+          summary: "HBOT listed as an option (typically with steroids) within 2 weeks of onset or as salvage within 1 month.",
+          doi: "10.1177/0194599819859885",
+          pmid: "31369359",
+          url: "https://pubmed.ncbi.nlm.nih.gov/31369359/",
+          tags: ["guideline", "SSNHL"]
+        },
+        {
+          title: "Timing of HBOT Influences SSNHL Outcomes",
+          authors: "Deppe C, et al.",
+          year: 2023,
+          journal: "Journal of Clinical Medicine",
+          evidence_type: "Cohort",
+          summary: "Earlier HBOT initiation correlated with better auditory recovery.",
+          doi: "10.3390/jcm12237222",
+          pmid: "38002069",
+          url: "https://pubmed.ncbi.nlm.nih.gov/38002069/",
+          tags: ["SSNHL", "timing"]
+        }
+      ]
+    },
+    {
+      title_nl: "Gezond ouder worden & mechanistische inzichten",
+      title_en: "Healthy Aging & Mechanistic Insights",
+      slug: "gezond-ouder-worden-mechanismen",
+      articles: [
+        {
+          title: "HBOT Increases Telomere Length and Decreases Senescent Cells in Aging Adults",
+          authors: "Hachmo Y, et al.",
+          year: 2020,
+          journal: "Aging",
+          evidence_type: "Cohort",
+          summary: "After ~60 sessions, PBMC telomere length increased >20% and senescent T-cell populations decreased.",
+          doi: "10.18632/aging.202188",
+          pmid: "33206062",
+          url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7746357/",
+          tags: ["telomeres", "senescence"]
+        },
+        {
+          title: "HBOT Enhances Cognition in Healthy Older Adults (Perfusion-Linked)",
+          authors: "Hadanny A, et al.",
+          year: 2020,
+          journal: "Aging",
+          evidence_type: "RCT",
+          summary: "Demonstrated cognitive/CBF gains in healthy elderly; mechanistic tie to angiogenesis and HIF signaling.",
+          doi: "10.18632/aging.103571",
+          pmid: null,
+          url: "https://www.aging-us.com/article/103571/text",
+          tags: ["perfusion", "HIF/VEGF"]
+        },
+        {
+          title: "Stem/Progenitor Cell Mobilization by Hyperbaric Oxygen",
+          authors: "Thom SR, et al.",
+          year: 2006,
+          journal: "Am J Physiol Heart Circ Physiol",
+          evidence_type: "Mechanistic",
+          summary: "Single session doubled circulating CD34+ cells; ~8-fold rise over 20 sessions via NO-dependent pathway.",
+          doi: "10.1152/ajpheart.00888.2005",
+          pmid: "16299259",
+          url: "https://journals.physiology.org/doi/abs/10.1152/ajpheart.00888.2005",
+          tags: ["stem-cells", "NO", "angiogenesis"]
+        },
+        {
+          title: "CD34+/CD45dim Stem Cell Mobilization with HBOT (Human Data)",
+          authors: "Heyboer M III, et al.",
+          year: 2014,
+          journal: "Undersea Hyperb Med (open archive)",
+          evidence_type: "Mechanistic",
+          summary: "Human observations linking HBOT to endothelial progenitor mobilization.",
+          doi: null,
+          pmid: null,
+          url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4037447/",
+          tags: ["endothelial-progenitors"]
+        },
+        {
+          title: "Healthy Aging Review—HBOT Mechanisms (HIF/VEGF, Mitochondria, Senescence)",
+          authors: "Fu Q, et al.",
+          year: 2022,
+          journal: "Rejuvenation Research",
+          evidence_type: "Review",
+          summary: "Summarizes HBOT effects on angiogenesis, mitochondrial biogenesis, and telomere biology.",
+          doi: "10.1089/rej.2022.0019",
+          pmid: "35657341",
+          url: "https://www.sciencedirect.com/science/article/pii/S2213231722001240",
+          tags: ["mechanisms", "review"]
+        }
+      ]
+    }
+  ],
+  safety: [
+    {
+      title: "Adverse Effects of HBOT: Systematic Review & Meta-analysis",
+      authors: "Zhang Y, et al.",
+      year: 2023,
+      journal: "Frontiers in Medicine",
+      summary: "Most events are mild (ear/sinus barotrauma); higher AE rates above 2.0 ATA and with >10 sessions; seizures are rare.",
+      doi: "10.3389/fmed.2023.1160774",
+      pmid: "37275378",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10232961/",
+      tags: ["safety", "barotrauma", "oxygen-toxicity"]
+    }
+  ]
+};
 
 const Science = () => {
   const { t, language } = useLanguage();
@@ -74,28 +442,7 @@ const Science = () => {
     }
   ];
 
-  const faqItems = [
-    {
-      question: t('science.faq.pressure.question'),
-      answer: t('science.faq.pressure.answer')
-    },
-    {
-      question: t('science.faq.safety.question'),
-      answer: t('science.faq.safety.answer')
-    },
-    {
-      question: t('science.faq.sessions.question'),
-      answer: t('science.faq.sessions.answer')
-    },
-    {
-      question: t('science.faq.conditions.question'),
-      answer: t('science.faq.conditions.answer')
-    },
-    {
-      question: t('science.faq.sideEffects.question'),
-      answer: t('science.faq.sideEffects.answer')
-    }
-  ];
+
 
   const researchDigest = [
     {
@@ -459,33 +806,197 @@ const Science = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* FAQ at the bottom with extra spacing */}
+          {/* Comprehensive HBOT Research Database */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="max-w-4xl mx-auto mt-20 mb-20"
+            className="max-w-6xl mx-auto mt-20 mb-20"
           >
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-              {t('science.faq.title')}
-            </h2>
-            <Card className="shadow-lg">
-              <CardContent className="p-6">
-                <Accordion type="single" collapsible className="space-y-2">
-                  {faqItems.map((item, index) => (
-                    <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200 last:border-b-0">
-                      <AccordionTrigger className="text-left text-gray-900 hover:text-blue-600 py-4">
-                        {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-gray-600 pb-4 leading-relaxed">
-                        {item.answer}
-                      </AccordionContent>
-                    </AccordionItem>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+                <Database className="h-8 w-8 text-blue-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                {language === 'nl' ? 'Uitgebreide HBOT Onderzoeksdatabase' : 'Comprehensive HBOT Research Database'}
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                {language === 'nl' 
+                  ? 'Gecureerde wetenschappelijke literatuur met de nieuwste bevindingen op het gebied van hyperbare zuurstoftherapie'
+                  : 'Curated scientific literature with the latest findings in hyperbaric oxygen therapy'
+                }
+              </p>
+              <div className="mt-4 text-sm text-gray-500">
+                {language === 'nl' ? 'Laatste update:' : 'Last updated:'} {hbotResearchDatabase.data_version}
+              </div>
+            </div>
+
+            {/* Research Sections */}
+            <div className="space-y-8">
+              {hbotResearchDatabase.sections.map((section, sectionIndex) => (
+                <motion.div
+                  key={section.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: sectionIndex * 0.1 + 0.7 }}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden"
+                >
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
+                    <h3 className="text-xl font-bold text-white">
+                      {language === 'nl' ? section.title_nl : section.title_en}
+                    </h3>
+                  </div>
+                  
+                  <div className="p-6">
+                    <div className="grid gap-6">
+                      {section.articles.map((article, articleIndex) => (
+                        <motion.div
+                          key={`${section.slug}-${articleIndex}`}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: articleIndex * 0.05 }}
+                          className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                        >
+                          <div className="flex items-start justify-between mb-3">
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-gray-900 mb-2 leading-tight">
+                                {article.title}
+                              </h4>
+                              <div className="flex flex-wrap gap-2 mb-3">
+                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                  {article.evidence_type}
+                                </span>
+                                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                                  {article.year}
+                                </span>
+                                {article.tags.map((tag, tagIndex) => (
+                                  <span key={tagIndex} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                              <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                                {article.summary}
+                              </p>
+                              <div className="text-sm text-gray-500 mb-3">
+                                <span className="font-medium">{article.authors}</span> • {article.journal}
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex flex-wrap gap-2">
+                            {article.doi && (
+                              <a
+                                href={`https://doi.org/${article.doi}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                              >
+                                <FileText className="h-4 w-4 mr-1" />
+                                DOI
+                              </a>
+                            )}
+                            {article.pmid && (
+                              <a
+                                href={`https://pubmed.ncbi.nlm.nih.gov/${article.pmid}/`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
+                              >
+                                <BookOpen className="h-4 w-4 mr-1" />
+                                PubMed
+                              </a>
+                            )}
+                            <a
+                              href={article.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
+                            >
+                              <ExternalLink className="h-4 w-4 mr-1" />
+                              {language === 'nl' ? 'Lees Artikel' : 'Read Article'}
+                            </a>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Safety Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
+              >
+                <div className="bg-gradient-to-r from-yellow-600 to-yellow-700 px-6 py-4">
+                  <h3 className="text-xl font-bold text-white">
+                    {language === 'nl' ? 'Veiligheid & Bijwerkingen' : 'Safety & Side Effects'}
+                  </h3>
+                </div>
+                
+                <div className="p-6">
+                  {hbotResearchDatabase.safety.map((safetyArticle, index) => (
+                    <motion.div
+                      key={`safety-${index}`}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                    >
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        {safetyArticle.title}
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                        {safetyArticle.summary}
+                      </p>
+                      <div className="text-sm text-gray-500 mb-3">
+                        <span className="font-medium">{safetyArticle.authors}</span> • {safetyArticle.journal} • {safetyArticle.year}
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2">
+                        {safetyArticle.doi && (
+                          <a
+                            href={`https://doi.org/${safetyArticle.doi}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                          >
+                            <FileText className="h-4 w-4 mr-1" />
+                            DOI
+                          </a>
+                        )}
+                        {safetyArticle.pmid && (
+                          <a
+                            href={`https://pubmed.ncbi.nlm.nih.gov/${safetyArticle.pmid}/`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
+                          >
+                            <BookOpen className="h-4 w-4 mr-1" />
+                            PubMed
+                          </a>
+                        )}
+                        <a
+                          href={safetyArticle.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-1" />
+                          {language === 'nl' ? 'Lees Artikel' : 'Read Article'}
+                        </a>
+                      </div>
+                    </motion.div>
                   ))}
-                </Accordion>
-              </CardContent>
-            </Card>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
+
+
         </div>
       </div>
     </div>

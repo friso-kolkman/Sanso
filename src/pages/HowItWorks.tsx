@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -28,7 +28,7 @@ const HowItWorks = () => {
       benefitsTitle: "Benefits you can feel",
       sessionTitle: "What actually happens in a session",
       programsTitle: "Programs for longevity goals",
-      faqTitle: "Frequently Asked Questions",
+
       ctaTitle: "Ready to experience HBOT at SANSŌ?",
       ctaSubtitle: "Book a session or speak with our team about your goals.",
       disclaimerTitle: "Important Disclaimer",
@@ -106,28 +106,7 @@ const HowItWorks = () => {
           sessions: "1-2/week"
         }
       ],
-      faqItems: [
-        {
-          question: "Is it safe?",
-          answer: "In accredited settings and for approved indications, HBOT is generally safe; we screen everyone and monitor every session."
-        },
-        {
-          question: "How many sessions do I need?",
-          answer: "Longevity goals often start with 10-20 sessions; deeper work may take 30-40. We reassess regularly."
-        },
-        {
-          question: "How will I feel afterward?",
-          answer: "Many feel relaxed or pleasantly tired; others feel energized. Listen to your body."
-        },
-        {
-          question: "Can I train the same day?",
-          answer: "Yes, most do. If you feel tired, train light or separate training by a few hours."
-        },
-        {
-          question: "Can HBOT replace my medical care?",
-          answer: "No. It complements a healthy routine and, for medical issues, follows clinician guidance."
-        }
-      ]
+
     },
     nl: {
       title: "Hoe HBOT bij SANSŌ Werkt",
@@ -135,7 +114,7 @@ const HowItWorks = () => {
       benefitsTitle: "Voordelen die je kunt voelen",
       sessionTitle: "Wat er daadwerkelijk gebeurt tijdens een sessie",
       programsTitle: "Programma's voor levensduurdoelen",
-      faqTitle: "Veelgestelde Vragen",
+
       ctaTitle: "Klaar om HBOT bij SANSŌ te ervaren?",
       ctaSubtitle: "Boek een sessie of spreek met ons team over je doelen.",
       disclaimerTitle: "Belangrijke Disclaimer",
@@ -213,28 +192,7 @@ const HowItWorks = () => {
           sessions: "1-2/week"
         }
       ],
-      faqItems: [
-        {
-          question: "Is het veilig?",
-          answer: "In geaccrediteerde omgevingen en voor goedgekeurde indicaties is HBOT over het algemeen veilig; we screenen iedereen en monitoren elke sessie."
-        },
-        {
-          question: "Hoeveel sessies heb ik nodig?",
-          answer: "Levensduurdoelen beginnen vaak met 10-20 sessies; dieper werk kan 30-40 vergen. We evalueren regelmatig."
-        },
-        {
-          question: "Hoe zal ik me daarna voelen?",
-          answer: "Veel mensen voelen zich ontspannen of prettig moe; anderen voelen zich energiek. Luister naar je lichaam."
-        },
-        {
-          question: "Kan ik dezelfde dag trainen?",
-          answer: "Ja—de meeste doen dat. Als je je moe voelt, train dan licht of scheid training door een paar uur."
-        },
-        {
-          question: "Kan HBOT mijn medische zorg vervangen?",
-          answer: "Nee. Het complementeert een gezonde routine en volgt voor medische problemen de richtlijnen van je arts."
-        }
-      ]
+
     }
   };
 
@@ -311,7 +269,7 @@ const HowItWorks = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
               {currentContent.sessionTitle}
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {currentContent.sessionSteps.map((step, index) => (
                 <motion.div
                   key={step.step}
@@ -320,7 +278,7 @@ const HowItWorks = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
                   className="relative"
                 >
-                  <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-blue-500">
+                  <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-blue-500 h-full flex flex-col">
                     <div className="flex items-start space-x-4">
                       <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                         {step.step}
@@ -375,31 +333,7 @@ const HowItWorks = () => {
             </div>
           </motion.div>
 
-          {/* FAQ Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mb-20"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-              {currentContent.faqTitle}
-            </h2>
-            <div className="max-w-4xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
-                {currentContent.faqItems.map((item, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left text-lg font-medium text-gray-900 hover:text-blue-600">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-gray-600 leading-relaxed">
-                      {item.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </motion.div>
+
 
           {/* CTA Section */}
           <motion.div
