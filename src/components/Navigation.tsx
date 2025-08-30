@@ -18,6 +18,7 @@ const Navigation = () => {
   const navItems = [
     { name: t('nav.science'), path: '/science' },
     { name: t('nav.pricing'), path: '/pricing' },
+    { name: 'How it works', path: '/how-it-works' },
     { name: 'FAQ', path: '/faq' },
     { name: t('nav.contact'), path: '/contact' }
   ];

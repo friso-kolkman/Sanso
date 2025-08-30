@@ -12,6 +12,7 @@ import Pricing from "./pages/Pricing";
 
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import HowItWorks from "./pages/HowItWorks";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/science" element={<Science />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
 
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
