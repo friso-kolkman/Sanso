@@ -42,8 +42,8 @@ const hbotResearchDatabase = {
   source: "curated HBOT literature",
   sections: [
     {
-      title_nl: "Neurocognitieve & neuropsychiatrische aandoeningen",
-      title_en: "Neurocognitive & Neuropsychiatric Disorders",
+      title_nl: "Neurocognitieve aandoeningen",
+      title_en: "Neurocognitive Disorders",
       slug: "neurocognitief-neuropsychiatrisch",
       articles: [
         {
@@ -121,8 +121,8 @@ const hbotResearchDatabase = {
       ]
     },
     {
-      title_nl: "Wondgenezing & weefselherstel",
-      title_en: "Wound Healing & Tissue Repair",
+      title_nl: "Wondgenezing",
+      title_en: "Wound Healing",
       slug: "wondgenezing-weefselherstel",
       articles: [
         {
@@ -212,8 +212,8 @@ const hbotResearchDatabase = {
       ]
     },
     {
-      title_nl: "Chronische pijn & systemische aandoeningen",
-      title_en: "Chronic Pain & Systemic Disorders",
+      title_nl: "Chronische pijn",
+      title_en: "Chronic Pain",
       slug: "chronische-pijn-systemisch",
       articles: [
         {
@@ -279,8 +279,8 @@ const hbotResearchDatabase = {
       ]
     },
     {
-      title_nl: "Sensorineurale otologie",
-      title_en: "Sensorineural Otology",
+      title_nl: "Otologie",
+      title_en: "Otology",
       slug: "sensorineurale-otologie",
       articles: [
         {
@@ -322,8 +322,8 @@ const hbotResearchDatabase = {
       ]
     },
     {
-      title_nl: "Gezond ouder worden & mechanistische inzichten",
-      title_en: "Healthy Aging & Mechanistic Insights",
+      title_nl: "Gezond ouder worden",
+      title_en: "Healthy Aging",
       slug: "gezond-ouder-worden-mechanismen",
       articles: [
         {
@@ -919,7 +919,7 @@ const Science = () => {
                 >
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl font-bold text-white">
-                      {language === 'nl' ? 'Veiligheid & Bijwerkingen' : 'Safety & Side Effects'}
+                      {language === 'nl' ? 'Veiligheid' : 'Safety'}
                     </h3>
                     <motion.div
                       animate={{ rotate: expandedSections.has(999) ? 180 : 0 }}
