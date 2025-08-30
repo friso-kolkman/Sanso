@@ -698,67 +698,67 @@ const Science = () => {
             </ul>
           </motion.div>
 
-          {/* Research tables in sequence */}
-          {researchDigest.map((category, idx) => (
-            <motion.div key={idx} className="mb-8">
-              <div 
-                className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-                onClick={() => toggleSection(idx)}
+                    {/* Research tables in sequence - REMOVED */}
+          {/* {researchDigest.map((category, idx) => (
+          <motion.div key={idx} className="mb-8">
+            <div 
+              className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => toggleSection(idx)}
+            >
+              <h2 className="text-2xl font-bold text-gray-900">
+                {category.category[language] || category.category.en}
+              </h2>
+              <motion.div
+                animate={{ rotate: expandedSections.has(idx) ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-gray-500"
               >
-                <h2 className="text-2xl font-bold text-gray-900">
-                  {category.category[language] || category.category.en}
-                </h2>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </motion.div>
+            </div>
+            
+            <AnimatePresence>
+              {expandedSections.has(idx) && (
                 <motion.div
-                  animate={{ rotate: expandedSections.has(idx) ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-gray-500"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </motion.div>
-              </div>
-              
-              <AnimatePresence>
-                {expandedSections.has(idx) && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-4 overflow-x-auto border border-gray-200 rounded-lg">
-                      <table className="w-full text-left border-collapse">
-                        <thead>
-                          <tr className="bg-gray-50 border-b border-gray-200">
-                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.indication}</th>
-                            <th className="p-4 font-semibold text-gray-900 w-2/5">{labels.evidence}</th>
-                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.takehome}</th>
-                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.reference}</th>
+                  <div className="mt-4 overflow-x-auto border border-gray-200 rounded-lg">
+                    <table className="w-full text-left border-collapse">
+                      <thead>
+                        <tr className="bg-gray-50 border-b border-gray-200">
+                          <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.indication}</th>
+                          <th className="p-4 font-semibold text-gray-900 w-2/5">{labels.evidence}</th>
+                          <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.takehome}</th>
+                          <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.reference}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {category.studies.map((study, sidx) => (
+                          <tr key={sidx} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50">
+                            <td className="p-4 align-top text-gray-900 font-medium">{study.condition[language] || study.condition.en}</td>
+                            <td className="p-4 align-top text-gray-700 leading-relaxed">{study.evidence[language] || study.evidence.en}</td>
+                            <td className="p-4 align-top text-gray-700 leading-relaxed">{study.takehome[language] || study.takehome.en}</td>
+                            <td className="p-4 align-top">
+                              <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-black hover:underline flex items-center gap-1 font-medium">
+                                {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
+                              </a>
+                            </td>
                           </tr>
-                        </thead>
-                        <tbody>
-                          {category.studies.map((study, sidx) => (
-                            <tr key={sidx} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50">
-                              <td className="p-4 align-top text-gray-900 font-medium">{study.condition[language] || study.condition.en}</td>
-                              <td className="p-4 align-top text-gray-700 leading-relaxed">{study.evidence[language] || study.evidence.en}</td>
-                              <td className="p-4 align-top text-gray-700 leading-relaxed">{study.takehome[language] || study.takehome.en}</td>
-                              <td className="p-4 align-top">
-                                <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-black hover:underline flex items-center gap-1 font-medium">
-                                  {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
-                                </a>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+          ))} */}
 
           {/* Divider */}
           <div className="my-8 border-t border-gray-200"></div>
