@@ -124,15 +124,16 @@ const Hero = () => {
                 <span className="text-black">Book Your Session</span>
               </Button>
             </Link>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-clay text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
-              onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
-              aria-label="Learn more about hyperbaric oxygen therapy benefits"
-            >
-              Learn More
-            </Button>
+            <Link to="/how-it-works">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-clay text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
+                aria-label="Learn more about how HBOT works"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
