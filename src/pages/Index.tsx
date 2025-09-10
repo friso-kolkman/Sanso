@@ -24,7 +24,7 @@ const Index = () => {
     <PageLayout
       title="SANSŌ Amsterdam - Hyperbaric Oxygen Therapy Clinic"
       description="Advanced hyperbaric oxygen therapy for accelerated healing and recovery. Experience the power of pressurized oxygen at SANSŌ Amsterdam."
-      showNavigation={false}
+      showNavigation={true}
     >
       {/* Cinematic Hero Section */}
       <Hero />
