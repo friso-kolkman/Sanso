@@ -49,7 +49,7 @@ const Navigation = () => {
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

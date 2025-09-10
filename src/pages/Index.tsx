@@ -43,7 +43,7 @@ const Index = () => {
         {/* Cinematic Hero Section - starts from very top */}
         <Hero />
         
-        <main id="main-content" tabIndex={-1} className="pt-16">
+        <main id="main-content" tabIndex={-1} className="pt-24">
           {/* HBOT voordelen blok */}
           <section className="py-16 bg-sand">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
