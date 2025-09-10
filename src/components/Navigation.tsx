@@ -29,10 +29,10 @@ const Navigation = () => {
   };
 
   // Dynamic text color classes based on page
-  const textColorClass = isLandingPage ? 'text-white' : 'text-black';
-  const textColorHoverClass = isLandingPage ? 'hover:text-white/80' : 'hover:text-black/80';
-  const textColorActiveClass = isLandingPage ? 'text-white' : 'text-black';
-  const textColorInactiveClass = isLandingPage ? 'text-white/90' : 'text-black/90';
+  const textColorClass = 'text-black';
+  const textColorHoverClass = 'hover:text-black/80';
+  const textColorActiveClass = 'text-black';
+  const textColorInactiveClass = 'text-black/90';
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -44,7 +44,7 @@ const Navigation = () => {
 
   return (
     <nav 
-      className={`site-nav bg-black/20 backdrop-blur-lg shadow-lg fixed w-full top-0 z-50 border-b border-white/10 ${isLandingPage ? 'text-white' : 'text-black'}`}
+      className="site-nav bg-black/40 backdrop-blur-lg shadow-2xl fixed w-full top-0 z-50 border-b border-white/10 text-black"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -105,7 +105,7 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <LanguageSwitcher textColor={isLandingPage ? 'white' : 'black'} />
+              <LanguageSwitcher textColor="black" />
             </motion.div>
             
             <motion.div
@@ -142,7 +142,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/80 backdrop-blur-md border-t border-white/20"
+            className="md:hidden bg-black/90 backdrop-blur-lg border-t border-white/20"
             role="menu"
             aria-label="Mobile navigation"
           >
@@ -176,7 +176,7 @@ const Navigation = () => {
                 </div>
               ))}
               <div className="px-3 py-2">
-                <LanguageSwitcher textColor="white" />
+                <LanguageSwitcher textColor="black" />
               </div>
               <div className="px-3 py-2">
                 <Button asChild className="w-full bg-white hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
