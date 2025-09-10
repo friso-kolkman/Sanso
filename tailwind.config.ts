@@ -25,7 +25,7 @@ export default {
 				cormorant: ["Newsreader", "Georgia", "serif"],
 				lora: ["Newsreader", "Georgia", "serif"],
 				merriweather: ["Newsreader", "Georgia", "serif"],
-				seasons: ["Newsreader", "Georgia", "serif"],
+				seasons: ["Bodoni Moda", "serif"],
 			},
 			colors: {
 				// Brand Color System
