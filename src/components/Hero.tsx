@@ -120,7 +120,7 @@ const Hero = () => {
                 className="bg-cream hover:bg-cream/90 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
                 aria-label="Book your hyperbaric oxygen therapy session"
               >
-                <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+                <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-black" aria-hidden="true" />
                 <span className="text-black">Book Your Session</span>
               </Button>
             </Link>
