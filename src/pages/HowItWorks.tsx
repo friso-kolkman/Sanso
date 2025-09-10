@@ -278,9 +278,9 @@ const HowItWorks = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
                   className="relative"
                 >
-                  <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-clay h-full flex flex-col">
+                  <div className="bg-cream rounded-xl p-6 shadow-lg border-l-4 border-clay h-full flex flex-col">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-clay text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                      <div className="bg-forest text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                         {step.step}
                       </div>
                       <div>
@@ -349,10 +349,10 @@ const HowItWorks = () => {
               {currentContent.ctaSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-clay hover:bg-forest">
+              <Button asChild size="lg" className="bg-clay text-cream hover:bg-clay/90 rounded-full px-8">
                 <Link to="/contact">{currentContent.bookSession}</Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="border-clay text-clay bg-cream hover:bg-cream/90 rounded-full px-8">
                 <Link to="/contact">{currentContent.contactTeam}</Link>
               </Button>
             </div>
@@ -363,10 +363,10 @@ const HowItWorks = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="bg-gray-50 rounded-xl p-6 border-l-4 border-yellow-500"
+            className="bg-stone rounded-xl p-6 border-l-4 border-amber"
           >
             <div className="flex items-start space-x-3">
-              <AlertCircle className="h-6 w-6 text-yellow-600 mt-1 flex-shrink-0" />
+              <AlertCircle className="h-6 w-6 text-amber mt-1 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">{currentContent.disclaimerTitle}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
