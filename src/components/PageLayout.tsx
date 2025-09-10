@@ -35,7 +35,7 @@ const PageLayout = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="pt-16"
+          className="pt-32"
         >
           {children}
         </motion.main>

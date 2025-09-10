@@ -44,7 +44,7 @@ const Navigation = () => {
 
   return (
     <nav 
-      className="site-nav bg-black/40 backdrop-blur-lg shadow-2xl fixed w-full top-0 z-50 border-b border-white/10 text-white"
+      className="site-nav bg-black/40 backdrop-blur-lg shadow-2xl fixed w-full top-16 z-50 border-b border-white/10 text-white"
       role="navigation"
       aria-label="Main navigation"
     >
