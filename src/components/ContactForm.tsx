@@ -55,19 +55,19 @@ const ContactForm = () => {
     const newErrors: FormErrors = {};
 
     if (!formData.email.trim()) {
-      newErrors.email = t('contact.errors.emailRequired');
+      newErrors.email = t('contact.emailRequired');
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = t('contact.errors.emailInvalid');
+      newErrors.email = t('contact.emailInvalid');
     }
 
     if (formData.phone.trim() && !validatePhone(formData.phone)) {
-      newErrors.phone = t('contact.errors.phoneInvalid');
+      newErrors.phone = t('contact.phoneInvalid');
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = t('contact.errors.messageRequired');
+      newErrors.message = t('contact.messageRequired');
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = t('contact.errors.messageTooShort');
+      newErrors.message = t('contact.messageTooShort');
     }
 
     return newErrors;
@@ -81,7 +81,7 @@ const ContactForm = () => {
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     
-    // Clear error when user starts typing
+    // Clear error for this field when user starts typing
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: undefined }));
     }
@@ -145,10 +145,10 @@ const ContactForm = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4" role="form" aria-labelledby="contact-form-title">
           <div>
             <Label htmlFor="email" className="text-ink">
-              {t('contact.email')}
+              {t('contact.email')} <span className="text-danger" aria-label="required">*</span>
             </Label>
             <Input
               id="email"
@@ -158,15 +158,19 @@ const ContactForm = () => {
               className={`mt-1 form-input ${errors.email ? 'border-danger' : ''}`}
               placeholder="your@email.com"
               required
+              aria-describedby={errors.email ? 'email-error' : undefined}
+              aria-invalid={!!errors.email}
             />
             {errors.email && (
-              <p className="text-danger text-sm mt-1">{errors.email}</p>
+              <p id="email-error" className="text-danger text-sm mt-1" role="alert" aria-live="polite">
+                {errors.email}
+              </p>
             )}
           </div>
 
           <div>
             <Label htmlFor="phone" className="text-ink">
-              {t('contact.phone')}
+              {t('contact.phone')} <span className="text-muted-foreground">(optional)</span>
             </Label>
             <Input
               id="phone"
@@ -175,15 +179,19 @@ const ContactForm = () => {
               onChange={(e) => handleInputChange('phone', e.target.value)}
               className={`mt-1 form-input ${errors.phone ? 'border-danger' : ''}`}
               placeholder="+31 6 12345678"
+              aria-describedby={errors.phone ? 'phone-error' : undefined}
+              aria-invalid={!!errors.phone}
             />
             {errors.phone && (
-              <p className="text-danger text-sm mt-1">{errors.phone}</p>
+              <p id="phone-error" className="text-danger text-sm mt-1" role="alert" aria-live="polite">
+                {errors.phone}
+              </p>
             )}
           </div>
 
           <div>
             <Label htmlFor="message" className="text-ink">
-              {t('contact.message')}
+              {t('contact.message')} <span className="text-danger" aria-label="required">*</span>
             </Label>
             <Textarea
               id="message"
@@ -193,19 +201,30 @@ const ContactForm = () => {
               placeholder={t('contact.message')}
               rows={4}
               required
+              aria-describedby={errors.message ? 'message-error' : undefined}
+              aria-invalid={!!errors.message}
             />
             {errors.message && (
-              <p className="text-danger text-sm mt-1">{errors.message}</p>
+              <p id="message-error" className="text-danger text-sm mt-1" role="alert" aria-live="polite">
+                {errors.message}
+              </p>
             )}
           </div>
 
           <Button
             type="submit"
-            className="w-full bg-clay hover:bg-forest text-cream"
+            className="w-full bg-clay hover:bg-forest text-cream focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2"
             disabled={isSubmitting || !isFormValid}
+            aria-describedby="submit-status"
           >
             {isSubmitting ? 'Verzenden...' : t('contact.submit')}
           </Button>
+          
+          {isSubmitting && (
+            <p id="submit-status" className="text-center text-sm text-espresso" aria-live="polite">
+              Sending your message...
+            </p>
+          )}
         </form>
       </CardContent>
     </Card>

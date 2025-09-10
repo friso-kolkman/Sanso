@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -17,7 +16,6 @@ const Navigation = () => {
 
   const navItems = [
     { name: language === 'nl' ? 'Reserveren' : 'Book Now', path: '/reservation' },
-
     { name: t('nav.science'), path: '/science' },
     { name: t('nav.pricing'), path: '/pricing' },
     { name: language === 'nl' ? 'Hoe?' : 'How it works', path: '/how-it-works' },
@@ -36,8 +34,20 @@ const Navigation = () => {
   const textColorActiveClass = isLandingPage ? 'text-white' : 'text-black';
   const textColorInactiveClass = isLandingPage ? 'text-white/90' : 'text-black/90';
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <nav className={`site-nav bg-black/20 backdrop-blur-lg shadow-lg fixed w-full top-0 z-50 border-b border-white/10 ${isLandingPage ? 'text-white' : 'text-black'}`}>
+    <nav 
+      className={`site-nav bg-black/20 backdrop-blur-lg shadow-lg fixed w-full top-0 z-50 border-b border-white/10 ${isLandingPage ? 'text-white' : 'text-black'}`}
+      role="navigation"
+      aria-label="Main navigation"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -46,7 +56,7 @@ const Navigation = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center space-x-2"
           >
-            <Link to="/" className="flex items-center space-x-2 group">
+            <Link to="/" className="flex items-center space-x-2 group" aria-label="SANSŌ Amsterdam - Home">
               <span className={`text-xl font-seasons font-light drop-shadow-lg ${textColorClass}`}>
                 SANSŌ
               </span>
@@ -55,34 +65,41 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.2 }}
-              >
-                {item.path.startsWith('/#') ? (
-                  <a
-                    href={item.path}
-                    className={`${textColorInactiveClass} ${textColorHoverClass} font-medium transition-colors drop-shadow-sm`}
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <Link
-                    to={item.path}
-                    className={`font-medium transition-colors drop-shadow-sm ${
-                      isActive(item.path)
-                        ? textColorActiveClass
-                        : `${textColorInactiveClass} ${textColorHoverClass}`
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                )}
-              </motion.div>
-            ))}
+            <ul className="flex items-center space-x-8" role="menubar">
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.name}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 + 0.2 }}
+                  role="none"
+                >
+                  {item.path.startsWith('/#') ? (
+                    <a
+                      href={item.path}
+                      className={`${textColorInactiveClass} ${textColorHoverClass} font-medium transition-colors drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded`}
+                      role="menuitem"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={`font-medium transition-colors drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded ${
+                        isActive(item.path)
+                          ? textColorActiveClass
+                          : `${textColorInactiveClass} ${textColorHoverClass}`
+                      }`}
+                      role="menuitem"
+                      aria-current={isActive(item.path) ? 'page' : undefined}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </motion.li>
+              ))}
+            </ul>
+            
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -90,13 +107,16 @@ const Navigation = () => {
             >
               <LanguageSwitcher textColor={isLandingPage ? 'white' : 'black'} />
             </motion.div>
+            
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Button asChild className="bg-white hover:bg-white/90 text-black shadow-lg">
-                <Link to="/contact">{t('nav.bookSession')}</Link>
+              <Button asChild className="bg-white hover:bg-white/90 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
+                <Link to="/contact" aria-label="Book a session">
+                  <span className="text-black">{t('nav.bookSession')}</span>
+                </Link>
               </Button>
             </motion.div>
           </div>
@@ -104,10 +124,13 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`${textColorClass} ${textColorHoverClass} p-2 drop-shadow-sm`}
+              onClick={toggleMenu}
+              className={`${textColorClass} ${textColorHoverClass} p-2 drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded`}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label="Toggle mobile menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -115,10 +138,13 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-black/80 backdrop-blur-md border-t border-white/20"
+            role="menu"
+            aria-label="Mobile navigation"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
@@ -126,20 +152,23 @@ const Navigation = () => {
                   {item.path.startsWith('/#') ? (
                     <a
                       href={item.path}
-                      onClick={() => setIsOpen(false)}
-                      className="block px-3 py-2 text-white hover:text-white/80 font-medium"
+                      onClick={closeMenu}
+                      className="block px-3 py-2 text-white hover:text-white/80 font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded"
+                      role="menuitem"
                     >
                       {item.name}
                     </a>
                   ) : (
                     <Link
                       to={item.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`block px-3 py-2 font-medium ${
+                      onClick={closeMenu}
+                      className={`block px-3 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded ${
                         isActive(item.path)
                           ? 'text-white'
                           : 'text-white hover:text-white/80'
                       }`}
+                      role="menuitem"
+                      aria-current={isActive(item.path) ? 'page' : undefined}
                     >
                       {item.name}
                     </Link>
@@ -150,9 +179,9 @@ const Navigation = () => {
                 <LanguageSwitcher textColor="white" />
               </div>
               <div className="px-3 py-2">
-                <Button asChild className="w-full bg-white hover:bg-white/90 text-black">
-                  <a href="#contact" onClick={() => setIsOpen(false)}>
-                    {t('nav.bookSession')}
+                <Button asChild className="w-full bg-white hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
+                  <a href="#contact" onClick={closeMenu} aria-label="Book a session">
+                    <span className="text-black">{t('nav.bookSession')}</span>
                   </a>
                 </Button>
               </div>

@@ -77,7 +77,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <header className="relative w-full h-screen overflow-hidden" role="banner">
       {/* Video Background */}
       {!isMobile && (
         <video
@@ -87,8 +87,10 @@ const Hero = () => {
           muted
           loop
           playsInline
+          aria-label="Background video showing hyperbaric oxygen therapy"
         >
           <source src="/can_we_create_a_close_up_of_a.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       )}
 
@@ -97,7 +99,7 @@ const Hero = () => {
         <div className="absolute inset-0 w-full h-full">
           <img
             src="/hbot-chamber.jpg"
-            alt="HBOT Chamber"
+            alt="HBOT Chamber - Hyperbaric oxygen therapy treatment room"
             className="w-full h-full object-cover"
           />
         </div>
@@ -108,19 +110,20 @@ const Hero = () => {
         <div className="absolute inset-0 z-15 flex items-center justify-center">
           <button
             onClick={handlePlayClick}
-            className="bg-black/30 hover:bg-black/50 rounded-full p-6 backdrop-blur-sm transition-all duration-300"
+            className="bg-black/30 hover:bg-black/50 rounded-full p-6 backdrop-blur-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+            aria-label="Play background video"
           >
-            <Play className="w-16 h-16 text-white fill-white" />
+            <Play className="w-16 h-16 text-white fill-white" aria-hidden="true" />
           </button>
         </div>
       )}
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+      <div className="absolute inset-0 bg-black/50 z-10" aria-hidden="true"></div>
 
       {/* Main Content Area */}
-      <div className="relative z-20 flex-1 flex items-end pb-8 px-8 lg:pb-12 lg:px-12 mt-32">
-        <div className="max-w-6xl">
+      <div className="relative z-20 flex-1 flex items-end justify-start pb-8 px-8 lg:pb-12 lg:px-12 mt-32">
+        <div className="max-w-2xl">
           {/* Tagline */}
           <p className="text-white text-sm font-light tracking-wide mb-6">
             Discover the benefits of pure oxygen therapy
@@ -128,33 +131,36 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif leading-none mb-8">
-            <div className="text-white">Breath deeper,</div>
-            <div className="text-white">feel better</div>
+            <span className="text-white">Breath deeper,</span>
+            <br />
+            <span className="text-white">feel better</span>
           </h1>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 mt-8" role="group" aria-label="Call to action buttons">
             <Link to="/reservation">
               <Button 
                 size="lg" 
-                className="bg-cream text-clay hover:bg-cream/90 text-lg px-8 py-4 font-semibold"
+                className="bg-cream text-clay hover:bg-cream/90 text-lg px-8 py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                aria-label="Book your hyperbaric oxygen therapy session"
               >
-                <Calendar className="mr-2 h-5 w-5" />
+                <Calendar className="mr-2 h-5 w-5" aria-hidden="true" />
                 Book Your Session
               </Button>
             </Link>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-clay text-lg px-8 py-4 font-semibold"
+              className="border-white text-white hover:bg-white hover:text-clay text-lg px-8 py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
               onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
+              aria-label="Learn more about hyperbaric oxygen therapy benefits"
             >
               Learn More
             </Button>
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
