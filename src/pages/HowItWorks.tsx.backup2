@@ -199,7 +199,7 @@ const HowItWorks = () => {
   const currentContent = content[language] || content.en;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-100 to-gray-50">
       <Navigation />
       <div className="pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

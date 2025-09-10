@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme"
 
@@ -22,13 +21,30 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ["Inter", ...fontFamily.sans],
-				serif: ["Inter", ...fontFamily.sans],
-				cormorant: ["Inter", ...fontFamily.sans],
-				lora: ["Inter", ...fontFamily.sans],
-				merriweather: ["Inter", ...fontFamily.sans],
-				seasons: ["Bodoni Moda", "serif"],
+				serif: ["Newsreader", "Georgia", "serif"],
+				cormorant: ["Newsreader", "Georgia", "serif"],
+				lora: ["Newsreader", "Georgia", "serif"],
+				merriweather: ["Newsreader", "Georgia", "serif"],
+				seasons: ["Newsreader", "Georgia", "serif"],
 			},
 			colors: {
+				// Brand Color System
+				sand: '#F7F3EB',
+				stone: '#E5E1D6',
+				olive: '#C2BFAF',
+				clay: '#B45C47',
+				amber: '#D6A45C',
+				forest: '#566249',
+				ink: '#2A2A2A',
+				espresso: '#5B4636',
+				cream: '#FAF9F6',
+				
+				// State Colors
+				success: '#4A6E57',
+				warning: '#B07A2B',
+				danger: '#8E3E2E',
+				
+				// Existing shadcn colors (keep for compatibility)
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -74,9 +90,13 @@ export default {
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: '16px',
+				xl: '24px',
+				md: '14px',
+				sm: '10px'
+			},
+			boxShadow: {
+				soft: '0 8px 24px rgba(0,0,0,0.08), 0 1px 0 rgba(0,0,0,0.03)',
 			},
 			keyframes: {
 				'accordion-down': {

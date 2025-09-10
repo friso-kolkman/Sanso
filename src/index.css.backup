@@ -1,0 +1,90 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+
+  :root {
+    --background: #FFFFFF; /* Pure white like Face Formula */
+    --foreground: #000000; /* Black text */
+    --card: #FFFFFF;
+    --card-foreground: #000000;
+    --popover: #FFFFFF;
+    --popover-foreground: #000000;
+    --primary: #F5F5F5; /* Light gray for accents */
+    --primary-foreground: #000000;
+    --secondary: #FFFFFF;
+    --secondary-foreground: #000000;
+    --muted: #F5F5F5;
+    --muted-foreground: #666666;
+    --accent: #F5F5F5;
+    --accent-foreground: #000000;
+    --border: #E5E5E5; /* Subtle borders */
+    --input: #E5E5E5;
+    --ring: #000000;
+    --radius: 0.25rem; /* Softer rounded corners */
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.7; /* Slightly increased for readability */
+    font-size: 16px; /* Standard base size */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* Light weight matching our previous updates */
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle like Face Formula cards */
+}
+
+.hover\:shadow-md:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transition-all {
+  transition: all 0.2s ease; /* Smooth transitions */
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .grid-cols-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@import './calendly-override.css';

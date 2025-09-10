@@ -127,7 +127,7 @@ const Hero = () => {
           </p>
 
           {/* Headline */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-light leading-none mb-8">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif leading-none mb-8">
             <div className="text-white">Breath deeper,</div>
             <div className="text-white">feel better</div>
           </h1>
@@ -137,7 +137,7 @@ const Hero = () => {
             <Link to="/reservation">
               <Button 
                 size="lg" 
-                className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 font-semibold"
+                className="bg-cream text-clay hover:bg-cream/90 text-lg px-8 py-4 font-semibold"
               >
                 <Calendar className="mr-2 h-5 w-5" />
                 Book Your Session
@@ -146,7 +146,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4 font-semibold"
+              className="border-white text-white hover:bg-white hover:text-clay text-lg px-8 py-4 font-semibold"
               onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Learn More

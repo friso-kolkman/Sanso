@@ -1,90 +1,192 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import './calendly-override.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Brand Color System */
+  --color-sand: #F7F3EB;
+  --color-stone: #E5E1D6;
+  --color-olive-gray: #C2BFAF;
+  --color-clay: #B45C47;
+  --color-amber: #D6A45C;
+  --color-forest: #566249;
+  --color-ink: #2A2A2A;
+  --color-espresso: #5B4636;
+  --color-cream: #FAF9F6;
+  
+  /* State Colors */
+  --color-success: #4A6E57;
+  --color-warning: #B07A2B;
+  --color-danger: #8E3E2E;
+  
+  /* Shadows & Radius */
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.08), 0 1px 0 rgba(0,0,0,0.03);
+  --radius: 16px;
+  --radius-lg: 24px;
+}
+
 @layer base {
-  .font-playfair {
-    font-family: 'Playfair Display', serif;
+  html {
+    color: var(--color-ink);
+    background: var(--color-sand);
+    font-family: 'Inter', system-ui, sans-serif;
   }
-
-  :root {
-    --background: #FFFFFF; /* Pure white like Face Formula */
-    --foreground: #000000; /* Black text */
-    --card: #FFFFFF;
-    --card-foreground: #000000;
-    --popover: #FFFFFF;
-    --popover-foreground: #000000;
-    --primary: #F5F5F5; /* Light gray for accents */
-    --primary-foreground: #000000;
-    --secondary: #FFFFFF;
-    --secondary-foreground: #000000;
-    --muted: #F5F5F5;
-    --muted-foreground: #666666;
-    --accent: #F5F5F5;
-    --accent-foreground: #000000;
-    --border: #E5E5E5; /* Subtle borders */
-    --input: #E5E5E5;
-    --ring: #000000;
-    --radius: 0.25rem; /* Softer rounded corners */
-  }
-
+  
   body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--background);
-    color: var(--foreground);
-    line-height: 1.7; /* Slightly increased for readability */
-    font-size: 16px; /* Standard base size */
+    line-height: 1.55;
   }
-
+  
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400; /* Light weight matching our previous updates */
-    letter-spacing: 0.02em;
-    color: #000000;
+    font-family: 'Newsreader', 'Georgia', serif;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+  
+  img {
+    border-radius: var(--radius-lg);
+  }
+  
+  /* Focus states */
+  *:focus {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 2px;
+  }
+  
+  /* Links */
+  a {
+    color: var(--color-clay);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:visited {
+    color: #9A4A3A; /* Slightly darker clay */
   }
 }
 
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.shadow-sm {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle like Face Formula cards */
-}
-
-.hover\:shadow-md:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.shadow-md {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-lg {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.transition-all {
-  transition: all 0.2s ease; /* Smooth transitions */
-}
-
-.hover\:scale-105:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 1024px) {
-  .grid-cols-5 {
-    grid-template-columns: repeat(3, 1fr);
+@layer components {
+  .section {
+    padding: clamp(48px, 6vw, 96px) 0;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    background: var(--color-clay);
+    color: var(--color-cream);
+    border-radius: var(--radius);
+    padding: 12px 24px;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    background: var(--color-forest);
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary {
+    background: var(--color-stone);
+    color: var(--color-espresso);
+    border: 1px solid var(--color-olive-gray);
+    border-radius: var(--radius);
+    padding: 12px 24px;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-secondary:hover {
+    background: var(--color-olive-gray);
+  }
+  
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-forest);
+    border-radius: var(--radius);
+    padding: 12px 24px;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-ghost:hover {
+    background: var(--color-stone);
+  }
+  
+  /* Card Styles */
+  .card {
+    background: var(--color-stone);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: 24px 32px;
+    border: 1px solid var(--color-olive-gray);
+  }
+  
+  .card-title {
+    color: var(--color-espresso);
+    font-family: 'Newsreader', 'Georgia', serif;
+  }
+  
+  .card-body {
+    color: var(--color-ink);
+  }
+  
+  /* Form Styles */
+  .form-input {
+    background: var(--color-stone);
+    border: 1px solid var(--color-olive-gray);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--color-ink);
+  }
+  
+  .form-input::placeholder {
+    color: var(--color-espresso);
+    opacity: 0.7;
+  }
+  
+  .form-input:focus {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 2px;
   }
 }
-@import './calendly-override.css';
+
+@layer utilities {
+  .text-sand { color: var(--color-sand); }
+  .text-stone { color: var(--color-stone); }
+  .text-olive { color: var(--color-olive-gray); }
+  .text-clay { color: var(--color-clay); }
+  .text-amber { color: var(--color-amber); }
+  .text-forest { color: var(--color-forest); }
+  .text-ink { color: var(--color-ink); }
+  .text-espresso { color: var(--color-espresso); }
+  .text-cream { color: var(--color-cream); }
+  
+  .bg-sand { background-color: var(--color-sand); }
+  .bg-stone { background-color: var(--color-stone); }
+  .bg-olive { background-color: var(--color-olive-gray); }
+  .bg-clay { background-color: var(--color-clay); }
+  .bg-amber { background-color: var(--color-amber); }
+  .bg-forest { background-color: var(--color-forest); }
+  .bg-ink { background-color: var(--color-ink); }
+  .bg-espresso { background-color: var(--color-espresso); }
+  .bg-cream { background-color: var(--color-cream); }
+  
+  .border-sand { border-color: var(--color-sand); }
+  .border-stone { border-color: var(--color-stone); }
+  .border-olive { border-color: var(--color-olive-gray); }
+  .border-clay { border-color: var(--color-clay); }
+  .border-amber { border-color: var(--color-amber); }
+  .border-forest { border-color: var(--color-forest); }
+  .border-ink { border-color: var(--color-ink); }
+  .border-espresso { border-color: var(--color-espresso); }
+  .border-cream { border-color: var(--color-cream); }
+  
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .rounded-brand { border-radius: var(--radius); }
+  .rounded-brand-lg { border-radius: var(--radius-lg); }
+}

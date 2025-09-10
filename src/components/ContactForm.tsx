@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -52,34 +51,32 @@ const ContactForm = () => {
     return e164Regex.test(cleanPhone) || dutchLocalRegex.test(cleanPhone);
   };
 
-  // Memoized validation state to prevent infinite loops
-  const isFormValid = useMemo(() => {
-    return formData.email.trim() && 
-           validateEmail(formData.email) && 
-           formData.message.trim() && 
-           (formData.phone.trim() === '' || validatePhone(formData.phone));
-  }, [formData]);
-
-  const validateForm = (): boolean => {
+  const validateForm = (): FormErrors => {
     const newErrors: FormErrors = {};
-    
+
     if (!formData.email.trim()) {
-      newErrors.email = t('contact.emailRequired');
+      newErrors.email = t('contact.errors.emailRequired');
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = t('contact.emailInvalid');
+      newErrors.email = t('contact.errors.emailInvalid');
     }
-    
+
     if (formData.phone.trim() && !validatePhone(formData.phone)) {
-      newErrors.phone = t('contact.phoneInvalid');
+      newErrors.phone = t('contact.errors.phoneInvalid');
     }
-    
+
     if (!formData.message.trim()) {
-      newErrors.message = t('contact.messageRequired');
+      newErrors.message = t('contact.errors.messageRequired');
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = t('contact.errors.messageTooShort');
     }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+
+    return newErrors;
   };
+
+  const isFormValid = useMemo(() => {
+    const validationErrors = validateForm();
+    return Object.keys(validationErrors).length === 0;
+  }, [formData, t]);
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -93,10 +90,15 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) return;
-    
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     setIsSubmitting(true);
-    
+    setErrors({});
+
     try {
       // Using Formspree to send emails to info@sanso.amsterdam
       const formDataToSend = new FormData();
@@ -133,19 +135,19 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="max-w-md mx-auto shadow-lg">
+    <Card className="max-w-md mx-auto shadow-soft bg-stone border border-olive/30">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold text-gray-900">
+        <CardTitle className="text-2xl font-serif text-ink">
           {t('contact.title')}
         </CardTitle>
-        <CardDescription className="text-gray-600">
+        <CardDescription className="text-espresso">
           {t('contact.subtitle')}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <Label htmlFor="email" className="text-gray-700">
+            <Label htmlFor="email" className="text-ink">
               {t('contact.email')}
             </Label>
             <Input
@@ -153,17 +155,17 @@ const ContactForm = () => {
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className={`mt-1 ${errors.email ? 'border-red-500' : ''}`}
+              className={`mt-1 form-input ${errors.email ? 'border-danger' : ''}`}
               placeholder="your@email.com"
               required
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              <p className="text-danger text-sm mt-1">{errors.email}</p>
             )}
           </div>
 
           <div>
-            <Label htmlFor="phone" className="text-gray-700">
+            <Label htmlFor="phone" className="text-ink">
               {t('contact.phone')}
             </Label>
             <Input
@@ -171,35 +173,35 @@ const ContactForm = () => {
               type="tel"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className={`mt-1 ${errors.phone ? 'border-red-500' : ''}`}
+              className={`mt-1 form-input ${errors.phone ? 'border-danger' : ''}`}
               placeholder="+31 6 12345678"
             />
             {errors.phone && (
-              <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+              <p className="text-danger text-sm mt-1">{errors.phone}</p>
             )}
           </div>
 
           <div>
-            <Label htmlFor="message" className="text-gray-700">
+            <Label htmlFor="message" className="text-ink">
               {t('contact.message')}
             </Label>
             <Textarea
               id="message"
               value={formData.message}
               onChange={(e) => handleInputChange('message', e.target.value)}
-              className={`mt-1 ${errors.message ? 'border-red-500' : ''}`}
+              className={`mt-1 form-input ${errors.message ? 'border-danger' : ''}`}
               placeholder={t('contact.message')}
               rows={4}
               required
             />
             {errors.message && (
-              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+              <p className="text-danger text-sm mt-1">{errors.message}</p>
             )}
           </div>
 
           <Button
             type="submit"
-            className="w-full bg-black hover:bg-black/90"
+            className="w-full bg-clay hover:bg-forest text-cream"
             disabled={isSubmitting || !isFormValid}
           >
             {isSubmitting ? 'Verzenden...' : t('contact.submit')}
