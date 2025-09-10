@@ -91,8 +91,8 @@ const Hero = () => {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/50 z-10" aria-hidden="true"></div>
 
-      {/* Main Content Area */}
-      <div className="relative z-20 flex-1 flex items-end justify-start pb-6 px-4 sm:pb-8 sm:px-6 lg:pb-12 lg:px-12 mt-16 sm:mt-20 md:mt-24">
+      {/* Main Content Area - Positioned at bottom left */}
+      <div className="absolute bottom-0 left-0 z-20 pb-6 px-4 sm:pb-8 sm:px-6 lg:pb-12 lg:px-12">
         <div className="max-w-2xl">
           {/* Tagline */}
           <p className="text-white text-sm sm:text-base font-light tracking-wide mb-4 sm:mb-6">
@@ -111,11 +111,11 @@ const Hero = () => {
             <Link to="/reservation">
               <Button 
                 size="lg" 
-                className="bg-cream text-clay hover:bg-cream/90 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
+                className="bg-cream hover:bg-cream/90 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
                 aria-label="Book your hyperbaric oxygen therapy session"
               >
                 <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-                Book Your Session
+                <span className="text-black">Book Your Session</span>
               </Button>
             </Link>
             <Button 
