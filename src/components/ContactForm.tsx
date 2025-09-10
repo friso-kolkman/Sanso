@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -51,7 +51,7 @@ const ContactForm = () => {
     return e164Regex.test(cleanPhone) || dutchLocalRegex.test(cleanPhone);
   };
 
-  const validateForm = (): FormErrors => {
+  const validateForm = useCallback((): FormErrors => {
     const newErrors: FormErrors = {};
 
     if (!formData.email.trim()) {
@@ -71,12 +71,12 @@ const ContactForm = () => {
     }
 
     return newErrors;
-  };
+  }, [formData, t]);
 
   const isFormValid = useMemo(() => {
     const validationErrors = validateForm();
     return Object.keys(validationErrors).length === 0;
-  }, [formData, t]);
+  }, [validateForm]);
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
