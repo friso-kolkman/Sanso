@@ -51,7 +51,6 @@ const Index = () => {
   ];
 
   const handleCardClick = (index: number) => {
-    console.log('Card clicked:', index, 'Current expanded:', expandedCard);
     setExpandedCard(expandedCard === index ? null : index);
   };
 
