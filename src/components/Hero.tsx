@@ -11,31 +11,37 @@ const Hero = () => {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      const handleLoadStart = () => {
-        setShowPlayButton(true);
-      };
+    // Only set up video event listeners on desktop
+    if (!isMobile) {
+      const video = videoRef.current;
+      if (video) {
+        const handleLoadStart = () => {
+          setShowPlayButton(true);
+        };
 
-      const handleCanPlay = () => {
-        setShowPlayButton(false);
-      };
+        const handleCanPlay = () => {
+          setShowPlayButton(false);
+        };
 
-      const handleError = () => {
-        setShowPlayButton(true);
-      };
+        const handleError = () => {
+          setShowPlayButton(true);
+        };
 
-      video.addEventListener('loadstart', handleLoadStart);
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('error', handleError);
+        video.addEventListener('loadstart', handleLoadStart);
+        video.addEventListener('canplay', handleCanPlay);
+        video.addEventListener('error', handleError);
 
-      return () => {
-        video.removeEventListener('loadstart', handleLoadStart);
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('error', handleError);
-      };
+        return () => {
+          video.removeEventListener('loadstart', handleLoadStart);
+          video.removeEventListener('canplay', handleCanPlay);
+          video.removeEventListener('error', handleError);
+        };
+      }
+    } else {
+      // On mobile, ensure play button is hidden
+      setShowPlayButton(false);
     }
-  }, []);
+  }, [isMobile]);
 
   const handlePlayClick = () => {
     const video = videoRef.current;
@@ -48,7 +54,7 @@ const Hero = () => {
 
   return (
     <header className="relative w-full h-screen overflow-hidden" role="banner">
-      {/* Video Background */}
+      {/* Video Background - Only on desktop */}
       {!isMobile && (
         <video
           ref={videoRef}
@@ -75,8 +81,8 @@ const Hero = () => {
         </div>
       )}
 
-      {/* Play Button Overlay for Mobile */}
-      {showPlayButton && (
+      {/* Play Button Overlay - Only show on desktop when needed */}
+      {!isMobile && showPlayButton && (
         <div className="absolute inset-0 z-15 flex items-center justify-center">
           <button
             onClick={handlePlayClick}
