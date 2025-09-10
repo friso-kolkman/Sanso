@@ -44,12 +44,12 @@ const Navigation = () => {
 
   return (
     <nav 
-      className="site-nav bg-black/40 backdrop-blur-lg shadow-2xl fixed w-full top-2 z-50 border-b border-white/10 text-white rounded-b-lg mx-4"
+      className="site-nav bg-black/40 backdrop-blur-lg shadow-2xl fixed w-full top-0 z-50 border-b border-white/10 text-white"
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14 py-2">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
