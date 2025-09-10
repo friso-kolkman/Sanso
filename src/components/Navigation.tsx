@@ -64,8 +64,8 @@ const Navigation = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <ul className="flex items-center space-x-8" role="menubar">
+          <div className="hidden md:flex items-center space-x-12">
+            <ul className="flex items-center space-x-12" role="menubar">
               {navItems.map((item, index) => (
                 <motion.li
                   key={item.name}
