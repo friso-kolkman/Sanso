@@ -27,21 +27,21 @@ const Reservation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen" style={{background: "linear-gradient(to bottom, #111827, #f3f4f6, #f9fafb)"}}>
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
+      <div className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Book Your HBOT Session
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+            <p className="text-xl md:text-2xl mb-8 text-gray-200">
               Experience the healing power of hyperbaric oxygen therapy
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4"
+                className="bg-white text-gray-800 hover:bg-gray-100 text-lg px-8 py-4"
                 onClick={handleCalendlyClick}
               >
                 <Calendar className="mr-2 h-5 w-5" />
@@ -50,7 +50,7 @@ const Reservation = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4"
+                className="border-white text-white hover:bg-white hover:text-gray-800 text-lg px-8 py-4"
                 onClick={() => document.getElementById('calendly-widget')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 View Available Times
@@ -78,7 +78,7 @@ const Reservation = () => {
             <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center text-2xl">
-                  <Clock className="mr-3 h-6 w-6 text-blue-600" />
+                  <Clock className="mr-3 h-6 w-6 text-gray-600" />
                   Session Details
                 </CardTitle>
                 <CardDescription>
@@ -120,7 +120,7 @@ const Reservation = () => {
             <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center text-2xl">
-                  <MapPin className="mr-3 h-6 w-6 text-blue-600" />
+                  <MapPin className="mr-3 h-6 w-6 text-gray-600" />
                   Visit Us
                 </CardTitle>
                 <CardDescription>
@@ -184,8 +184,8 @@ const Reservation = () => {
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-8 w-8 text-blue-600" />
+                <div className="bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-8 w-8 text-gray-600" />
                 </div>
                 <h4 className="text-xl font-semibold mb-2">Expert Care</h4>
                 <p className="text-gray-600">
@@ -194,8 +194,8 @@ const Reservation = () => {
               </div>
               
               <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="h-8 w-8 text-blue-600" />
+                <div className="bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="h-8 w-8 text-gray-600" />
                 </div>
                 <h4 className="text-xl font-semibold mb-2">State-of-the-Art</h4>
                 <p className="text-gray-600">
@@ -204,8 +204,8 @@ const Reservation = () => {
               </div>
               
               <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="h-8 w-8 text-blue-600" />
+                <div className="bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Calendar className="h-8 w-8 text-gray-600" />
                 </div>
                 <h4 className="text-xl font-semibold mb-2">Flexible Scheduling</h4>
                 <p className="text-gray-600">
@@ -216,16 +216,16 @@ const Reservation = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-center text-white">
+          <div className="mt-16 bg-gradient-to-r from-gray-800 to-gray-700 rounded-2xl p-8 text-center text-white">
             <h3 className="text-3xl font-bold mb-4">
               Ready to Start Your Healing Journey?
             </h3>
-            <p className="text-xl mb-6 text-blue-100">
+            <p className="text-xl mb-6 text-gray-200">
               Book your HBOT session today and experience the benefits of hyperbaric oxygen therapy
             </p>
             <Button 
               size="lg" 
-              className="bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4"
+              className="bg-white text-gray-800 hover:bg-gray-100 text-lg px-8 py-4"
               onClick={handleCalendlyClick}
             >
               <Calendar className="mr-2 h-5 w-5" />
