@@ -1,0 +1,22 @@
+/* Calendly Widget Customization for SANSŌ Amsterdam */
+.calendly-inline-widget {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Override Calendly's default styles */
+.calendly-inline-widget iframe {
+  border-radius: 16px !important;
+}
+
+/* Custom styling for better integration */
+.calendly-badge-widget {
+  display: none !important;
+}
+
+/* Ensure proper spacing */
+.calendly-inline-widget {
+  margin: 0 auto !important;
+  max-width: 100% !important;
+}

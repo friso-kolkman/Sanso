@@ -16,8 +16,6 @@ const Navigation = () => {
   const isLandingPage = location.pathname === '/';
 
   const navItems = [
-    { name: language === 'nl' ? 'Reserveren' : 'Book Now', path: '/reservation' },
-
     { name: t('nav.science'), path: '/science' },
     { name: t('nav.pricing'), path: '/pricing' },
     { name: language === 'nl' ? 'Hoe het werkt' : 'How it works', path: '/how-it-works' },
