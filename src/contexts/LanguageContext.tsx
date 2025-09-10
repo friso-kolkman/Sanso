@@ -19,6 +19,9 @@ const translations = {
     'nav.contact': 'Contact',
     'nav.bookSession': 'Boek een Sessie',
     'nav.about': 'Over',
+    'nav.reservation': 'Reserveren',
+    'nav.howItWorks': 'Hoe het Werkt',
+    'nav.faq': 'FAQ',
     
     // Hero
     'hero.title': 'Hyperbare Zuurstoftherapie',
@@ -99,6 +102,9 @@ const translations = {
     'nav.contact': 'Contact',
     'nav.bookSession': 'Book a Session',
     'nav.about': 'About',
+    'nav.reservation': 'Reservation',
+    'nav.howItWorks': 'How it Works',
+    'nav.faq': 'FAQ',
     
     // Hero
     'hero.title': 'Hyperbaric Oxygen Therapy',

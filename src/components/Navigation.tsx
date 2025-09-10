@@ -116,7 +116,7 @@ const Navigation = () => {
             >
               <Button asChild className="bg-white hover:bg-white/90 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
                 <Link to="/contact" aria-label="Book a session">
-                  <span className="text-black">{t('nav.bookSession')}</span>
+                  <span className="!text-black" style={{color: 'black'}}>{t('nav.bookSession')}</span>
                 </Link>
               </Button>
             </motion.div>
