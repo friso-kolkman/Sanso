@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
-
 const SkipLink = () => {
   return (
-    <Link 
-      to="#main-content" 
+    <a 
+      href="#main-content" 
       className="skip-link"
       onClick={(e) => {
         e.preventDefault();
@@ -15,7 +13,7 @@ const SkipLink = () => {
       }}
     >
       Skip to main content
-    </Link>
+    </a>
   );
 };
 
