@@ -29,10 +29,10 @@ const Navigation = () => {
   };
 
   // Dynamic text color classes based on page
-  const textColorClass = 'text-black';
-  const textColorHoverClass = 'hover:text-black/80';
-  const textColorActiveClass = 'text-black';
-  const textColorInactiveClass = 'text-black/90';
+  const textColorClass = 'text-white';
+  const textColorHoverClass = 'hover:text-white/80';
+  const textColorActiveClass = 'text-white';
+  const textColorInactiveClass = 'text-white/90';
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -44,7 +44,7 @@ const Navigation = () => {
 
   return (
     <nav 
-      className="site-nav bg-black/40 backdrop-blur-lg shadow-2xl fixed w-full top-0 z-50 border-b border-white/10 text-black"
+      className="site-nav bg-black/40 backdrop-blur-lg shadow-2xl fixed w-full top-0 z-50 border-b border-white/10 text-white"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -105,7 +105,7 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <LanguageSwitcher textColor="black" />
+              <LanguageSwitcher textColor="white" />
             </motion.div>
             
             <motion.div
@@ -176,7 +176,7 @@ const Navigation = () => {
                 </div>
               ))}
               <div className="px-3 py-2">
-                <LanguageSwitcher textColor="black" />
+                <LanguageSwitcher textColor="white" />
               </div>
               <div className="px-3 py-2">
                 <Button asChild className="w-full bg-white hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
