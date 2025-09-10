@@ -65,6 +65,23 @@
   }
   
   a:hover {
+  }
+  
+  /* Navigation links override */
+  nav a, nav span {
+    color: inherit !important;
+  }
+  
+  nav a:hover {
+  }
+  
+  /* Force white text on landing page */
+  body:has([data-page="landing"]) nav a,
+  body:has([data-page="landing"]) nav span {
+    color: white !important;
+  }
+  
+  nav a:hover {
     text-decoration: underline;
   }
   

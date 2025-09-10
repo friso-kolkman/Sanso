@@ -23,7 +23,7 @@ const HowItWorks = () => {
 
   const content = {
     en: {
-      title: "How HBOT at SANSŌ Works (for Longevity)",
+      title: "How HBOT at SANSŌ Works (for Longevity)",
       intro: "Breathing near-pure oxygen in a pressurized chamber increases dissolved oxygen in your plasma. That extra oxygen may help your body repair, reduce inflammation, and perform better. Useful for energy, recovery, and healthy aging.",
       benefitsTitle: "Benefits you can feel",
       sessionTitle: "What actually happens in a session",
@@ -109,7 +109,7 @@ const HowItWorks = () => {
 
     },
     nl: {
-      title: "Hoe HBOT bij SANSŌ Werkt",
+      title: "Hoe HBOT bij SANSŌ Werkt",
       intro: "Het inademen van bijna-pure zuurstof in een drukkamer verhoogt de opgeloste zuurstof in je plasma. Die extra zuurstof kan je lichaam helpen herstellen, ontstekingen verminderen en beter presteren. Nuttig voor energie, herstel en gezond ouder worden.",
       benefitsTitle: "Voordelen die je kunt voelen",
       sessionTitle: "Wat er daadwerkelijk gebeurt tijdens een sessie",
@@ -241,8 +241,8 @@ const HowItWorks = () => {
                 >
                   <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <CardHeader className="text-center pb-4">
-                      <div className="mx-auto mb-4 p-3 bg-blue-100 rounded-lg w-fit">
-                        <benefit.icon className="h-8 w-8 text-blue-600" />
+                      <div className="mx-auto mb-4 p-3 bg-clay/20 rounded-lg w-fit">
+                        <benefit.icon className="h-8 w-8 text-clay" />
                       </div>
                       <CardTitle className="text-xl font-bold text-gray-900">
                         {benefit.title}
@@ -278,9 +278,9 @@ const HowItWorks = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
                   className="relative"
                 >
-                  <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-blue-500 h-full flex flex-col">
+                  <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-clay h-full flex flex-col">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                      <div className="bg-clay text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                         {step.step}
                       </div>
                       <div>
@@ -318,7 +318,7 @@ const HowItWorks = () => {
                       <CardTitle className="text-xl font-bold text-gray-900 mb-2">
                         {program.title}
                       </CardTitle>
-                      <div className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium inline-block">
+                      <div className="bg-clay/20 text-clay px-3 py-1 rounded-full text-sm font-medium inline-block">
                         {program.sessions}
                       </div>
                     </CardHeader>
@@ -349,7 +349,7 @@ const HowItWorks = () => {
               {currentContent.ctaSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button asChild size="lg" className="bg-clay hover:bg-forest">
                 <Link to="/contact">{currentContent.bookSession}</Link>
               </Button>
               <Button asChild size="lg" variant="outline">

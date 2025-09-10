@@ -213,7 +213,7 @@ const FAQ = () => {
                 {currentFAQItems.map((item, index) => (
                   <Accordion key={item.id} type="single" collapsible defaultValue={item.expanded ? item.id : undefined}>
                     <AccordionItem value={item.id} className="border border-gray-200 rounded-lg">
-                      <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-blue-600 flex justify-between items-center py-4 px-4">
+                      <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-clay flex justify-between items-center py-4 px-4">
                         {item.question}
                         <span className="ml-auto">
                           <Plus className="h-5 w-5 text-gray-500" />
@@ -244,7 +244,7 @@ const FAQ = () => {
                 </p>
                 <a
                   href="/contact"
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-clay text-white font-medium rounded-lg hover:bg-forest transition-colors"
                 >
                   {language === 'nl' ? 'Neem Contact Op' : 'Contact Us'}
                 </a>

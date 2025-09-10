@@ -72,13 +72,13 @@ const Pricing = () => {
               >
                 <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="text-center pb-4">
-                    <div className="mx-auto mb-4 p-3 bg-blue-100 rounded-lg w-fit">
-                      <option.icon className="h-8 w-8 text-blue-600" />
+                    <div className="mx-auto mb-4 p-3 bg-clay/20 rounded-lg w-fit">
+                      <option.icon className="h-8 w-8 text-clay" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {option.title}
                     </CardTitle>
-                    <div className="text-2xl font-bold text-blue-600 mt-2">{option.price}</div>
+                    <div className="text-2xl font-bold text-clay mt-2">{option.price}</div>
                   </CardHeader>
                   <CardContent>
                     <CardDescription className="text-gray-600 text-center leading-relaxed">

@@ -20,7 +20,7 @@ const Navigation = () => {
 
     { name: t('nav.science'), path: '/science' },
     { name: t('nav.pricing'), path: '/pricing' },
-    { name: language === 'nl' ? 'Hoe het werkt' : 'How it works', path: '/how-it-works' },
+    { name: language === 'nl' ? 'Hoe?' : 'How it works', path: '/how-it-works' },
     { name: 'FAQ', path: '/faq' },
     { name: t('nav.contact'), path: '/contact' }
   ];
@@ -37,7 +37,7 @@ const Navigation = () => {
   const textColorInactiveClass = isLandingPage ? 'text-white/90' : 'text-black/90';
 
   return (
-    <nav className="bg-transparent backdrop-blur-md fixed w-full top-0 z-50 border-b border-white/10">
+    <nav className={`site-nav bg-black/20 backdrop-blur-lg shadow-lg fixed w-full top-0 z-50 border-b border-white/10 ${isLandingPage ? 'text-white' : 'text-black'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}

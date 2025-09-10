@@ -700,64 +700,64 @@ const Science = () => {
 
                     {/* Research tables in sequence - REMOVED */}
           {/* {researchDigest.map((category, idx) => (
-          <motion.div key={idx} className="mb-8">
-            <div 
-              className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-              onClick={() => toggleSection(idx)}
-            >
-              <h2 className="text-2xl font-bold text-gray-900">
-                {category.category[language] || category.category.en}
-              </h2>
-              <motion.div
-                animate={{ rotate: expandedSections.has(idx) ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="text-gray-500"
+            <motion.div key={idx} className="mb-8">
+              <div 
+                className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+                onClick={() => toggleSection(idx)}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </motion.div>
-            </div>
-            
-            <AnimatePresence>
-              {expandedSections.has(idx) && (
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {category.category[language] || category.category.en}
+                </h2>
                 <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="overflow-hidden"
+                  animate={{ rotate: expandedSections.has(idx) ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-gray-500"
                 >
-                  <div className="mt-4 overflow-x-auto border border-gray-200 rounded-lg">
-                    <table className="w-full text-left border-collapse">
-                      <thead>
-                        <tr className="bg-gray-50 border-b border-gray-200">
-                          <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.indication}</th>
-                          <th className="p-4 font-semibold text-gray-900 w-2/5">{labels.evidence}</th>
-                          <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.takehome}</th>
-                          <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.reference}</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {category.studies.map((study, sidx) => (
-                          <tr key={sidx} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50">
-                            <td className="p-4 align-top text-gray-900 font-medium">{study.condition[language] || study.condition.en}</td>
-                            <td className="p-4 align-top text-gray-700 leading-relaxed">{study.evidence[language] || study.evidence.en}</td>
-                            <td className="p-4 align-top text-gray-700 leading-relaxed">{study.takehome[language] || study.takehome.en}</td>
-                            <td className="p-4 align-top">
-                              <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-black hover:underline flex items-center gap-1 font-medium">
-                                {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
-                              </a>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+              </div>
+              
+              <AnimatePresence>
+                {expandedSections.has(idx) && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="mt-4 overflow-x-auto border border-gray-200 rounded-lg">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-gray-50 border-b border-gray-200">
+                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.indication}</th>
+                            <th className="p-4 font-semibold text-gray-900 w-2/5">{labels.evidence}</th>
+                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.takehome}</th>
+                            <th className="p-4 font-semibold text-gray-900 w-1/5">{labels.reference}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {category.studies.map((study, sidx) => (
+                            <tr key={sidx} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50">
+                              <td className="p-4 align-top text-gray-900 font-medium">{study.condition[language] || study.condition.en}</td>
+                              <td className="p-4 align-top text-gray-700 leading-relaxed">{study.evidence[language] || study.evidence.en}</td>
+                              <td className="p-4 align-top text-gray-700 leading-relaxed">{study.takehome[language] || study.takehome.en}</td>
+                              <td className="p-4 align-top">
+                                <a href={study.link} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-black hover:underline flex items-center gap-1 font-medium">
+                                  {study.citation[language] || study.citation.en} <ExternalLink className="inline h-4 w-4" />
+                                </a>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))} */}
 
 
@@ -770,8 +770,8 @@ const Science = () => {
             className="max-w-6xl mx-auto mt-20 mb-20"
           >
             <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-                <Database className="h-8 w-8 text-blue-600" />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-clay/20 rounded-full mb-6">
+                <Database className="h-8 w-8 text-clay" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {language === 'nl' ? 'Uitgebreide HBOT Onderzoeksdatabase' : 'Comprehensive HBOT Research Database'}
@@ -798,34 +798,34 @@ const Science = () => {
                   className="bg-white rounded-xl shadow-lg overflow-hidden"
                 >
                   <div 
-                    className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition-all duration-200"
+                    className="bg-gradient-to-r from-clay to-forest px-6 py-4 cursor-pointer hover:from-forest hover:to-forest transition-all duration-200"
                     onClick={() => toggleSection(sectionIndex)}
                   >
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold text-white">
                         {language === 'nl' ? section.title_nl : section.title_en}
                       </h3>
-                      <motion.div
+              <motion.div
                         animate={{ rotate: expandedSections.has(sectionIndex) ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
+                transition={{ duration: 0.3 }}
                         className="text-white"
-                      >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7" />
-                        </svg>
-                      </motion.div>
+                </svg>
+              </motion.div>
                     </div>
-                  </div>
-                  
-                  <AnimatePresence>
+            </div>
+            
+            <AnimatePresence>
                     {expandedSections.has(sectionIndex) && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
                         <div className="p-6">
                           <div className="grid gap-6">
                             {section.articles.map((article, articleIndex) => (
@@ -842,7 +842,7 @@ const Science = () => {
                                       {article.title}
                                     </h4>
                                     <div className="flex flex-wrap gap-2 mb-3">
-                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-clay/20 text-clay">
                                         {article.evidence_type}
                                       </span>
                                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
@@ -869,7 +869,7 @@ const Science = () => {
                                       href={`https://doi.org/${article.doi}`}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                                      className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-clay/10 text-clay hover:bg-clay/20 transition-colors"
                                     >
                                       <FileText className="h-4 w-4 mr-1" />
                                       DOI
@@ -899,17 +899,17 @@ const Science = () => {
                               </motion.div>
                             ))}
                           </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  </div>
                 </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
               ))}
 
               {/* Safety Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden"
               >
@@ -967,7 +967,7 @@ const Science = () => {
                                   href={`https://doi.org/${safetyArticle.doi}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                                  className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-clay/10 text-clay hover:bg-clay/20 transition-colors"
                                 >
                                   <FileText className="h-4 w-4 mr-1" />
                                   DOI

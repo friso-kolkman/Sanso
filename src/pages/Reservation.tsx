@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Navigation from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -28,8 +29,9 @@ const Reservation = () => {
 
   return (
     <div className="min-h-screen bg-sand">
+      <Navigation />
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-clay to-forest text-cream py-16">
+      <div className="bg-gradient-to-r from-clay to-forest text-cream py-16 pt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-serif mb-6">
