@@ -10,7 +10,7 @@ import { AnimatePresence } from 'framer-motion';
 
 const researchSectionLabels = {
   en: {
-    title: 'Recent Scientific Research on HBOT',
+    title: 'The Science',
     indication: 'Indication',
     evidence: 'Evidence & Effect',
     takehome: 'Take-home',
@@ -19,7 +19,7 @@ const researchSectionLabels = {
     further: 'Further Reading',
   },
   nl: {
-    title: 'Recente Wetenschappelijke Onderzoeken naar HBOT',
+    title: 'De Wetenschap',
     indication: 'Indicatie',
     evidence: 'Bewijs & Effect',
     takehome: 'Belangrijkste Bevinding',
@@ -30,10 +30,10 @@ const researchSectionLabels = {
 };
 
 const researchTakeawaysNL = [
-  'Protocol is belangrijk – De meeste positieve resultaten worden gezien bij 40 sessies op 1.3–2.0 ATA, maar de optimale druk/zuurstofdosis verschilt per indicatie.',
-  'Veiligheidsprofiel is goed – Barotrauma en milde, omkeerbare zuurstoftoxiciteit zijn de belangrijkste bijwerkingen; geen ernstige bijwerkingen in recente studies.',
-  'Heterogeniteit van bewijs – Sterkste data zijn er voor DFU, SSNHL en post-TBI symptomen; beroerte en radiatiepijn vereisen grotere studies.',
-  'Behandelbelasting – 30-40 dagelijkse sessies zijn een drempel. Mobiele of intermitterende protocollen worden onderzocht.'
+  'Dosering en protocol – Veelgebruikte schema’s zijn 1.5–2.4 ATA, 60–90 min per sessie en meestal 20–40 sessies; de optimale dosering verschilt per indicatie en patiënt.',
+  'Veiligheid – Over het algemeen goed verdragen; meest voorkomend zijn oor-/sinusbarotrauma en zeldzame, voorbijgaande zuurstoftoxiciteit. Onbehandelde pneumothorax is een absolute contra‑indicatie.',
+  'Bewijskracht verschilt per indicatie – Sterkste data voor diabetische voetulcera en laat‑ontstane radiatieschade; redelijk bewijs voor plots gehoorverlies (SSNHL). Voor mTBI/PCS en pijnsyndromen zijn grotere, goed opgezette RCT’s nodig.',
+  'Behandelbelasting – Programma’s vragen vaak 5 sessies/week gedurende 4–8 weken (20–40 sessies). Adherentie kan uitdagend zijn; kortere blokken en thuis- of milde protocollen worden onderzocht.'
 ];
 
 // Comprehensive HBOT Research Database
@@ -664,8 +664,8 @@ const Science = () => {
               >
                 <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="text-center pb-4">
-                    <div className="mx-auto mb-4 p-3 bg-gray-100 rounded-lg w-fit">
-                      <card.icon className="h-8 w-8 text-gray-900" />
+                    <div className={`mx-auto mb-4 p-3 rounded-full w-fit ${index===0 ? 'bg-clay/10 text-clay' : index===1 ? 'bg-forest/10 text-forest' : 'bg-amber/10 text-amber'}`}>
+                      <card.icon className="h-8 w-8" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">
                       {card.title}
@@ -691,11 +691,26 @@ const Science = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               {labels.cross}
             </h2>
-            <ul className="list-disc pl-6 text-gray-700">
-              {researchTakeawaysNL.map((item, idx) => (
-                <li key={idx} className="mb-2">{item}</li>
-              ))}
-            </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {researchTakeawaysNL.map((item, idx) => {
+                const [title, detail] = item.split(' – ');
+                const Icon = [Zap, Shield, FileText, Heart][idx] || FileText;
+                return (
+                  <div key={idx} className="relative rounded-xl bg-stone border border-olive/30 shadow-soft p-5">
+                    <div className="absolute inset-y-0 left-0 w-1 bg-forest rounded-l-xl" aria-hidden="true" />
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-full bg-forest/10 text-forest">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-ink mb-1">{title}</h3>
+                        <p className="text-espresso leading-relaxed">{detail || title}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </motion.div>
 
                     {/* Research tables in sequence - REMOVED */}
@@ -798,7 +813,7 @@ const Science = () => {
                   className="bg-white rounded-xl shadow-lg overflow-hidden"
                 >
                   <div 
-                    className="bg-gradient-to-r from-clay to-forest px-6 py-4 cursor-pointer hover:from-forest hover:to-forest transition-all duration-200"
+                    className="bg-gradient-to-r from-forest to-forest px-6 py-4 cursor-pointer hover:from-clay hover:to-forest transition-all duration-200"
                     onClick={() => toggleSection(sectionIndex)}
                   >
                     <div className="flex items-center justify-between">
@@ -914,7 +929,7 @@ const Science = () => {
                 className="bg-white rounded-xl shadow-lg overflow-hidden"
               >
                 <div 
-                  className="bg-gradient-to-r from-yellow-600 to-yellow-700 px-6 py-4 cursor-pointer hover:from-yellow-700 hover:to-yellow-800 transition-all duration-200"
+                  className="bg-gradient-to-r from-forest to-forest px-6 py-4 cursor-pointer hover:from-clay hover:to-forest transition-all duration-200"
                   onClick={() => toggleSection(999)}
                 >
                   <div className="flex items-center justify-between">
