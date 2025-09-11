@@ -33,7 +33,7 @@ const Pricing = () => {
             {pricingOptions.map((option, index) => (
               <Card 
                 key={index} 
-                className={`bg-stone shadow-soft border border-olive/30 hover:shadow-lg transition-all duration-300 ${
+                className={`h-full flex flex-col bg-stone shadow-soft border border-olive/30 hover:shadow-lg transition-all duration-300 ${
                   index === 1 ? 'ring-2 ring-clay scale-105' : ''
                 }`}
               >
@@ -48,12 +48,12 @@ const Pricing = () => {
                     {option.price}
                   </div>
                 </CardHeader>
-                <CardContent className="text-center">
+                <CardContent className="text-center mt-auto flex flex-col">
                   <CardDescription className="text-espresso mb-6">
                     {option.description}
                   </CardDescription>
                   <Button 
-                    className={`w-full ${
+                    className={`mt-auto w-full ${
                       index === 1 
                         ? 'bg-clay hover:bg-forest text-cream' 
                         : 'bg-stone border border-clay text-clay hover:bg-clay hover:text-cream'
