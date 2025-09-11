@@ -106,7 +106,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-center text-gray-600 mb-16"
           >
-            Wetenschappelijk bewezen voordelen van HBOT. Bij <span className="font-cormorant font-bold">SANSŌ</span> richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie.
+            Wetenschappelijk bewezen voordelen van HBOT. Bij <span className="font-cormorant font-bold">SANSO</span> richten we ons op echte, meetbare resultaten van hyperbare zuurstoftherapie.
           </motion.p>
           <motion.div className="space-y-4" layout>
             {benefitCards.map((card, index) => (

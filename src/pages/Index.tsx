@@ -18,25 +18,25 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>SANSŌ Amsterdam - Advanced Hyperbaric Oxygen Therapy</title>
-        <meta name="description" content="Experience the power of pressurized oxygen therapy at SANSŌ Amsterdam. Advanced HBOT treatments for accelerated healing, recovery, and wellness." />
+        <title>SANSO Amsterdam - Advanced Hyperbaric Oxygen Therapy</title>
+        <meta name="description" content="Experience the power of pressurized oxygen therapy at SANSO Amsterdam. Advanced HBOT treatments for accelerated healing, recovery, and wellness." />
         <meta name="keywords" content="hyperbaric oxygen therapy, HBOT, Amsterdam, healing, recovery, wellness, oxygen therapy, pressurized oxygen" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://sanso.amsterdam/" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="SANSŌ Amsterdam - Advanced Hyperbaric Oxygen Therapy" />
-        <meta property="og:description" content="Experience the power of pressurized oxygen therapy at SANSŌ Amsterdam. Advanced HBOT treatments for accelerated healing, recovery, and wellness." />
+        <meta property="og:title" content="SANSO Amsterdam - Advanced Hyperbaric Oxygen Therapy" />
+        <meta property="og:description" content="Experience the power of pressurized oxygen therapy at SANSO Amsterdam. Advanced HBOT treatments for accelerated healing, recovery, and wellness." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sanso.amsterdam/" />
         <meta property="og:image" content="https://sanso.amsterdam/og-image.jpg" />
-        <meta property="og:site_name" content="SANSŌ Amsterdam" />
+        <meta property="og:site_name" content="SANSO Amsterdam" />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SANSŌ Amsterdam - Advanced Hyperbaric Oxygen Therapy" />
-        <meta name="twitter:description" content="Advanced hyperbaric oxygen therapy for accelerated healing and recovery. Experience the power of pressurized oxygen at SANSŌ Amsterdam." />
+        <meta name="twitter:title" content="SANSO Amsterdam - Advanced Hyperbaric Oxygen Therapy" />
+        <meta name="twitter:description" content="Advanced hyperbaric oxygen therapy for accelerated healing and recovery. Experience the power of pressurized oxygen at SANSO Amsterdam." />
         <meta name="twitter:image" content="https://sanso.amsterdam/og-image.jpg" />
         <link rel="canonical" href="https://sanso.amsterdam/" />
       </Helmet>

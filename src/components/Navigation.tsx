@@ -57,9 +57,9 @@ const Navigation = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center space-x-2"
           >
-            <Link to="/" className="flex items-center space-x-2 group" aria-label="SANSŌ Amsterdam - Home">
+            <Link to="/" className="flex items-center space-x-2 group" aria-label="SANSO Amsterdam - Home">
               <span className={`text-lg sm:text-xl font-seasons font-light drop-shadow-lg ${textColorClass}`}>
-                SANSŌ
+                SANSO
               </span>
             </Link>
           </motion.div>

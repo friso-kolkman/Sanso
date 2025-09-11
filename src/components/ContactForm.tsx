@@ -105,7 +105,7 @@ const ContactForm = () => {
       formDataToSend.append('email', formData.email);
       formDataToSend.append('phone', formData.phone);
       formDataToSend.append('message', formData.message);
-      formDataToSend.append('subject', 'New Contact Form Submission - SANSŌ Amsterdam');
+      formDataToSend.append('subject', 'New Contact Form Submission - SANSO Amsterdam');
       
       const response = await fetch('https://formspree.io/f/xovlypvv', {
         method: 'POST',

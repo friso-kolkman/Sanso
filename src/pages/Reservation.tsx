@@ -29,8 +29,8 @@ const Reservation = () => {
 
   return (
     <PageLayout
-      title="Reservation - SANSŌ Amsterdam"
-      description="Book your Hyperbaric Oxygen Therapy session at SANSŌ Amsterdam. Schedule your appointment online."
+      title="Reservation - SANSO Amsterdam"
+      description="Book your Hyperbaric Oxygen Therapy session at SANSO Amsterdam. Schedule your appointment online."
     >
       <div className="pt-28 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +40,7 @@ const Reservation = () => {
               Book Your Session
             </h1>
             <p className="text-lg text-espresso max-w-2xl mx-auto">
-              Schedule your Hyperbaric Oxygen Therapy session at SANSŌ Amsterdam. 
+              Schedule your Hyperbaric Oxygen Therapy session at SANSO Amsterdam. 
               Choose a time that works for you.
             </p>
           </div>
@@ -115,7 +115,7 @@ const Reservation = () => {
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-clay mt-1" />
                   <div>
-                    <p className="text-ink font-medium">SANSŌ Amsterdam</p>
+                    <p className="text-ink font-medium">SANSO Amsterdam</p>
                     <p className="text-espresso">Keizersgracht 123</p>
                     <p className="text-espresso">1015 CJ Amsterdam</p>
                   </div>

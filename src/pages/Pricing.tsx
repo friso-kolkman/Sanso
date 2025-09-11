@@ -11,8 +11,8 @@ const Pricing = () => {
 
   return (
     <PageLayout
-      title="Pricing - SANSŌ Amsterdam"
-      description="Transparent pricing for Hyperbaric Oxygen Therapy sessions at SANSŌ Amsterdam. Choose the package that fits your needs."
+      title="Pricing - SANSO Amsterdam"
+      description="Transparent pricing for Hyperbaric Oxygen Therapy sessions at SANSO Amsterdam. Choose the package that fits your needs."
     >
       <div className="pt-16 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

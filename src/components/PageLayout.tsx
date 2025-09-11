@@ -38,7 +38,7 @@ const PageLayout = ({
         <meta property="og:type" content="website" />
         {url && <meta property="og:url" content={url} />}
         <meta property="og:image" content={image} />
-        <meta property="og:site_name" content="SANSŌ Amsterdam" />
+        <meta property="og:site_name" content="SANSO Amsterdam" />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}

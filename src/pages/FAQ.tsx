@@ -13,8 +13,8 @@ const FAQ = () => {
 
   return (
     <PageLayout
-      title="FAQ - SANSŌ Amsterdam"
-      description="Frequently asked questions about Hyperbaric Oxygen Therapy at SANSŌ Amsterdam. Get answers to common questions about HBOT treatment."
+      title="FAQ - SANSO Amsterdam"
+      description="Frequently asked questions about Hyperbaric Oxygen Therapy at SANSO Amsterdam. Get answers to common questions about HBOT treatment."
     >
       <div className="pt-16 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +30,7 @@ const FAQ = () => {
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-espresso leading-relaxed">
-                Alles wat je moet weten over Hyperbare Zuurstoftherapie bij SANSŌ Amsterdam.
+                Alles wat je moet weten over Hyperbare Zuurstoftherapie bij SANSO Amsterdam.
               </p>
             </div>
           </motion.div>

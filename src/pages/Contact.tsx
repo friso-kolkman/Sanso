@@ -8,8 +8,8 @@ const Contact = () => {
 
   return (
     <PageLayout
-      title="Contact - SANSŌ Amsterdam"
-      description="Get in touch with SANSŌ Amsterdam for your Hyperbaric Oxygen Therapy consultation. Book your session today."
+      title="Contact - SANSO Amsterdam"
+      description="Get in touch with SANSO Amsterdam for your Hyperbaric Oxygen Therapy consultation. Book your session today."
     >
       <div className="pt-16 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

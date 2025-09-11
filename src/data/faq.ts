@@ -16,7 +16,7 @@ export const faqData: FAQData = {
       id: 'what-is-hbot',
       question: 'What is Hyperbaric Oxygen Therapy (HBOT)?',
       expanded: true,
-      answer: 'Hyperbaric Oxygen Therapy is a medical treatment that involves breathing pure oxygen in a pressurized chamber. This increases the amount of oxygen in your blood, which can help heal wounds, fight infections, and improve various health conditions. At SANSŌ Amsterdam, we use state-of-the-art equipment to provide this therapy.'
+      answer: 'Hyperbaric Oxygen Therapy is a medical treatment that involves breathing pure oxygen in a pressurized chamber. This increases the amount of oxygen in your blood, which can help heal wounds, fight infections, and improve various health conditions. At SANSO Amsterdam, we use state-of-the-art equipment to provide this therapy.'
     },
     {
       id: 'how-hbot-works',
@@ -90,7 +90,7 @@ export const faqData: FAQData = {
       id: 'what-is-hbot',
       question: 'Wat is Hyperbare Zuurstoftherapie (HBOT)?',
       expanded: true,
-      answer: 'Hyperbare Zuurstoftherapie is een medische behandeling waarbij je pure zuurstof inademt in een drukkamer. Dit verhoogt de hoeveelheid zuurstof in je bloed, wat kan helpen bij wondgenezing, het bestrijden van infecties en het verbeteren van verschillende gezondheidsaandoeningen. Bij SANSŌ Amsterdam gebruiken we state-of-the-art apparatuur om deze therapie te bieden.'
+      answer: 'Hyperbare Zuurstoftherapie is een medische behandeling waarbij je pure zuurstof inademt in een drukkamer. Dit verhoogt de hoeveelheid zuurstof in je bloed, wat kan helpen bij wondgenezing, het bestrijden van infecties en het verbeteren van verschillende gezondheidsaandoeningen. Bij SANSO Amsterdam gebruiken we state-of-the-art apparatuur om deze therapie te bieden.'
     },
     {
       id: 'how-hbot-works',
