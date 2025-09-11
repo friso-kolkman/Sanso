@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Heart, Clock, Shield, Leaf } from 'lucide-react';
+import { Brain, Heart, Clock, Shield, Leaf, Sparkles } from 'lucide-react';
 
 export interface BenefitCard {
   title: string;
@@ -38,5 +38,11 @@ export const benefitCards: BenefitCard[] = [
     description: "Langere gezondheidsspanne door geoptimaliseerde celwerking.",
     icon: <Leaf className="w-6 h-6" />,
     iconBg: "bg-forest/20 text-forest"
+  },
+  {
+    title: "Algemene Welzijnsboost",
+    description: "Meer energie in het dagelijks leven en ondersteuning van herstel na inspanning.",
+    icon: <Sparkles className="w-6 h-6" />,
+    iconBg: "bg-clay/20 text-clay"
   }
 ];
