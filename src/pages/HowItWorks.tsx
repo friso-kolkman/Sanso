@@ -14,8 +14,7 @@ import {
   Zap, 
   Users, 
   Target,
-  CheckCircle,
-  AlertCircle
+  CheckCircle
 } from 'lucide-react';
 
 const HowItWorks = () => {
@@ -31,8 +30,7 @@ const HowItWorks = () => {
 
       ctaTitle: "Ready to experience HBOT at SANSŌ?",
       ctaSubtitle: "Book a session or speak with our team about your goals.",
-      disclaimerTitle: "Important Disclaimer",
-      disclaimerText: "This page is informational and not a substitute for medical advice. Always confirm your personal plan, contraindications, and medication timing with your treating clinician.",
+
       bookSession: "Book a Session",
       contactTeam: "Contact Our Team",
       benefits: [
@@ -117,8 +115,7 @@ const HowItWorks = () => {
 
       ctaTitle: "Klaar om HBOT bij SANSŌ te ervaren?",
       ctaSubtitle: "Boek een sessie of spreek met ons team over je doelen.",
-      disclaimerTitle: "Belangrijke Disclaimer",
-      disclaimerText: "Deze pagina is informatief en geen vervanging voor medisch advies. Bevestig altijd je persoonlijke plan, contra-indicaties en medicatietiming met je behandelend arts.",
+
       bookSession: "Boek een Sessie",
       contactTeam: "Neem Contact Op",
       benefits: [
@@ -349,32 +346,16 @@ const HowItWorks = () => {
               {currentContent.ctaSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-clay text-cream hover:bg-clay/90 rounded-full px-8">
+              <Button asChild size="lg" className="bg-clay text-white visited:text-white hover:bg-clay/90 rounded-full px-8">
                 <Link to="/contact">{currentContent.bookSession}</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-clay text-clay bg-cream hover:bg-cream/90 rounded-full px-8">
+              <Button asChild size="lg" variant="outline" className="border-clay text-clay visited:text-clay bg-cream hover:bg-cream/90 rounded-full px-8">
                 <Link to="/contact">{currentContent.contactTeam}</Link>
               </Button>
             </div>
           </motion.div>
 
-          {/* Disclaimer */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="bg-stone rounded-xl p-6 border-l-4 border-amber"
-          >
-            <div className="flex items-start space-x-3">
-              <AlertCircle className="h-6 w-6 text-amber mt-1 flex-shrink-0" />
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">{currentContent.disclaimerTitle}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {currentContent.disclaimerText}
-                </p>
-              </div>
-            </div>
-          </motion.div>
+
         </div>
       </div>
     </div>
