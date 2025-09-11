@@ -22,13 +22,13 @@ const HowItWorks = () => {
 
   const content = {
     en: {
-      title: "How HBOT at SANSŌ Works (for Longevity)",
+      title: "How HBOT at SANSO Works (for Longevity)",
       intro: "Breathing near-pure oxygen in a pressurized chamber increases dissolved oxygen in your plasma. That extra oxygen may help your body repair, reduce inflammation, and perform better. Useful for energy, recovery, and healthy aging.",
       benefitsTitle: "Benefits you can feel",
       sessionTitle: "What actually happens in a session",
       programsTitle: "Programs for longevity goals",
 
-      ctaTitle: "Ready to experience HBOT at SANSŌ?",
+      ctaTitle: "Ready to experience HBOT at SANSO?",
       ctaSubtitle: "Book a session or speak with our team about your goals.",
 
       bookSession: "Book a Session",
@@ -107,13 +107,13 @@ const HowItWorks = () => {
 
     },
     nl: {
-      title: "Hoe HBOT bij SANSŌ Werkt",
+      title: "Hoe HBOT bij SANSO Werkt",
       intro: "Het inademen van bijna-pure zuurstof in een drukkamer verhoogt de opgeloste zuurstof in je plasma. Die extra zuurstof kan je lichaam helpen herstellen, ontstekingen verminderen en beter presteren. Nuttig voor energie, herstel en gezond ouder worden.",
       benefitsTitle: "Voordelen die je kunt voelen",
       sessionTitle: "Wat er daadwerkelijk gebeurt tijdens een sessie",
       programsTitle: "Programma's voor levensduurdoelen",
 
-      ctaTitle: "Klaar om HBOT bij SANSŌ te ervaren?",
+      ctaTitle: "Klaar om HBOT bij SANSO te ervaren?",
       ctaSubtitle: "Boek een sessie of spreek met ons team over je doelen.",
 
       bookSession: "Boek een Sessie",
