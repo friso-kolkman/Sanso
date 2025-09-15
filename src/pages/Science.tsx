@@ -681,37 +681,6 @@ const Science = () => {
             ))}
           </motion.div>
 
-          {/* Overkoepelende Observaties at the top */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-5xl mx-auto mb-16"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              {labels.cross}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {researchTakeawaysNL.map((item, idx) => {
-                const [title, detail] = item.split(' – ');
-                const Icon = [Zap, Shield, FileText, Heart][idx] || FileText;
-                return (
-                  <div key={idx} className="relative rounded-xl bg-stone border border-olive/30 shadow-soft p-5">
-                    <div className="absolute inset-y-0 left-0 w-1 bg-forest rounded-l-xl" aria-hidden="true" />
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-full bg-forest/10 text-forest">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-ink mb-1">{title}</h3>
-                        <p className="text-espresso leading-relaxed">{detail || title}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div>
 
                     {/* Research tables in sequence - REMOVED */}
           {/* {researchDigest.map((category, idx) => (
