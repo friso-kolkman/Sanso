@@ -347,7 +347,7 @@ const HowItWorks = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-clay text-white visited:text-white hover:bg-clay/90 rounded-full px-8">
-                <Link to="/contact">{currentContent.bookSession}</Link>
+                <Link to="/reservation">{currentContent.bookSession}</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-clay text-clay visited:text-clay bg-cream hover:bg-cream/90 rounded-full px-8">
                 <Link to="/contact">{currentContent.contactTeam}</Link>
