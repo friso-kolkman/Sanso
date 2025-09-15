@@ -34,14 +34,14 @@ export const createPricingOptions = (t: (key: string) => string): PricingOption[
   },
   {
     icon: Star,
-    title: t('pricing.card.package30.title'),
-    price: '€1,700',
-    description: t('pricing.card.package30.desc')
+    title: t('pricing.card.package40.title'),
+    price: '€2,000',
+    description: t('pricing.card.package40.desc')
   },
   {
     icon: Award,
-    title: t('pricing.card.package50.title'),
-    price: '€2,500',
-    description: t('pricing.card.package50.desc')
+    title: t('pricing.card.package60.title'),
+    price: '€3,000',
+    description: t('pricing.card.package60.desc')
   }
 ];
