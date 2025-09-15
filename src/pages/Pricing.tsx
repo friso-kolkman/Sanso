@@ -34,9 +34,7 @@ const Pricing = () => {
             {pricingOptions.map((option, index) => (
               <Card 
                 key={index} 
-                className={`h-full flex flex-col bg-stone shadow-soft border border-olive/30 hover:shadow-lg transition-all duration-300 ${
-                  index === 1 ? 'ring-2 ring-clay scale-105' : ''
-                }`}
+                className="h-full flex flex-col bg-stone shadow-soft border border-olive/30 hover:shadow-lg transition-all duration-300"
               >
                 <CardHeader className="text-center pb-4">
                   <div className="w-16 h-16 bg-clay/20 text-clay rounded-full flex items-center justify-center mx-auto mb-4">
@@ -53,15 +51,11 @@ const Pricing = () => {
                   <CardDescription className="text-espresso mb-6">
                     {option.description}
                   </CardDescription>
-                  <Link to="/reservation"><Button 
-                    className={`mt-auto w-full ${
-                      index === 1 
-                        ? 'bg-clay hover:bg-forest text-cream' 
-                        : 'bg-stone border border-clay text-clay hover:bg-clay hover:text-cream'
-                    }`}
-                  >
-                    {t('pricing.cta')}
-                  </Button></Link>
+                  <Link to="/reservation">
+                    <Button className="mt-auto w-full bg-stone border border-clay text-clay hover:bg-clay hover:text-cream">
+                      {t('pricing.cta')}
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
