@@ -1,4 +1,4 @@
-import { Euro, Package, ShieldCheck } from 'lucide-react';
+import { Euro, Package, ShieldCheck, Crown, Star, Award } from 'lucide-react';
 
 export interface PricingOption {
   icon: React.ComponentType<{ className?: string }>;
@@ -25,5 +25,23 @@ export const createPricingOptions = (t: (key: string) => string): PricingOption[
     title: t('pricing.card.package10.title'),
     price: '€650',
     description: t('pricing.card.package10.desc')
+  },
+  {
+    icon: Crown,
+    title: t('pricing.card.package20.title'),
+    price: '€1,200',
+    description: t('pricing.card.package20.desc')
+  },
+  {
+    icon: Star,
+    title: t('pricing.card.package30.title'),
+    price: '€1,700',
+    description: t('pricing.card.package30.desc')
+  },
+  {
+    icon: Award,
+    title: t('pricing.card.package50.title'),
+    price: '€2,500',
+    description: t('pricing.card.package50.desc')
   }
 ];
