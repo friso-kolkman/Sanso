@@ -1,6 +1,7 @@
 import PageLayout from '@/components/PageLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { createPricingOptions } from '@/data/pricing';
 import { Check } from 'lucide-react';
@@ -52,7 +53,7 @@ const Pricing = () => {
                   <CardDescription className="text-espresso mb-6">
                     {option.description}
                   </CardDescription>
-                  <Button 
+                  <Link to="/reservation"><Button 
                     className={`mt-auto w-full ${
                       index === 1 
                         ? 'bg-clay hover:bg-forest text-cream' 
@@ -60,7 +61,7 @@ const Pricing = () => {
                     }`}
                   >
                     {t('pricing.cta')}
-                  </Button>
+                  </Button></Link>
                 </CardContent>
               </Card>
             ))}
