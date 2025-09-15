@@ -66,36 +66,6 @@ const Pricing = () => {
             ))}
           </div>
 
-          {/* Additional Info */}
-          <div className="bg-stone rounded-2xl p-8 shadow-soft border border-olive/30">
-            <h3 className="text-2xl font-serif text-ink mb-6 text-center">
-              {t('pricing.info.title')}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex items-start space-x-3">
-                <Check className="w-6 h-6 text-clay mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-ink mb-2">
-                    {t('pricing.info.included.title')}
-                  </h4>
-                  <p className="text-espresso">
-                    {t('pricing.info.included.desc')}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Check className="w-6 h-6 text-clay mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-ink mb-2">
-                    {t('pricing.info.flexible.title')}
-                  </h4>
-                  <p className="text-espresso">
-                    {t('pricing.info.flexible.desc')}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </PageLayout>
