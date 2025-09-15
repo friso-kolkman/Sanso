@@ -111,7 +111,7 @@ const HowItWorks = () => {
       intro: "Het inademen van bijna-pure zuurstof in een drukkamer verhoogt de opgeloste zuurstof in je plasma. Die extra zuurstof kan je lichaam helpen herstellen, ontstekingen verminderen en beter presteren. Nuttig voor energie, herstel en gezond ouder worden.",
       benefitsTitle: "Voordelen die je kunt voelen",
       sessionTitle: "Wat er daadwerkelijk gebeurt tijdens een sessie",
-      programsTitle: "Programma's voor levensduurdoelen",
+      programsTitle: "Gestandaardiseerde programma's",
 
       ctaTitle: "Klaar om HBOT bij SANSO te ervaren?",
       ctaSubtitle: "Boek een sessie of spreek met ons team over je doelen.",
