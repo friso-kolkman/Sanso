@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const usePageData = <T>(
-  data: Record<string, T>,
-  fallbackKey: string = 'en'
+  data: { en: T; nl: T },
+  fallbackKey: 'en' | 'nl' = 'en'
 ): T => {
   const { language } = useLanguage();
   

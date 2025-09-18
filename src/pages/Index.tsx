@@ -53,10 +53,10 @@ const Index = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12 sm:mb-16">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-ink mb-3 sm:mb-4">
-                  Ontdek de voordelen van HBOT
+                  {t('home.benefits.title')}
                 </h2>
                 <p className="text-base sm:text-lg text-espresso max-w-3xl mx-auto leading-relaxed">
-                  Hyperbare Zuurstoftherapie kan je lichaam helpen sneller te herstellen en optimaal te functioneren.
+                  {t('home.benefits.subtitle')}
                 </p>
               </div>
 
@@ -90,20 +90,20 @@ const Index = () => {
           <section className="py-12 sm:py-16 bg-stone">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-ink mb-4 sm:mb-6">
-                Klaar om te beginnen?
+                {t('home.cta.title')}
               </h2>
               <p className="text-base sm:text-lg text-espresso mb-8 sm:mb-10 max-w-2xl mx-auto">
-                Boek vandaag nog je eerste HBOT-sessie en ervaar de voordelen van geavanceerde zuurstoftherapie.
+                {t('home.cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/reservation">
                   <button className="bg-clay text-cream hover:bg-forest px-8 py-4 rounded-xl font-semibold text-base sm:text-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 min-h-[48px] w-full sm:w-auto">
-                    Boek een sessie
+                    {t('home.cta.book')}
                   </button>
                 </Link>
                 <Link to="/pricing">
                   <button className="border-2 border-clay text-clay hover:bg-clay hover:text-cream px-8 py-4 rounded-xl font-semibold text-base sm:text-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 min-h-[48px] w-full sm:w-auto">
-                    Bekijk prijzen
+                    {t('home.cta.viewPricing')}
                   </button>
                 </Link>
               </div>

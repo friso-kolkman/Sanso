@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 import { Play, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showPlayButton, setShowPlayButton] = useState(false);
   const isMobile = useIsMobile();
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Only set up video event listeners on desktop
@@ -102,14 +104,14 @@ const Hero = () => {
         <div className="max-w-2xl">
           {/* Tagline */}
           <p className="text-white text-sm sm:text-base font-light tracking-wide mb-4 sm:mb-6">
-            Discover the benefits of pure oxygen therapy
+            {t('hero.tagline')}
           </p>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif leading-tight sm:leading-none mb-6 sm:mb-8">
-            <span className="text-white">Breath deeper,</span>
+            <span className="text-white">{t('hero.headline.line1')}</span>
             <br />
-            <span className="text-white">feel better</span>
+            <span className="text-white">{t('hero.headline.line2')}</span>
           </h1>
 
           {/* CTA Buttons */}
@@ -118,10 +120,10 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 className="bg-cream hover:bg-cream/90 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
-                aria-label="Book your hyperbaric oxygen therapy session"
+                aria-label={t('hero.cta')}
               >
                 <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-black" aria-hidden="true" />
-                <span className="text-black">Book Your Session</span>
+                <span className="text-black">{t('hero.cta')}</span>
               </Button>
             </Link>
             <Link to="/how-it-works">
@@ -129,9 +131,9 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white hover:text-clay text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
-                aria-label="Learn more about how HBOT works"
+                aria-label={t('hero.learnMore')}
               >
-                Learn More
+                {t('hero.learnMore')}
               </Button>
             </Link>
           </div>

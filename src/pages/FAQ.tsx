@@ -9,7 +9,7 @@ import { faqData, type FAQItem } from '@/data/faq';
 
 const FAQ = () => {
   const { t } = useLanguage();
-  const currentFAQItems = usePageData(faqData);
+  const currentFAQItems = usePageData<FAQItem[]>(faqData);
 
   return (
     <PageLayout
@@ -26,11 +26,11 @@ const FAQ = () => {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-5xl font-serif text-ink mb-6">
-              Veelgestelde Vragen
+              {t('faq.title')}
             </h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-lg text-espresso leading-relaxed">
-                Alles wat je moet weten over Hyperbare Zuurstoftherapie bij SANSO Amsterdam.
+                {t('faq.subtitle')}
               </p>
             </div>
           </motion.div>
@@ -43,7 +43,7 @@ const FAQ = () => {
             className="space-y-4"
           >
             <Accordion type="single" collapsible className="w-full">
-              {currentFAQItems.map((item: FAQItem, index: number) => (
+              {currentFAQItems?.map((item: FAQItem, index: number) => (
                 <AccordionItem 
                   key={item.id} 
                   value={item.id}
@@ -73,23 +73,23 @@ const FAQ = () => {
           >
             <div className="bg-stone rounded-2xl p-8 shadow-soft border border-olive/30">
               <h3 className="text-2xl font-serif text-ink mb-4">
-                Nog vragen?
+                {t('faq.cta.questions')}
               </h3>
               <p className="text-espresso mb-6 max-w-2xl mx-auto">
-                Ons team staat klaar om al je vragen te beantwoorden en je te helpen bij het plannen van je HBOT-sessie.
+                {t('faq.cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/contact"
                   className="inline-flex items-center justify-center px-6 py-3 bg-clay text-white visited:text-white rounded-lg font-semibold hover:bg-forest transition-colors duration-300"
                 >
-                  Neem contact op
+                  {t('faq.cta.contact')}
                 </a>
                 <a
                   href="/reservation"
                   className="inline-flex items-center justify-center px-6 py-3 border border-clay text-clay rounded-lg font-semibold hover:bg-clay hover:text-cream transition-colors duration-300"
                 >
-                  Boek een sessie
+                  {t('faq.cta.book')}
                 </a>
               </div>
             </div>
