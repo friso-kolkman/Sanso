@@ -66,6 +66,8 @@ const Hero = () => {
           loop
           playsInline
           aria-label="Background video showing hyperbaric oxygen therapy"
+          poster="/assets/faq/hero.jpg"
+          preload="metadata"
         >
           <source src="/can_we_create_a_close_up_of_a.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -74,13 +76,12 @@ const Hero = () => {
 
       {/* Image Fallback for Mobile */}
       {isMobile && (
-        <div className="absolute inset-0 w-full h-full">
-          <img
-            src="/hbot-chamber.jpg"
-            alt="HBOT Chamber - Hyperbaric oxygen therapy treatment room"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div
+          className="absolute inset-0 w-full h-full bg-center bg-cover"
+          style={{ backgroundImage: 'url(/assets/faq/hero.jpg)' }}
+          role="img"
+          aria-label="HBOT Chamber - Hyperbaric oxygen therapy treatment room"
+        />
       )}
 
       {/* Play Button Overlay - Only show on desktop when needed */}
