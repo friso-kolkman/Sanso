@@ -3,7 +3,7 @@ import PageLayout from '@/components/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Clock, MapPin, Phone, Mail, Star, CheckCircle } from 'lucide-react';
+import { Calendar, Clock, CheckCircle } from 'lucide-react';
 
 const Reservation = () => {
   useEffect(() => {
@@ -100,33 +100,6 @@ const Reservation = () => {
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-clay" />
                   <span className="text-espresso">Comfortable environment</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-stone shadow-soft border border-olive/30">
-              <CardHeader>
-                <CardTitle className="text-xl font-serif text-ink flex items-center">
-                  <MapPin className="w-5 h-5 mr-2 text-clay" />
-                  Location
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-clay mt-1" />
-                  <div>
-                    <p className="text-ink font-medium">SANSO Amsterdam</p>
-                    <p className="text-espresso">Keizersgracht 123</p>
-                    <p className="text-espresso">1015 CJ Amsterdam</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-clay" />
-                  <span className="text-espresso">+31 20 123 4567</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-clay" />
-                  <span className="text-espresso">info@sanso.amsterdam</span>
                 </div>
               </CardContent>
             </Card>
