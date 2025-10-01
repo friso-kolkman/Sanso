@@ -24,7 +24,7 @@ const translations = {
     'nav.faq': 'FAQ',
     
     // Hero
-    'hero.tagline': 'Ontdek de voordelen van pure zuurstoftherapie',
+    'hero.tagline': 'Ontdek de voordelen van hyperbare zuurstoftherapie',
     'hero.headline.line1': 'Adem dieper,',
     'hero.headline.line2': 'voel je beter',
     'hero.learnMore': 'Meer weten',
@@ -113,7 +113,7 @@ const translations = {
     'nav.faq': 'FAQ',
     
     // Hero
-    'hero.tagline': 'Discover the benefits of pure oxygen therapy',
+    'hero.tagline': 'Discover the benefits of hyperbaric oxygen therapy',
     'hero.headline.line1': 'Breathe deeper,',
     'hero.headline.line2': 'feel better',
     'hero.learnMore': 'Learn More',
