@@ -49,7 +49,7 @@ const FAQ = () => {
                   value={item.id}
                   className="border border-olive/30 rounded-lg mb-4 bg-stone shadow-soft"
                 >
-                  <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                  <AccordionTrigger className="px-6 py-4 text-left hover:no-underline focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0">
                     <span className="text-lg font-medium text-ink pr-4">
                       {item.question}
                     </span>
