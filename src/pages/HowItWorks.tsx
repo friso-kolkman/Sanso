@@ -22,7 +22,7 @@ const HowItWorks = () => {
 
   const content = {
     en: {
-      title: "How HBOT at SANSO Works (for Longevity)",
+      title: "How HBOT at SANSO Works",
       intro: "Breathing near-pure oxygen in a pressurized chamber increases dissolved oxygen in your plasma. That extra oxygen may help your body repair, reduce inflammation, and perform better. Useful for energy, recovery, and healthy aging.",
       benefitsTitle: "Benefits you can feel",
       sessionTitle: "What actually happens in a session",
