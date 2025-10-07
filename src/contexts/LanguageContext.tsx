@@ -87,7 +87,7 @@ const translations = {
     'contact.replyWithin': 'We reageren binnen 24 uur',
     'contact.privacyNote': 'Geen spam. We gebruiken je gegevens alleen om je te informeren over SANSO.',
     'contact.bullets.priority': 'Voorrang bij opening',
-    'contact.bullets.intake': 'Intake per e‑mail',
+    'contact.bullets.intake': 'Intake uitnodiging',
     'contact.bullets.updates': 'Updates datum & locatie',
     'contact.sending': 'Je bericht wordt verzonden...',
     
