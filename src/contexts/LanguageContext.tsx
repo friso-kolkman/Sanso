@@ -70,11 +70,12 @@ const translations = {
     'pricing.cta': 'Boek een Sessie',
     
     // Contact
-    'contact.title': 'Neem Contact Op',
-    'contact.subtitle': 'Klaar om te beginnen met HBOT? Neem contact op voor een gratis consultatie.',
+    'contact.title': 'Schrijf je in voor de wachtlijst',
+    'contact.subtitle': 'We openen binnenkort in Amsterdam. Laat je e‑mail achter en ontvang als eerste toegang, updates en eventuele early‑bird voordelen.',
     'contact.email': 'E-mail',
     'contact.phone': 'Telefoonnummer',
     'contact.message': 'Bericht',
+    'contact.messagePlaceholder': 'Vertel kort je doel (bijv. herstel, energie, slaap)',
     'contact.submit': 'Verzenden',
     'contact.success': 'Bedankt, we nemen binnen 24 uur contact op!',
     'contact.error': 'Formulier versturen mislukt. Probeer opnieuw.',
@@ -83,6 +84,12 @@ const translations = {
     'contact.phoneInvalid': 'Ongeldig telefoonnummer',
     'contact.messageRequired': 'Bericht is verplicht',
     'contact.messageTooShort': 'Bericht is te kort',
+    'contact.replyWithin': 'We reageren binnen 24 uur',
+    'contact.privacyNote': 'Geen spam. We gebruiken je gegevens alleen om je te informeren over SANSO.',
+    'contact.bullets.priority': 'Voorrang bij opening',
+    'contact.bullets.intake': 'Persoonlijke intake per e‑mail',
+    'contact.bullets.updates': 'Updates over datum en locatie',
+    'contact.sending': 'Je bericht wordt verzonden...',
     
     // Science page
     'science.title': 'De Wetenschap Achter HBOT',
@@ -163,11 +170,12 @@ const translations = {
     'pricing.cta': 'Book Your Session',
     
     // Contact
-    'contact.title': 'Contact Us',
-    'contact.subtitle': 'Ready to start your HBOT journey? Get in touch for a free consultation.',
+    'contact.title': 'Join the waitlist',
+    'contact.subtitle': 'We’re opening soon in Amsterdam. Leave your email to get first access, updates, and early‑bird perks.',
     'contact.email': 'Email',
     'contact.phone': 'Phone Number',
     'contact.message': 'Message',
+    'contact.messagePlaceholder': 'Briefly share your goal (e.g., recovery, energy, sleep)',
     'contact.submit': 'Submit',
     'contact.success': 'Thanks, we\'ll reach out within 24 hours!',
     'contact.error': 'Failed to submit form. Please try again.',
@@ -176,6 +184,12 @@ const translations = {
     'contact.phoneInvalid': 'Invalid phone number',
     'contact.messageRequired': 'Message is required',
     'contact.messageTooShort': 'Message is too short',
+    'contact.replyWithin': 'We reply within 24 hours',
+    'contact.privacyNote': 'No spam. We only use your data to update you about SANSO.',
+    'contact.bullets.priority': 'Priority access at launch',
+    'contact.bullets.intake': 'Personal intake via email',
+    'contact.bullets.updates': 'Updates on opening date and location',
+    'contact.sending': 'Sending your message...',
     
     // Science page
     'science.title': 'The Science Behind HBOT',

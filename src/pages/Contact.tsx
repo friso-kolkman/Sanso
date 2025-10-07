@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <PageLayout
       title="Contact - SANSO Amsterdam"
-      description="Get in touch with SANSO Amsterdam for your Hyperbaric Oxygen Therapy consultation. Book your session today."
+      description={t('contact.subtitle')}
     >
       <div className="pt-16 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,6 +26,14 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
+          <div className="max-w-2xl mx-auto mb-6">
+            {/* Bullets */}
+            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 text-sm text-espresso">
+              <li className="bg-stone rounded-lg px-4 py-3 border border-olive/30 text-center">{t('contact.bullets.priority')}</li>
+              <li className="bg-stone rounded-lg px-4 py-3 border border-olive/30 text-center">{t('contact.bullets.intake')}</li>
+              <li className="bg-stone rounded-lg px-4 py-3 border border-olive/30 text-center">{t('contact.bullets.updates')}</li>
+            </ul>
+          </div>
           <div className="max-w-2xl mx-auto mb-16">
             <Card className="shadow-soft bg-stone border border-olive/30">
               <CardContent className="p-6">

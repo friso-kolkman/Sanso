@@ -198,7 +198,7 @@ const ContactForm = () => {
               value={formData.message}
               onChange={(e) => handleInputChange('message', e.target.value)}
               className={`mt-1 form-input ${errors.message ? 'border-danger' : ''}`}
-              placeholder={t('contact.message')}
+              placeholder={t('contact.messagePlaceholder') || t('contact.message')}
               rows={4}
               required
               aria-describedby={errors.message ? 'message-error' : undefined}
@@ -220,11 +220,14 @@ const ContactForm = () => {
             {isSubmitting ? 'Verzenden...' : t('contact.submit')}
           </Button>
           
-          {isSubmitting && (
-            <p id="submit-status" className="text-center text-sm text-espresso" aria-live="polite">
-              Sending your message...
-            </p>
-          )}
+          <div className="text-center text-sm text-espresso mt-2" aria-live="polite">
+            {isSubmitting ? (t('contact.sending') || 'Sending your message...') : (
+              <>
+                <span className="block">{t('contact.replyWithin')}</span>
+                <span className="block opacity-80">{t('contact.privacyNote')}</span>
+              </>
+            )}
+          </div>
         </form>
       </CardContent>
     </Card>
