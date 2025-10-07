@@ -275,7 +275,7 @@ const HowItWorks = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
                   className="relative"
                 >
-                  <div className="bg-cream rounded-xl p-6 shadow-lg border-l-4 border-clay h-full flex flex-col">
+                  <div className="bg-cream rounded-xl p-6 shadow-lg border-l-4 border-forest h-full flex flex-col">
                     <div className="flex items-start space-x-4">
                       <div className="bg-clay text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                         {step.step}
