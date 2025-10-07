@@ -135,7 +135,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="max-w-md mx-auto shadow-soft bg-stone border border-olive/30">
+    <Card id="form" className="max-w-md mx-auto shadow-soft bg-stone border border-olive/30">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl font-serif text-ink">
           {t('contact.title')}

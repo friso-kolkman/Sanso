@@ -96,14 +96,14 @@ const Index = () => {
                 {t('home.cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/reservation">
+                <Link to="/contact#form">
                   <button className="bg-clay text-cream hover:bg-forest px-8 py-4 rounded-xl font-semibold text-base sm:text-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2 min-h-[48px] w-full sm:w-auto">
-                    {t('home.cta.book')}
+                    {t('home.cta.joinWaitlist') || 'Join the waitlist'}
                   </button>
                 </Link>
-                <Link to="/pricing">
+                <Link to="/contact#form">
                   <button className="border-2 border-clay text-clay hover:bg-clay hover:text-cream px-8 py-4 rounded-xl font-semibold text-base sm:text-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-clay focus:ring-offset-2 min-h-[48px] w-full sm:w-auto">
-                    {t('home.cta.viewPricing')}
+                    {t('home.cta.contact') || 'Contact us'}
                   </button>
                 </Link>
               </div>

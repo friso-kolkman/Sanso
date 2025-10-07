@@ -80,16 +80,16 @@ const FAQ = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="/contact"
+                  href="/contact#form"
                   className="inline-flex items-center justify-center px-6 py-3 bg-clay text-white visited:text-white rounded-lg font-semibold hover:bg-forest transition-colors duration-300"
                 >
                   {t('faq.cta.contact')}
                 </a>
                 <a
-                  href="/reservation"
+                  href="/contact#form"
                   className="inline-flex items-center justify-center px-6 py-3 border border-clay text-clay rounded-lg font-semibold hover:bg-clay hover:text-cream transition-colors duration-300"
                 >
-                  {t('faq.cta.book')}
+                  {t('faq.cta.joinWaitlist') || 'Join the waitlist'}
                 </a>
               </div>
             </div>

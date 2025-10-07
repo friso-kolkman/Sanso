@@ -81,7 +81,7 @@ const Hero = () => {
           style={{ backgroundImage: 'url(/assets/faq/hero.jpg)' }}
           role="img"
           aria-label="HBOT Chamber - Hyperbaric oxygen therapy treatment room"
-        />
+          />
       )}
 
       {/* Play Button Overlay - Only show on desktop when needed */}
@@ -128,14 +128,14 @@ const Hero = () => {
               </Button>
             </Link>
             <Link to="/how-it-works">
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-clay text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-clay text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] w-full sm:w-auto"
                 aria-label={t('hero.learnMore')}
-              >
+            >
                 {t('hero.learnMore')}
-              </Button>
+            </Button>
             </Link>
           </div>
         </div>

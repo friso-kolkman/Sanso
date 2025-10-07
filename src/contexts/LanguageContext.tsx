@@ -18,6 +18,7 @@ const translations = {
     'nav.pricing': 'Prijzen',
     'nav.contact': 'Contact',
     'nav.bookSession': 'Boek een Sessie',
+    'nav.joinWaitlist': 'Schrijf je in',
     'nav.about': 'Over',
     'nav.reservation': 'Reserveren',
     'nav.howItWorks': 'Hoe het Werkt',
@@ -39,6 +40,7 @@ const translations = {
     'faq.cta.subtitle': 'Ons team staat klaar om al je vragen te beantwoorden en je te helpen bij het plannen van je HBOT-sessie.',
     'faq.cta.contact': 'Neem contact op',
     'faq.cta.book': 'Boek een sessie',
+    'faq.cta.joinWaitlist': 'Schrijf je in',
 
     // Home Page
     'home.benefits.title': 'Ontdek de voordelen van HBOT',
@@ -47,6 +49,8 @@ const translations = {
     'home.cta.subtitle': 'Boek vandaag nog je eerste HBOT-sessie en ervaar de voordelen van geavanceerde zuurstoftherapie.',
     'home.cta.book': 'Boek een sessie',
     'home.cta.viewPricing': 'Bekijk prijzen',
+    'home.cta.joinWaitlist': 'Schrijf je in',
+    'home.cta.contact': 'Neem contact op',
 
     // Pricing page
     'pricing.title': 'Prijzen',
@@ -64,7 +68,7 @@ const translations = {
     'pricing.card.package60.title': '60-Sessies Pakket',
     'pricing.card.package60.desc': 'Zestig sessies voor complete transformatie. Bespaar €1,800!',
     'pricing.cta': 'Boek een Sessie',
-
+    
     // Contact
     'contact.title': 'Neem Contact Op',
     'contact.subtitle': 'Klaar om te beginnen met HBOT? Neem contact op voor een gratis consultatie.',
@@ -79,7 +83,7 @@ const translations = {
     'contact.phoneInvalid': 'Ongeldig telefoonnummer',
     'contact.messageRequired': 'Bericht is verplicht',
     'contact.messageTooShort': 'Bericht is te kort',
-
+    
     // Science page
     'science.title': 'De Wetenschap Achter HBOT',
     'science.intro': 'Hyperbare Zuurstoftherapie gebruikt 2 ATA druk om zuurstofbeschikbaarheid drastisch te verhogen. Onder deze omstandigheden lost zuurstof direct op in bloedplasma in concentraties <strong>10 keer hoger</strong> dan normale atmosferische druk.',
@@ -107,6 +111,7 @@ const translations = {
     'nav.pricing': 'Pricing',
     'nav.contact': 'Contact',
     'nav.bookSession': 'Book a Session',
+    'nav.joinWaitlist': 'Join the Waitlist',
     'nav.about': 'About',
     'nav.reservation': 'Reservation',
     'nav.howItWorks': 'How it Works',
@@ -128,6 +133,7 @@ const translations = {
     'faq.cta.subtitle': 'Our team is here to answer your questions and help you plan your HBOT session.',
     'faq.cta.contact': 'Contact us',
     'faq.cta.book': 'Book a session',
+    'faq.cta.joinWaitlist': 'Join the waitlist',
 
     // Home Page
     'home.benefits.title': 'Discover the benefits of HBOT',
@@ -136,6 +142,8 @@ const translations = {
     'home.cta.subtitle': 'Book your first HBOT session today and experience the benefits of advanced oxygen therapy.',
     'home.cta.book': 'Book a session',
     'home.cta.viewPricing': 'View pricing',
+    'home.cta.joinWaitlist': 'Join the waitlist',
+    'home.cta.contact': 'Contact us',
 
     // Pricing page
     'pricing.title': 'Pricing',
@@ -153,7 +161,7 @@ const translations = {
     'pricing.card.package60.title': '60-Session Package',
     'pricing.card.package60.desc': 'Sixty sessions for complete transformation. Save €1,800!',
     'pricing.cta': 'Book Your Session',
-
+    
     // Contact
     'contact.title': 'Contact Us',
     'contact.subtitle': 'Ready to start your HBOT journey? Get in touch for a free consultation.',
@@ -168,7 +176,7 @@ const translations = {
     'contact.phoneInvalid': 'Invalid phone number',
     'contact.messageRequired': 'Message is required',
     'contact.messageTooShort': 'Message is too short',
-
+    
     // Science page
     'science.title': 'The Science Behind HBOT',
     'science.intro': 'Hyperbaric Oxygen Therapy utilizes 2 ATA pressure to dramatically increase oxygen bioavailability. Under these conditions, oxygen dissolves directly into blood plasma at concentrations <strong>10 times higher</strong> than normal atmospheric pressure.',

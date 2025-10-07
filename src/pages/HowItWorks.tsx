@@ -28,10 +28,10 @@ const HowItWorks = () => {
       sessionTitle: "What actually happens in a session",
       programsTitle: "Programs for longevity goals",
 
-      ctaTitle: "Ready to experience HBOT at SANSO?",
-      ctaSubtitle: "Book a session or speak with our team about your goals.",
+      ctaTitle: "Want early access when we launch?",
+      ctaSubtitle: "Join the waitlist or speak with our team about your goals.",
 
-      bookSession: "Book a Session",
+      bookSession: "Join the Waitlist",
       contactTeam: "Contact Our Team",
       benefits: [
         {
@@ -113,10 +113,10 @@ const HowItWorks = () => {
       sessionTitle: "Wat er daadwerkelijk gebeurt tijdens een sessie",
       programsTitle: "Gestandaardiseerde programma's",
 
-      ctaTitle: "Klaar om HBOT bij SANSO te ervaren?",
-      ctaSubtitle: "Boek een sessie of spreek met ons team over je doelen.",
+      ctaTitle: "Als eerste starten zodra we live gaan?",
+      ctaSubtitle: "Schrijf je in voor de wachtlijst of neem contact op met ons team.",
 
-      bookSession: "Boek een Sessie",
+      bookSession: "Schrijf je in",
       contactTeam: "Neem Contact Op",
       benefits: [
         {
@@ -347,10 +347,10 @@ const HowItWorks = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-clay text-white visited:text-white hover:bg-clay/90 rounded-full px-8">
-                <Link to="/reservation">{currentContent.bookSession}</Link>
+                <Link to="/contact#form">{currentContent.bookSession}</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-clay text-clay visited:text-clay bg-cream hover:bg-cream/90 rounded-full px-8">
-                <Link to="/contact">{currentContent.contactTeam}</Link>
+                <Link to="/contact#form">{currentContent.contactTeam}</Link>
               </Button>
             </div>
           </motion.div>

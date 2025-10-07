@@ -12,9 +12,7 @@ const Navigation = () => {
   const { t } = useLanguage();
 
   const navItems = [
-    { name: t('nav.reservation'), path: '/reservation' },
     { name: t('nav.science'), path: '/science' },
-    { name: t('nav.pricing'), path: '/pricing' },
     { name: t('nav.howItWorks'), path: '/how-it-works' },
     { name: t('nav.faq'), path: '/faq' },
     { name: t('nav.contact'), path: '/contact' },
@@ -115,8 +113,8 @@ const Navigation = () => {
               transition={{ delay: 0.5 }}
             >
               <Button asChild className="bg-white hover:bg-white/90 shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2">
-                <Link to="/reservation" aria-label="Book a session">
-                  <span className="!text-black" style={{color: 'black'}}>{t('nav.bookSession')}</span>
+                <Link to="/contact#form" aria-label="Join the waitlist">
+                  <span className="!text-black" style={{color: 'black'}}>{t('nav.joinWaitlist') || 'Join the Waitlist'}</span>
                 </Link>
               </Button>
             </motion.div>
@@ -184,12 +182,12 @@ const Navigation = () => {
                   <LanguageSwitcher textColor="white" />
                 </div>
                 
-                {/* Book Session Button */}
+                {/* Primary CTA Button (waitlist) */}
                 <div className="px-4 py-3">
                   <Button asChild className="w-full bg-white hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[48px] text-base font-semibold">
-                    <Link to="/reservation" onClick={closeMenu} aria-label="Book a session">
+                    <Link to="/contact#form" onClick={closeMenu} aria-label="Join the waitlist">
                       <Calendar className="mr-2 h-5 w-5" aria-hidden="true" />
-                      <span className="text-black">{t('nav.bookSession')}</span>
+                      <span className="text-black">{t('nav.joinWaitlist') || 'Join the Waitlist'}</span>
                     </Link>
                   </Button>
                 </div>
