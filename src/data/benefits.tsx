@@ -38,13 +38,13 @@ export const benefitCardsByLanguage: { nl: BenefitCard[]; en: BenefitCard[] } = 
       title: "Levensduur Verlenging",
       description: "Langere gezondheidsspanne door geoptimaliseerde celwerking.",
       icon: <Leaf className="w-6 h-6" />,
-      iconBg: "bg-forest/20 text-forest"
+      iconBg: "bg-clay/20 text-clay"
     },
     {
       title: "Algemene Welzijnsboost",
       description: "Meer energie in het dagelijks leven en ondersteuning van herstel na inspanning.",
       icon: <Sparkles className="w-6 h-6" />,
-      iconBg: "bg-clay/20 text-clay"
+      iconBg: "bg-forest/20 text-forest"
     }
   ],
   en: [
@@ -76,13 +76,13 @@ export const benefitCardsByLanguage: { nl: BenefitCard[]; en: BenefitCard[] } = 
       title: "Longevity Support",
       description: "Longer healthspan through optimized cellular function.",
       icon: <Leaf className="w-6 h-6" />,
-      iconBg: "bg-forest/20 text-forest"
+      iconBg: "bg-clay/20 text-clay"
     },
     {
       title: "General Wellness Boost",
       description: "More daily energy and support for recovery after exertion.",
       icon: <Sparkles className="w-6 h-6" />,
-      iconBg: "bg-clay/20 text-clay"
+      iconBg: "bg-forest/20 text-forest"
     }
   ]
 };
