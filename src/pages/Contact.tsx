@@ -28,10 +28,16 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto mb-6">
             {/* Bullets */}
-            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 text-sm text-espresso">
-              <li className="bg-stone rounded-lg px-4 py-3 border border-olive/30 text-center">{t('contact.bullets.priority')}</li>
-              <li className="bg-stone rounded-lg px-4 py-3 border border-olive/30 text-center">{t('contact.bullets.intake')}</li>
-              <li className="bg-stone rounded-lg px-4 py-3 border border-olive/30 text-center">{t('contact.bullets.updates')}</li>
+            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6 text-sm">
+              <li className="rounded-2xl px-4 py-3 border text-center bg-clay/15 text-clay border-clay/30 shadow-soft hover:shadow-md transition-shadow">
+                {t('contact.bullets.priority')}
+              </li>
+              <li className="rounded-2xl px-4 py-3 border text-center bg-forest/15 text-forest border-forest/30 shadow-soft hover:shadow-md transition-shadow">
+                {t('contact.bullets.intake')}
+              </li>
+              <li className="rounded-2xl px-4 py-3 border text-center bg-amber/15 text-amber border-amber/30 shadow-soft hover:shadow-md transition-shadow">
+                {t('contact.bullets.updates')}
+              </li>
             </ul>
           </div>
           <div className="max-w-2xl mx-auto mb-16">
