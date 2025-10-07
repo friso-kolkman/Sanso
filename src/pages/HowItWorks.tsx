@@ -277,7 +277,7 @@ const HowItWorks = () => {
                 >
                   <div className="bg-cream rounded-xl p-6 shadow-lg border-l-4 border-clay h-full flex flex-col">
                     <div className="flex items-start space-x-4">
-                      <div className="bg-forest text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                      <div className="bg-clay text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                         {step.step}
                       </div>
                       <div>
