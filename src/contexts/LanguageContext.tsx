@@ -187,7 +187,7 @@ const translations = {
     'contact.replyWithin': 'We reply within 24 hours',
     'contact.privacyNote': 'No spam. We only use your data to update you about SANSO.',
     'contact.bullets.priority': 'Priority access at launch',
-    'contact.bullets.intake': 'Email intake',
+    'contact.bullets.intake': 'Intake invitation',
     'contact.bullets.updates': 'Date & location updates',
     'contact.sending': 'Sending your message...',
     
@@ -215,7 +215,7 @@ const translations = {
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('nl');
+  const [language, setLanguage] = useState<Language>('en');
 
   const t = (key: string): string => {
     return translations[language][key] || key;
