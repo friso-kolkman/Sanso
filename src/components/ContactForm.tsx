@@ -66,8 +66,6 @@ const ContactForm = () => {
 
     if (!formData.message.trim()) {
       newErrors.message = t('contact.messageRequired');
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = t('contact.messageTooShort');
     }
 
     return newErrors;
