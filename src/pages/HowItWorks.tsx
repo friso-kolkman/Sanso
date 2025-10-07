@@ -26,7 +26,7 @@ const HowItWorks = () => {
       intro: "Breathing near-pure oxygen in a pressurized chamber increases dissolved oxygen in your plasma. That extra oxygen may help your body repair, reduce inflammation, and perform better. Useful for energy, recovery, and healthy aging.",
       benefitsTitle: "Benefits you can feel",
       sessionTitle: "What actually happens in a session",
-      programsTitle: "Programs for longevity goals",
+      programsTitle: "Standardized programs",
 
       ctaTitle: "Want early access when we launch?",
       ctaSubtitle: "Join the waitlist or speak with our team about your goals.",
