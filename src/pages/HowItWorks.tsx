@@ -238,8 +238,8 @@ const HowItWorks = () => {
                 >
                   <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <CardHeader className="text-center pb-4">
-                      <div className="mx-auto mb-4 p-3 bg-clay/20 rounded-lg w-fit">
-                        <benefit.icon className="h-8 w-8 text-clay" />
+                      <div className={`mx-auto mb-4 p-3 rounded-lg w-fit ${index % 3 === 0 ? 'bg-clay/20 text-clay' : index % 3 === 1 ? 'bg-forest/20 text-forest' : 'bg-amber/20 text-amber'}`}>
+                        <benefit.icon className="h-8 w-8" />
                       </div>
                       <CardTitle className="text-xl font-bold text-gray-900">
                         {benefit.title}
@@ -275,7 +275,7 @@ const HowItWorks = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
                   className="relative"
                 >
-                  <div className="bg-cream rounded-xl p-6 shadow-lg border-l-4 border-forest h-full flex flex-col">
+                  <div className="bg-cream rounded-xl p-6 shadow-lg border-l-4 border-clay h-full flex flex-col">
                     <div className="flex items-start space-x-4">
                       <div className="bg-clay text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                         {step.step}
