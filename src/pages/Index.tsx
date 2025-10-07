@@ -5,10 +5,10 @@ import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
-import { benefitCards } from '@/data/benefits';
+import { benefitCardsByLanguage } from '@/data/benefits';
 
 const Index = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const handleCardClick = (index: number) => {
@@ -62,7 +62,7 @@ const Index = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <AnimatePresence>
-                  {benefitCards.map((card, index) => (
+                  {(benefitCardsByLanguage[language] || benefitCardsByLanguage.en).map((card, index) => (
                     <div
                       key={index}
                       className="group cursor-pointer"
