@@ -87,8 +87,8 @@ const translations = {
     'contact.replyWithin': 'We reageren binnen 24 uur',
     'contact.privacyNote': 'Geen spam. We gebruiken je gegevens alleen om je te informeren over SANSO.',
     'contact.bullets.priority': 'Voorrang bij opening',
-    'contact.bullets.intake': 'Persoonlijke intake per e‑mail',
-    'contact.bullets.updates': 'Updates over datum en locatie',
+    'contact.bullets.intake': 'Intake per e‑mail',
+    'contact.bullets.updates': 'Updates datum & locatie',
     'contact.sending': 'Je bericht wordt verzonden...',
     
     // Science page
@@ -187,8 +187,8 @@ const translations = {
     'contact.replyWithin': 'We reply within 24 hours',
     'contact.privacyNote': 'No spam. We only use your data to update you about SANSO.',
     'contact.bullets.priority': 'Priority access at launch',
-    'contact.bullets.intake': 'Personal intake via email',
-    'contact.bullets.updates': 'Updates on opening date and location',
+    'contact.bullets.intake': 'Email intake',
+    'contact.bullets.updates': 'Date & location updates',
     'contact.sending': 'Sending your message...',
     
     // Science page
