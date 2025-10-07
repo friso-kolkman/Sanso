@@ -238,7 +238,7 @@ const HowItWorks = () => {
                 >
                   <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <CardHeader className="text-center pb-4">
-                      <div className={`mx-auto mb-4 p-3 rounded-lg w-fit ${index % 3 === 0 ? 'bg-clay/20 text-clay' : index % 3 === 1 ? 'bg-forest/20 text-forest' : 'bg-amber/20 text-amber'}`}>
+                      <div className={`mx-auto mb-4 p-3 rounded-lg w-fit ${index % 3 === 0 ? 'bg-amber/20 text-amber' : index % 3 === 1 ? 'bg-clay/20 text-clay' : 'bg-forest/20 text-forest'}`}>
                         <benefit.icon className="h-8 w-8" />
                       </div>
                       <CardTitle className="text-xl font-bold text-gray-900">
