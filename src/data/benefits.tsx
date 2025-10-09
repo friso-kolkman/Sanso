@@ -24,7 +24,7 @@ export const benefitCardsByLanguage: { nl: BenefitCard[]; en: BenefitCard[] } = 
     },
     {
       title: "Anti-Aging Voordelen",
-      description: "Minder oxidatieve stress, gezondere huid en meer vitaliteit.",
+      description: "Minder oxidatieve stress, gezondere huid en meer vitaliteit. Collageenoptimalisatie.",
       icon: <Clock className="w-6 h-6" />,
       iconBg: "bg-forest/20 text-forest"
     },
@@ -62,7 +62,7 @@ export const benefitCardsByLanguage: { nl: BenefitCard[]; en: BenefitCard[] } = 
     },
     {
       title: "Anti‑Aging Benefits",
-      description: "Less oxidative stress, healthier skin and more vitality.",
+      description: "Less oxidative stress, healthier skin and more vitality. Collagen optimization.",
       icon: <Clock className="w-6 h-6" />,
       iconBg: "bg-forest/20 text-forest"
     },
