@@ -125,7 +125,7 @@ const translations = {
     'nav.faq': 'FAQ',
     
     // Hero
-    'hero.tagline': 'Discover the benefits of hyperbaric oxygen therapy',
+    'hero.tagline': 'Discover hyperbaric oxygen therapy',
     'hero.headline.line1': 'Breathe deeper,',
     'hero.headline.line2': 'feel better',
     'hero.learnMore': 'Learn More',
