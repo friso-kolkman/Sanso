@@ -18,11 +18,6 @@ const Contact = () => {
             <h1 className="text-4xl md:text-5xl font-serif text-ink mb-6">
               {t('contact.title') || 'Contact Us'}
             </h1>
-            <div className="max-w-3xl mx-auto">
-              <p className="text-lg text-espresso leading-relaxed">
-                {t('contact.subtitle') || 'Ready to start your HBOT journey? Get in touch for a free consultation.'}
-              </p>
-            </div>
           </div>
 
           {/* Contact Form */}
