@@ -41,21 +41,28 @@ export default async function handler(req, res) {
 
     // Fast-path: if a webhook URL is provided (e.g., SheetMonkey/NoCodeAPI/sheet.best), post directly
     if (webhookUrl) {
-      const response = await fetch(webhookUrl, {
+      const payload = { timestamp, email, phone: phone || '', message, userAgent }
+      // Attempt JSON first (SheetMonkey and many providers accept JSON)
+      let response = await fetch(webhookUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          timestamp,
-          email,
-          phone: phone || '',
-          message,
-          userAgent,
-        }),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
       })
 
       if (!response.ok) {
+        // Fallback: send as form-urlencoded (some providers require traditional form posts)
+        const params = new URLSearchParams()
+        Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)))
+        response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: params.toString(),
+        })
+      }
+
+      if (!response.ok) {
         const text = await response.text().catch(() => '')
-        throw new Error(`Webhook error ${response.status}: ${text}`)
+        return res.status(response.status || 500).json({ error: text || 'Webhook error' })
       }
       return res.status(200).json({ ok: true, via: 'webhook' })
     }
