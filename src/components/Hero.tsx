@@ -56,33 +56,25 @@ const Hero = () => {
 
   return (
     <header className="relative w-full h-screen overflow-hidden" role="banner">
-      {/* Video Background - Only on desktop */}
-      {!isMobile && (
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-label="Background video showing hyperbaric oxygen therapy"
-          poster="/assets/faq/hero.jpg"
-          preload="metadata"
-        >
-          <source src="/can_we_create_a_close_up_of_a.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      )}
-
-      {/* Image Fallback for Mobile */}
-      {isMobile && (
-        <div
-          className="absolute inset-0 w-full h-full bg-center bg-cover"
-          style={{ backgroundImage: 'url(/assets/faq/hero.jpg)' }}
-          role="img"
-          aria-label="HBOT Chamber - Hyperbaric oxygen therapy treatment room"
-          />
-      )}
+      {/* Video Background - mobile + desktop with responsive sources */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-label="Background video showing hyperbaric oxygen therapy"
+        poster="/assets/faq/hero.jpg"
+        preload="metadata"
+        onError={() => setShowPlayButton(false)}
+      >
+        {/* mobile-first source (file to be added as hero-mobile.mp4) */}
+        <source src="/hero-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
+        {/* desktop source (existing file) */}
+        <source src="/can_we_create_a_close_up_of_a.mp4" type="video/mp4" media="(min-width: 768px)" />
+        Your browser does not support the video tag.
+      </video>
 
       {/* Play Button Overlay - Only show on desktop when needed */}
       {!isMobile && showPlayButton && (
