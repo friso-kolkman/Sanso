@@ -17,8 +17,8 @@ const ToastViewport = React.forwardRef<
       "fixed bottom-0 z-[100] flex max-h-screen w-full flex-col p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
       className
     )}
-    style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)', ...props.style }}
     {...props}
+    style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)', ...(props.style || {}) }}
   />
 ))
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName

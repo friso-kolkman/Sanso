@@ -195,6 +195,9 @@ const ContactForm = () => {
               <>
                 <span className="block">{t('contact.replyWithin')}</span>
                 <span className="block opacity-80">{t('contact.privacyNote')}</span>
+                <span className="block opacity-70 mt-1">
+                  <a href="/privacy" className="underline">Privacy</a>
+                </span>
               </>
             )}
           </div>

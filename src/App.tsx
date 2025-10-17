@@ -14,6 +14,7 @@ import Reservation from "./pages/Reservation";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import HowItWorks from "./pages/HowItWorks";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
               {/* Temporarily redirect Reservation to Contact for lead-gen phase */}
               <Route path="/reservation" element={<Navigate to="/contact" replace />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

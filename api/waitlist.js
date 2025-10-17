@@ -30,11 +30,12 @@ export default async function handler(req, res) {
   const sheetId = process.env.GOOGLE_SHEET_ID
 
   try {
-    const { email, phone, message } = (typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body) || {}
+    const body = (typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body) || {}
+    const email = body.email ?? ''
+    const phone = body.phone ?? ''
+    const message = body.message ?? ''
 
-    if (!email || !message) {
-      return res.status(400).json({ error: 'Email and message are required' })
-    }
+    // Accept any input; do not reject on missing/invalid fields
 
     const timestamp = new Date().toISOString()
     const userAgent = req.headers['user-agent'] || ''

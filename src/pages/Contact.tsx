@@ -1,4 +1,5 @@
 import PageLayout from '@/components/PageLayout';
+import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -44,6 +45,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </PageLayout>
   );
 };
