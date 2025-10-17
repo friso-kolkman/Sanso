@@ -31,44 +31,9 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    return emailRegex.test(email);
-  };
-
-  const validatePhone = (phone: string): boolean => {
-    if (!phone.trim()) return true; // Phone is optional
-    
-    // E.164 format (international)
-    const e164Regex = /^\+[1-9]\d{1,14}$/;
-    
-    // Dutch local formats
-    const dutchLocalRegex = /^(0[1-9][0-9]{8}|0[1-9][0-9]{7})$/;
-    
-    // Remove spaces and dashes for validation
-    const cleanPhone = phone.replace(/[\s-]/g, '');
-    
-    return e164Regex.test(cleanPhone) || dutchLocalRegex.test(cleanPhone);
-  };
-
   const validateForm = useCallback((): FormErrors => {
-    const newErrors: FormErrors = {};
-
-    if (!formData.email.trim()) {
-      newErrors.email = t('contact.emailRequired');
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = t('contact.emailInvalid');
-    }
-
-    if (formData.phone.trim() && !validatePhone(formData.phone)) {
-      newErrors.phone = t('contact.phoneInvalid');
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = t('contact.messageRequired');
-    }
-
-    return newErrors;
+    // Accept any input; do not block submissions due to formatting
+    return {};
   }, [formData, t]);
 
   const isFormValid = useMemo(() => {
@@ -162,7 +127,7 @@ const ContactForm = () => {
               onChange={(e) => handleInputChange('email', e.target.value)}
               className={`mt-1 form-input ${errors.email ? 'border-danger' : ''}`}
               placeholder="your@email.com"
-              required
+              // no required; accept any input
               aria-describedby={errors.email ? 'email-error' : undefined}
               aria-invalid={!!errors.email}
             />
@@ -205,7 +170,7 @@ const ContactForm = () => {
               className={`mt-1 form-input ${errors.message ? 'border-danger' : ''}`}
               placeholder={t('contact.messagePlaceholder') || t('contact.message')}
               rows={4}
-              required
+              // no required; accept any input
               aria-describedby={errors.message ? 'message-error' : undefined}
               aria-invalid={!!errors.message}
             />
