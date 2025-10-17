@@ -103,10 +103,14 @@ const ContactForm = () => {
       formDataToSend.append('email', formData.email);
       formDataToSend.append('phone', formData.phone);
       formDataToSend.append('message', formData.message);
+      // Subject for email notifications (Formspree supports both `subject` and `_subject`)
       formDataToSend.append('subject', 'New Contact Form Submission - SANSO Amsterdam');
-      
+      formDataToSend.append('_subject', 'New Contact Form Submission - SANSO Amsterdam');
+
+      // Use Formspree's AJAX mode to avoid cross-origin redirects on SPA/mobile browsers
       const response = await fetch('https://formspree.io/f/xovlypvv', {
         method: 'POST',
+        headers: { Accept: 'application/json' },
         body: formDataToSend,
       });
 
@@ -118,7 +122,17 @@ const ContactForm = () => {
         setFormData({ email: '', phone: '', message: '' });
         setErrors({});
       } else {
-        throw new Error(`Form submission failed: ${response.status}`);
+        // Try to surface Formspree error details if available
+        let details = '';
+        try {
+          const data = await response.json();
+          if (data && data.errors && Array.isArray(data.errors)) {
+            details = `: ${data.errors.map((e: any) => e.message).join(', ')}`;
+          }
+        } catch (_) {
+          // Swallow JSON parse errors and fall back to status text
+        }
+        throw new Error(`Form submission failed (${response.status})${details}`);
       }
     } catch (error) {
       console.error('Form submission error:', error);
