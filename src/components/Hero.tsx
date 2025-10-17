@@ -56,29 +56,37 @@ const Hero = () => {
 
   return (
     <header className="relative w-full h-screen overflow-hidden" role="banner">
-      {/* Video Background - mobile + desktop with responsive sources */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-label="Background video showing hyperbaric oxygen therapy"
-        poster="/assets/faq/hero.jpg"
-        preload="metadata"
-        onError={() => setShowPlayButton(false)}
-      >
-        {/* mobile-first source (file to be added as hero-mobile.mp4) */}
-        <source src="/hero-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
-        {/* desktop source (existing file) */}
-        <source src="/can_we_create_a_close_up_of_a.mp4" type="video/mp4" media="(min-width: 768px)" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Video Background - Only on desktop */}
+      {!isMobile && (
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label="Background video showing hyperbaric oxygen therapy"
+          poster="/assets/faq/hero.jpg"
+          preload="metadata"
+        >
+          <source src="/can_we_create_a_close_up_of_a.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
 
-      {/* Play Button Overlay - Only show on desktop when needed */}
+      {/* Image Fallback for Mobile */}
+      {isMobile && (
+        <div
+          className="absolute inset-0 w-full h-full bg-center bg-cover"
+          style={{ backgroundImage: 'url(/assets/faq/hero.jpg)' }}
+          role="img"
+          aria-label="HBOT Chamber - Hyperbaric oxygen therapy treatment room"
+          />
+      )}
+
+      {/* Play Button Overlay - hidden on mobile via CSS as well */}
       {!isMobile && showPlayButton && (
-        <div className="absolute inset-0 z-15 flex items-center justify-center">
+        <div className="hidden md:flex absolute inset-0 z-[15] items-center justify-center">
           <button
             onClick={handlePlayClick}
             className="bg-black/30 hover:bg-black/50 rounded-full p-6 backdrop-blur-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 min-h-[64px] min-w-[64px] flex items-center justify-center"
