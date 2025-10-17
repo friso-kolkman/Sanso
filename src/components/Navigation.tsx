@@ -120,8 +120,11 @@ const Navigation = () => {
             </motion.div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile controls: language switcher + menu button */}
+          <div className="md:hidden flex items-center gap-1">
+            <div className="mr-1">
+              <LanguageSwitcher textColor="white" />
+            </div>
             <button
               onClick={toggleMenu}
               className={`${textColorClass} ${textColorHoverClass} p-3 drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 rounded-lg min-h-[44px] min-w-[44px] flex items-center justify-center`}
