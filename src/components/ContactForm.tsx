@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -36,10 +36,7 @@ const ContactForm = () => {
     return {};
   }, [formData, t]);
 
-  const isFormValid = useMemo(() => {
-    const validationErrors = validateForm();
-    return Object.keys(validationErrors).length === 0;
-  }, [validateForm]);
+  // All inputs are accepted; button is only disabled while submitting
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -184,7 +181,7 @@ const ContactForm = () => {
           <Button
             type="submit"
             className="w-full bg-clay hover:bg-forest text-cream focus:outline-none focus:ring-2 focus:ring-forest focus:ring-offset-2"
-            disabled={isSubmitting || !isFormValid}
+            disabled={isSubmitting}
             aria-describedby="submit-status"
           >
             {isSubmitting ? 'Verzenden...' : t('contact.submit')}
@@ -195,9 +192,6 @@ const ContactForm = () => {
               <>
                 <span className="block">{t('contact.replyWithin')}</span>
                 <span className="block opacity-80">{t('contact.privacyNote')}</span>
-                <span className="block opacity-70 mt-1">
-                  <a href="/privacy" className="underline">Privacy</a>
-                </span>
               </>
             )}
           </div>
