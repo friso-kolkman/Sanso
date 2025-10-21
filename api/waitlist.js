@@ -1,9 +1,51 @@
 // Serverless function to append contact submissions to a Google Sheet
-// Expects env vars: GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY, GOOGLE_SHEET_ID
+// Two modes:
+// 1) Webhook (SHEETS_WEBHOOK_URL) to services like SheetMonkey/NoCodeAPI/sheet.best
+// 2) Direct Google Sheets API with service account (GOOGLE_SERVICE_ACCOUNT_* + GOOGLE_SHEET_ID)
 
-import { google } from 'googleapis'
+function parseBody(req) {
+  if (typeof req.body === 'string') {
+    try {
+      return JSON.parse(req.body || '{}')
+    } catch {
+      return {}
+    }
+  }
+  return req.body || {}
+}
 
-function getJwtClient() {
+function buildPayload({ email, phone, message }, userAgent) {
+  const timestamp = new Date().toISOString()
+  return {
+    timestamp,
+    email: email ?? '',
+    phone: phone ?? '',
+    message: message ?? '',
+    userAgent: userAgent || '',
+  }
+}
+
+async function sendViaWebhook(url, payload) {
+  // Try JSON first
+  let response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  if (!response.ok) {
+    // Fallback to form-urlencoded
+    const params = new URLSearchParams()
+    Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)))
+    response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString(),
+    })
+  }
+  return response
+}
+
+async function appendToGoogleSheets(sheetId, payload) {
   const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
   const privateKeyRaw = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY
   const privateKey = privateKeyRaw ? privateKeyRaw.replace(/\\n/g, '\n') : undefined
@@ -12,11 +54,19 @@ function getJwtClient() {
     throw new Error('Missing Google service account credentials')
   }
 
-  const scopes = ['https://www.googleapis.com/auth/spreadsheets']
-  return new google.auth.JWT({
+  const { google } = await import('googleapis')
+  const auth = new google.auth.JWT({
     email: clientEmail,
     key: privateKey,
-    scopes,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  })
+  const sheets = google.sheets({ version: 'v4', auth })
+
+  await sheets.spreadsheets.values.append({
+    spreadsheetId: sheetId,
+    range: 'A:E',
+    valueInputOption: 'USER_ENTERED',
+    requestBody: { values: [[payload.timestamp, payload.email, payload.phone, payload.message, payload.userAgent]] },
   })
 }
 
@@ -30,36 +80,13 @@ export default async function handler(req, res) {
   const sheetId = process.env.GOOGLE_SHEET_ID
 
   try {
-    const body = (typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body) || {}
-    const email = body.email ?? ''
-    const phone = body.phone ?? ''
-    const message = body.message ?? ''
-
-    // Accept any input; do not reject on missing/invalid fields
-
-    const timestamp = new Date().toISOString()
+    const body = parseBody(req)
     const userAgent = req.headers['user-agent'] || ''
+    const payload = buildPayload(body, userAgent)
 
     // Fast-path: if a webhook URL is provided (e.g., SheetMonkey/NoCodeAPI/sheet.best), post directly
     if (webhookUrl) {
-      const payload = { timestamp, email, phone: phone || '', message, userAgent }
-      // Attempt JSON first (SheetMonkey and many providers accept JSON)
-      let response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      })
-
-      if (!response.ok) {
-        // Fallback: send as form-urlencoded (some providers require traditional form posts)
-        const params = new URLSearchParams()
-        Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)))
-        response = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: params.toString(),
-        })
-      }
+      const response = await sendViaWebhook(webhookUrl, payload)
 
       if (!response.ok) {
         const text = await response.text().catch(() => '')
@@ -69,21 +96,8 @@ export default async function handler(req, res) {
     }
 
     // Default: direct Google Sheets API using service account
-    if (!sheetId) {
-      return res.status(500).json({ error: 'Missing GOOGLE_SHEET_ID' })
-    }
-    const auth = await getJwtClient()
-    const sheets = google.sheets({ version: 'v4', auth })
-
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: sheetId,
-      range: 'A:E',
-      valueInputOption: 'USER_ENTERED',
-      requestBody: {
-        values: [[timestamp, email, phone || '', message, userAgent]],
-      },
-    })
-
+    if (!sheetId) return res.status(500).json({ error: 'Missing GOOGLE_SHEET_ID' })
+    await appendToGoogleSheets(sheetId, payload)
     return res.status(200).json({ ok: true, via: 'googleapis' })
   } catch (err) {
     console.error('Waitlist append failed:', err)
