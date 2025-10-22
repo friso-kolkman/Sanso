@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
+import { benefitCardsByLanguage } from '@/data/benefits';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { Button } from '@/components/ui/button';
@@ -228,7 +229,7 @@ const HowItWorks = () => {
               {currentContent.benefitsTitle}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {currentContent.benefits.map((benefit, index) => (
+              {(benefitCardsByLanguage[language] || benefitCardsByLanguage.en).map((benefit, index) => (
                 <motion.div
                   key={benefit.title}
                   initial={{ opacity: 0, y: 20 }}
@@ -238,8 +239,8 @@ const HowItWorks = () => {
                 >
                   <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <CardHeader className="text-center pb-4">
-                      <div className={`mx-auto mb-4 p-3 rounded-lg w-fit ${index % 3 === 0 ? 'bg-amber/20 text-amber' : index % 3 === 1 ? 'bg-clay/20 text-clay' : 'bg-forest/20 text-forest'}`}>
-                        <benefit.icon className="h-8 w-8" />
+                      <div className={`mx-auto mb-4 p-3 rounded-lg w-fit ${benefit.iconBg}`}>
+                        {benefit.icon}
                       </div>
                       <CardTitle className="text-xl font-bold text-gray-900">
                         {benefit.title}
