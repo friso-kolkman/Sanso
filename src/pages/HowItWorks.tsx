@@ -73,7 +73,7 @@ const HowItWorks = () => {
         },
         {
           step: "2",
-          title: "Pressurization (the dive)",
+          title: "Pressurization",
           description: "Ears feel like a plane landing; we coach you to equalize"
         },
         {
@@ -158,7 +158,7 @@ const HowItWorks = () => {
         },
         {
           step: "2",
-          title: "Drukverhoging (de duik)",
+          title: "Drukverhoging",
           description: "Oren voelen aan als bij een vliegtuiglanding; we begeleiden je bij het klaren"
         },
         {
